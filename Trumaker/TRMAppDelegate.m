@@ -7,47 +7,70 @@
 //
 
 #import "TRMAppDelegate.h"
-#import "TRMLoginViewController.h"
+#import "TRMLoginDAO.h"
 
+#import "TRMLoginViewController.h"
+#import "TRMLoadingViewController.h"
+#import "TRMDashboardViewController.h"
 @implementation TRMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-    TRMLoginViewController *loginViewController = [[TRMLoginViewController alloc] initWithNibName:@"TRMLoginViewController" bundle:nil];
-    
-    [[self window] setRootViewController:loginViewController];
     [[self window] makeKeyAndVisible];
-    
+    [self loadDeviceControllers];
     return YES;
 }
+
+-(void)loadDeviceControllers
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+    {
+        //iphone
+        BOOL autoLogin = [[NSUserDefaults standardUserDefaults] boolForKey:@"auto_login"];
+        NSString *username = [[NSUserDefaults standardUserDefaults] stringForKey:@"user_name"];
+        NSString *pasword = [[NSUserDefaults standardUserDefaults] stringForKey:@"user_password"];
+        
+        TRMLoginViewController *loginViewController = [[TRMLoginViewController alloc] initWithNibName:@"TRMLoginViewController" bundle:nil];
+        
+        TRMLoadingViewController *loadingViewController = [[TRMLoadingViewController alloc] initWithNibName:@"TRMLoadingViewController" bundle:nil];
+
+        TRMDashboardViewController *dashboardViewController = [[TRMDashboardViewController alloc] initWithNibName:@"TRMDashboardViewController" bundle:nil];
+        
+        
+        
+        if (autoLogin && username && pasword)
+        {
+            [[self window] setRootViewController:loadingViewController];
+            
+            TRMLoginDAO *loginDAO = [[TRMLoginDAO alloc] init];
+            [loginDAO login:username withPassword:pasword completionHandler:^(BOOL successful, NSError *error) {
+                if (!error) {
+                    [[self window] setRootViewController:dashboardViewController];
+                }
+            }];
+        } else {
+            [[self window] setRootViewController:loginViewController];
+        }
+    }
+    else {
+        //ipad
+//        self.viewController = [[TRMViewController alloc] initWithNibName:@"TRMViewController_iPad" bundle:nil];
+    }
+}
 							
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+- (void)applicationWillResignActive:(UIApplication *)application {
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+- (void)applicationDidEnterBackground:(UIApplication *)application {
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+- (void)applicationWillEnterForeground:(UIApplication *)application{
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+- (void)applicationDidBecomeActive:(UIApplication *)application {
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)applicationWillTerminate:(UIApplication *)application {
 }
-
 @end
