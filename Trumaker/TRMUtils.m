@@ -54,4 +54,9 @@
     }
     return s;
 }
+
++ (CGFloat)halfPixel
+{
+    return 1/[[UIScreen mainScreen] scale];
+}
 @end

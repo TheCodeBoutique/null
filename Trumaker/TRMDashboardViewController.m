@@ -5,9 +5,10 @@
 //  Created by Marin Fischer on 1/7/14.
 //  Copyright (c) 2014 Trumaker. All rights reserved.
 //
-
-#import "TRMDashboardViewController.h"
 #import "TRMDashboardModel.h"
+#import "TRMDashboardViewController.h"
+#import "TRMDashboardTableViewCell.h"
+
 @interface TRMDashboardViewController ()
 @property (nonatomic, strong) NSMutableArray *dashboardData;
 @end
@@ -20,7 +21,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [self setupTableViewData];
     }
     return self;
 }
@@ -52,7 +52,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self setupTableViewData];
 }
 
 #pragma mark - Table view data source
@@ -68,10 +68,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"DashboardTableCell";
+    TRMDashboardTableViewCell *cell = (TRMDashboardTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TRMDashboardTableViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
     TRMDashboardModel *model = [dashboardData objectAtIndex:[indexPath row]];
-    [[cell textLabel] setText:[model title]];
+    [[cell cellTitle] setText:[model title]];
+     ([indexPath row] == [dashboardData count] - 1) ? [cell setIsLastCell:YES] :[cell setIsLastCell:NO];
+    
     
     return cell;
 }

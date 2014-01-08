@@ -46,6 +46,9 @@
 		7EC31934187BCF580093083E /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC3192B187BCF580093083E /* AFURLSessionManager.m */; };
 		7EC31938187BD3410093083E /* TRMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC31937187BD3410093083E /* TRMUtils.m */; };
 		7EC3193C187BD3CB0093083E /* TRMLoginDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC3193B187BD3CB0093083E /* TRMLoginDAO.m */; };
+		7EC547D9187D39D500DAC090 /* TRMDashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC547D8187D39D500DAC090 /* TRMDashboardTableViewCell.xib */; };
+		7EC547DB187D3B0600DAC090 /* dashboard_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EC547DA187D3B0600DAC090 /* dashboard_arrow@2x.png */; };
+		7EC547DE187D3BF600DAC090 /* TRMDashboardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC547DD187D3BF600DAC090 /* TRMDashboardTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +127,10 @@
 		7EC31937187BD3410093083E /* TRMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMUtils.m; sourceTree = "<group>"; };
 		7EC3193A187BD3CB0093083E /* TRMLoginDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMLoginDAO.h; sourceTree = "<group>"; };
 		7EC3193B187BD3CB0093083E /* TRMLoginDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMLoginDAO.m; sourceTree = "<group>"; };
+		7EC547D8187D39D500DAC090 /* TRMDashboardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMDashboardTableViewCell.xib; sourceTree = "<group>"; };
+		7EC547DA187D3B0600DAC090 /* dashboard_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashboard_arrow@2x.png"; sourceTree = "<group>"; };
+		7EC547DC187D3BF600DAC090 /* TRMDashboardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMDashboardTableViewCell.h; sourceTree = "<group>"; };
+		7EC547DD187D3BF600DAC090 /* TRMDashboardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMDashboardTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +179,7 @@
 		7E9EAE36187D2AA7008DDA2E /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				7EC547D7187D39AD00DAC090 /* Views */,
 				7E9189A6187D30020017C156 /* Models */,
 				7E9EAE3C187D2AE5008DDA2E /* Resources */,
 				7E9EAE37187D2AD2008DDA2E /* TRMDashboardViewController.h */,
@@ -184,6 +192,7 @@
 		7E9EAE3C187D2AE5008DDA2E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7EC547DA187D3B0600DAC090 /* dashboard_arrow@2x.png */,
 				7E9EAE3D187D2AED008DDA2E /* trumaker_hero@2x.png */,
 			);
 			name = Resources;
@@ -351,6 +360,16 @@
 			name = Network;
 			sourceTree = "<group>";
 		};
+		7EC547D7187D39AD00DAC090 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7EC547DC187D3BF600DAC090 /* TRMDashboardTableViewCell.h */,
+				7EC547DD187D3BF600DAC090 /* TRMDashboardTableViewCell.m */,
+				7EC547D8187D39D500DAC090 /* TRMDashboardTableViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -428,6 +447,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EC547D9187D39D500DAC090 /* TRMDashboardTableViewCell.xib in Resources */,
+				7EC547DB187D3B0600DAC090 /* dashboard_arrow@2x.png in Resources */,
 				7EC3190E187BC40C0093083E /* login-icon.png in Resources */,
 				7E9EAE3E187D2AED008DDA2E /* trumaker_hero@2x.png in Resources */,
 				7E9EAE35187D28ED008DDA2E /* TRMLoadingViewController.xib in Resources */,
@@ -458,6 +479,7 @@
 				7EC3192C187BCF580093083E /* AFHTTPRequestOperation.m in Sources */,
 				7E8ABC34187CF9EC00F792DA /* TRMCustomerDAO.m in Sources */,
 				7EC3192F187BCF580093083E /* AFNetworkReachabilityManager.m in Sources */,
+				7EC547DE187D3BF600DAC090 /* TRMDashboardTableViewCell.m in Sources */,
 				7EC31934187BCF580093083E /* AFURLSessionManager.m in Sources */,
 				7E9189A9187D307B0017C156 /* TRMDashboardModel.m in Sources */,
 				7E9EAE3A187D2AD2008DDA2E /* TRMDashboardViewController.m in Sources */,
