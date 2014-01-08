@@ -11,4 +11,6 @@
 @interface TRMDashboardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *heroImage;
+@property (weak, nonatomic) IBOutlet UILabel *outfitterName;
+@property (weak, nonatomic) IBOutlet UILabel *outfitterLocation;
 @end

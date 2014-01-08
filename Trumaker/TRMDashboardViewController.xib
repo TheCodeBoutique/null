@@ -8,6 +8,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TRMDashboardViewController">
             <connections>
                 <outlet property="heroImage" destination="2CL-W3-NM9" id="NU3-bg-iB7"/>
+                <outlet property="outfitterLocation" destination="BGY-jO-5Ez" id="9IC-mm-9Re"/>
+                <outlet property="outfitterName" destination="jdk-Lc-a1X" id="C81-Cy-wW7"/>
                 <outlet property="tableView" destination="oDV-MQ-enZ" id="EbA-sY-f2D"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -30,6 +32,18 @@
                         <outlet property="delegate" destination="-1" id="aMe-Cy-zLW"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chad Eubanks" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jdk-Lc-a1X">
+                    <rect key="frame" x="155" y="16" width="145" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cupertino, Ca" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BGY-jO-5Ez">
+                    <rect key="frame" x="155" y="39" width="145" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.89411764705882357" green="0.9137254901960784" blue="0.89411764705882357" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

@@ -18,7 +18,6 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
     }
     return self;
 }
@@ -33,11 +32,11 @@
     [self drawBorderForCell];
 }
 
-
 -(void)drawBorderForCell {
     CGRect cellFrame = [self frame];
     bottomBorder = [CALayer layer];
     CGRect borderFrame;
+    
     if (self.isLastCell) {
         borderFrame = CGRectMake(0,CGRectGetHeight(cellFrame) - [TRMUtils halfPixel], CGRectGetWidth(cellFrame), [TRMUtils halfPixel]);
     } else {
@@ -47,10 +46,9 @@
     bottomBorder.backgroundColor = [UIColor lightGrayColor].CGColor;
     [[self layer] addSublayer: bottomBorder];
 }
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 @end

@@ -25,7 +25,8 @@
     return self;
 }
 
--(void)setupTableViewData {
+-(void)setupTableViewData
+{
     dashboardData = [[NSMutableArray alloc] initWithCapacity:5];
     TRMDashboardModel *orderModel = [[TRMDashboardModel alloc] init];
     [orderModel setTitle:NSLocalizedString(@"Order", @"Order")];
