@@ -59,4 +59,23 @@
 {
     return 1/[[UIScreen mainScreen] scale];
 }
+
++ (void)drawBorderForView:(UIView *)view isBottomBorder:(BOOL)bottomBorder {
+    CALayer *border = [CALayer layer];
+    CGFloat borderPosition;
+    CGFloat pixelHeight = [TRMUtils halfPixel];
+    if (bottomBorder) {
+        borderPosition = CGRectGetHeight([view frame]) - pixelHeight;
+    } else {
+        borderPosition = pixelHeight;
+    }
+    
+    border.frame = CGRectMake(0,CGRectGetHeight([view frame]) - pixelHeight,
+                              CGRectGetWidth([view frame]),
+                              pixelHeight);
+    
+    border.backgroundColor = [UIColor lightGrayColor].CGColor;
+    [view.layer addSublayer: border];
+}
+
 @end

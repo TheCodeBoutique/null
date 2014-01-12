@@ -8,12 +8,16 @@
 
 #import "TRMAppDelegate.h"
 #import "TRMLoginDAO.h"
+#import "TRMUtils.h"
 
 #import "TRMLoginViewController.h"
 #import "TRMLoadingViewController.h"
 #import "TRMDashboardViewController.h"
-@implementation TRMAppDelegate
+#import "TRMTaskListViewController.h"
 
+@implementation TRMAppDelegate
+@synthesize rootViewController;
+@synthesize menuBarButton;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -37,7 +41,7 @@
 
         TRMDashboardViewController *dashboardViewController = [[TRMDashboardViewController alloc] initWithNibName:@"TRMDashboardViewController" bundle:nil];
         
-        
+        TRMTaskListViewController *taskListViewController = [[TRMTaskListViewController alloc] initWithNibName:@"TRMTaskListViewController" bundle:nil];
         
         if (autoLogin && username && pasword)
         {
@@ -46,7 +50,15 @@
             TRMLoginDAO *loginDAO = [[TRMLoginDAO alloc] init];
             [loginDAO login:username withPassword:pasword completionHandler:^(BOOL successful, NSError *error) {
                 if (!error) {
-                    [[self window] setRootViewController:dashboardViewController];
+                    UINavigationController *mainNavigationController = [[UINavigationController alloc] initWithRootViewController:dashboardViewController];
+                   
+                    [dashboardViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+                    
+                    [[dashboardViewController navigationItem] setLeftBarButtonItem :[self menuBarButton]];
+                    
+                    [[self rootViewController] setLeftDrawerViewController:taskListViewController];
+                    [[self rootViewController] setCenterViewController:mainNavigationController];
+                    [[self window] setRootViewController:[self rootViewController]];
                 }
             }];
         } else {
@@ -57,6 +69,38 @@
         //ipad
 //        self.viewController = [[TRMViewController alloc] initWithNibName:@"TRMViewController_iPad" bundle:nil];
     }
+}
+
+
+
+-(MMDrawerController *)rootViewController {
+    if (!rootViewController) {
+        rootViewController = [[MMDrawerController alloc] init];
+        [rootViewController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+        [rootViewController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+        return rootViewController;
+    }
+    return rootViewController;
+}
+
+-(UIBarButtonItem *)menuBarButton {
+    if (!menuBarButton) {
+        menuBarButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"hamburger"] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTapped:)];
+        return menuBarButton;
+    }
+    return menuBarButton;
+}
+
+-(void)menuButtonTapped:(id)sender {
+    [[self rootViewController] openDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
+
+-(void)hideMenuButton {
+    
+}
+
+-(void)showMenuButton {
+    
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -49,6 +49,19 @@
 		7EC547D9187D39D500DAC090 /* TRMDashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EC547D8187D39D500DAC090 /* TRMDashboardTableViewCell.xib */; };
 		7EC547DB187D3B0600DAC090 /* dashboard_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EC547DA187D3B0600DAC090 /* dashboard_arrow@2x.png */; };
 		7EC547DE187D3BF600DAC090 /* TRMDashboardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC547DD187D3BF600DAC090 /* TRMDashboardTableViewCell.m */; };
+		D4C3E25A1881C09300112E83 /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3E2531881C09300112E83 /* MMDrawerController.m */; };
+		D4C3E25B1881C09300112E83 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3E2561881C09300112E83 /* MMDrawerVisualState.m */; };
+		D4C3E25C1881C09300112E83 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3E2581881C09300112E83 /* UIViewController+MMDrawerController.m */; };
+		D4C3E2611881C64B00112E83 /* hamburger.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C3E2601881C64B00112E83 /* hamburger.png */; };
+		D4C3E2631881C65700112E83 /* hamburger@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C3E2621881C65700112E83 /* hamburger@2x.png */; };
+		D4C3E26E1881CDB700112E83 /* TRMTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3E26D1881CDB700112E83 /* TRMTaskModel.m */; };
+		D4C3E2721881DD1500112E83 /* TRMTaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3E2701881DD1500112E83 /* TRMTaskListViewController.m */; };
+		D4C3E2731881DD1500112E83 /* TRMTaskListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C3E2711881DD1500112E83 /* TRMTaskListViewController.xib */; };
+		D4C3E27D1881E3AB00112E83 /* TRMTaskListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3E27C1881E3AB00112E83 /* TRMTaskListCell.m */; };
+		D4C3E2831881E44E00112E83 /* TRMTaskListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C3E2821881E44E00112E83 /* TRMTaskListCell.xib */; };
+		D4C3E2891882355B00112E83 /* task_list_circle_on.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C3E2881882355B00112E83 /* task_list_circle_on.png */; };
+		D4C3E28B188236D600112E83 /* task_list_bridge_on.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C3E28A188236D600112E83 /* task_list_bridge_on.png */; };
+		D4C3E28F1882418800112E83 /* task_list_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C3E28E1882418800112E83 /* task_list_background@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +144,26 @@
 		7EC547DA187D3B0600DAC090 /* dashboard_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashboard_arrow@2x.png"; sourceTree = "<group>"; };
 		7EC547DC187D3BF600DAC090 /* TRMDashboardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMDashboardTableViewCell.h; sourceTree = "<group>"; };
 		7EC547DD187D3BF600DAC090 /* TRMDashboardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMDashboardTableViewCell.m; sourceTree = "<group>"; };
+		D4C3E2521881C09300112E83 /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
+		D4C3E2531881C09300112E83 /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
+		D4C3E2541881C09300112E83 /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
+		D4C3E2551881C09300112E83 /* MMDrawerVisualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerVisualState.h; sourceTree = "<group>"; };
+		D4C3E2561881C09300112E83 /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
+		D4C3E2571881C09300112E83 /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
+		D4C3E2581881C09300112E83 /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		D4C3E2601881C64B00112E83 /* hamburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hamburger.png; sourceTree = "<group>"; };
+		D4C3E2621881C65700112E83 /* hamburger@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hamburger@2x.png"; sourceTree = "<group>"; };
+		D4C3E26C1881CDB700112E83 /* TRMTaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMTaskModel.h; sourceTree = "<group>"; };
+		D4C3E26D1881CDB700112E83 /* TRMTaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMTaskModel.m; sourceTree = "<group>"; };
+		D4C3E26F1881DD1500112E83 /* TRMTaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMTaskListViewController.h; sourceTree = "<group>"; };
+		D4C3E2701881DD1500112E83 /* TRMTaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMTaskListViewController.m; sourceTree = "<group>"; };
+		D4C3E2711881DD1500112E83 /* TRMTaskListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMTaskListViewController.xib; sourceTree = "<group>"; };
+		D4C3E27B1881E3AB00112E83 /* TRMTaskListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMTaskListCell.h; sourceTree = "<group>"; };
+		D4C3E27C1881E3AB00112E83 /* TRMTaskListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMTaskListCell.m; sourceTree = "<group>"; };
+		D4C3E2821881E44E00112E83 /* TRMTaskListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMTaskListCell.xib; sourceTree = "<group>"; };
+		D4C3E2881882355B00112E83 /* task_list_circle_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = task_list_circle_on.png; sourceTree = "<group>"; };
+		D4C3E28A188236D600112E83 /* task_list_bridge_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = task_list_bridge_on.png; sourceTree = "<group>"; };
+		D4C3E28E1882418800112E83 /* task_list_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "task_list_background@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +225,8 @@
 		7E9EAE3C187D2AE5008DDA2E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D4C3E2601881C64B00112E83 /* hamburger.png */,
+				D4C3E2621881C65700112E83 /* hamburger@2x.png */,
 				7EC547DA187D3B0600DAC090 /* dashboard_arrow@2x.png */,
 				7E9EAE3D187D2AED008DDA2E /* trumaker_hero@2x.png */,
 			);
@@ -220,6 +255,7 @@
 		7EC318CF187BC2650093083E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4C3E24F1881C06200112E83 /* Drawer Framework */,
 				7EC31918187BCEAA0093083E /* AFNNetworking */,
 				7E8ABC38187D199D00F792DA /* MBProgressHUD */,
 				7EC318D0187BC2650093083E /* Foundation.framework */,
@@ -233,8 +269,8 @@
 		7EC318D6187BC2650093083E /* Trumaker */ = {
 			isa = PBXGroup;
 			children = (
+				D4C3E2641881CA4100112E83 /* Task List */,
 				7E9EAE36187D2AA7008DDA2E /* Dashboard */,
-				7E8ABC30187CF80900F792DA /* Settings.bundle */,
 				7EC31939187BD35E0093083E /* Network */,
 				7EC31935187BD3320093083E /* Utilities */,
 				7EC3190F187BC4250093083E /* Login */,
@@ -244,6 +280,7 @@
 				7EC318E8187BC2650093083E /* TRMViewController.h */,
 				7EC318E9187BC2650093083E /* TRMViewController.m */,
 				7EC318EB187BC2650093083E /* Images.xcassets */,
+				7E8ABC30187CF80900F792DA /* Settings.bundle */,
 				7EC318D7187BC2650093083E /* Supporting Files */,
 			);
 			path = Trumaker;
@@ -370,6 +407,63 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		D4C3E24F1881C06200112E83 /* Drawer Framework */ = {
+			isa = PBXGroup;
+			children = (
+				D4C3E2521881C09300112E83 /* MMDrawerController.h */,
+				D4C3E2531881C09300112E83 /* MMDrawerController.m */,
+				D4C3E2541881C09300112E83 /* MMDrawerController+Subclass.h */,
+				D4C3E2551881C09300112E83 /* MMDrawerVisualState.h */,
+				D4C3E2561881C09300112E83 /* MMDrawerVisualState.m */,
+				D4C3E2571881C09300112E83 /* UIViewController+MMDrawerController.h */,
+				D4C3E2581881C09300112E83 /* UIViewController+MMDrawerController.m */,
+			);
+			name = "Drawer Framework";
+			path = Trumaker;
+			sourceTree = "<group>";
+		};
+		D4C3E2641881CA4100112E83 /* Task List */ = {
+			isa = PBXGroup;
+			children = (
+				D4C3E27A1881DDB100112E83 /* Resources */,
+				D4C3E26B1881CD9A00112E83 /* Models */,
+				D4C3E26A1881CD7D00112E83 /* Views */,
+				D4C3E26F1881DD1500112E83 /* TRMTaskListViewController.h */,
+				D4C3E2701881DD1500112E83 /* TRMTaskListViewController.m */,
+				D4C3E2711881DD1500112E83 /* TRMTaskListViewController.xib */,
+			);
+			name = "Task List";
+			sourceTree = "<group>";
+		};
+		D4C3E26A1881CD7D00112E83 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D4C3E27B1881E3AB00112E83 /* TRMTaskListCell.h */,
+				D4C3E27C1881E3AB00112E83 /* TRMTaskListCell.m */,
+				D4C3E2821881E44E00112E83 /* TRMTaskListCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D4C3E26B1881CD9A00112E83 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D4C3E26C1881CDB700112E83 /* TRMTaskModel.h */,
+				D4C3E26D1881CDB700112E83 /* TRMTaskModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D4C3E27A1881DDB100112E83 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D4C3E28E1882418800112E83 /* task_list_background@2x.png */,
+				D4C3E2881882355B00112E83 /* task_list_circle_on.png */,
+				D4C3E28A188236D600112E83 /* task_list_bridge_on.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -418,6 +512,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Trumaker;
 				TargetAttributes = {
+					7EC318CC187BC2650093083E = {
+						DevelopmentTeam = 8LXD35UKX5;
+					};
 					7EC318F0187BC2650093083E = {
 						TestTargetID = 7EC318CC187BC2650093083E;
 					};
@@ -447,16 +544,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4C3E28B188236D600112E83 /* task_list_bridge_on.png in Resources */,
 				7EC547D9187D39D500DAC090 /* TRMDashboardTableViewCell.xib in Resources */,
 				7EC547DB187D3B0600DAC090 /* dashboard_arrow@2x.png in Resources */,
 				7EC3190E187BC40C0093083E /* login-icon.png in Resources */,
+				D4C3E2731881DD1500112E83 /* TRMTaskListViewController.xib in Resources */,
 				7E9EAE3E187D2AED008DDA2E /* trumaker_hero@2x.png in Resources */,
+				D4C3E2611881C64B00112E83 /* hamburger.png in Resources */,
 				7E9EAE35187D28ED008DDA2E /* TRMLoadingViewController.xib in Resources */,
+				D4C3E2631881C65700112E83 /* hamburger@2x.png in Resources */,
 				7EC3190C187BC3C30093083E /* TRMLoginViewController.xib in Resources */,
+				D4C3E2891882355B00112E83 /* task_list_circle_on.png in Resources */,
 				7EC318EC187BC2650093083E /* Images.xcassets in Resources */,
 				7EC318DB187BC2650093083E /* InfoPlist.strings in Resources */,
+				D4C3E2831881E44E00112E83 /* TRMTaskListCell.xib in Resources */,
 				7E8ABC31187CF80900F792DA /* Settings.bundle in Resources */,
 				7E9EAE3B187D2AD2008DDA2E /* TRMDashboardViewController.xib in Resources */,
+				D4C3E28F1882418800112E83 /* task_list_background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +580,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EC31931187BCF580093083E /* AFURLConnectionOperation.m in Sources */,
+				D4C3E26E1881CDB700112E83 /* TRMTaskModel.m in Sources */,
 				7EC3192C187BCF580093083E /* AFHTTPRequestOperation.m in Sources */,
 				7E8ABC34187CF9EC00F792DA /* TRMCustomerDAO.m in Sources */,
 				7EC3192F187BCF580093083E /* AFNetworkReachabilityManager.m in Sources */,
@@ -487,15 +592,20 @@
 				7EC318E1187BC2650093083E /* TRMAppDelegate.m in Sources */,
 				7E8ABC3B187D19BE00F792DA /* MBProgressHUD.m in Sources */,
 				7EC31933187BCF580093083E /* AFURLResponseSerialization.m in Sources */,
+				D4C3E2721881DD1500112E83 /* TRMTaskListViewController.m in Sources */,
 				7EC31916187BC74F0093083E /* TRMIndentTextField.m in Sources */,
 				7EC3193C187BD3CB0093083E /* TRMLoginDAO.m in Sources */,
 				7EC318EA187BC2650093083E /* TRMViewController.m in Sources */,
 				7E9EAE34187D28ED008DDA2E /* TRMLoadingViewController.m in Sources */,
+				D4C3E27D1881E3AB00112E83 /* TRMTaskListCell.m in Sources */,
 				7EC3192D187BCF580093083E /* AFHTTPRequestOperationManager.m in Sources */,
 				7EC31938187BD3410093083E /* TRMUtils.m in Sources */,
+				D4C3E25A1881C09300112E83 /* MMDrawerController.m in Sources */,
 				7EC31930187BCF580093083E /* AFSecurityPolicy.m in Sources */,
 				7E8ABC2D187CEE3800F792DA /* TRMEnviorment.m in Sources */,
+				D4C3E25B1881C09300112E83 /* MMDrawerVisualState.m in Sources */,
 				7EC3190B187BC3C30093083E /* TRMLoginViewController.m in Sources */,
+				D4C3E25C1881C09300112E83 /* UIViewController+MMDrawerController.m in Sources */,
 				7EC318DD187BC2650093083E /* main.m in Sources */,
 				7E8ABC37187CFB9400F792DA /* TRMAuthHolder.m in Sources */,
 				7EC3192E187BCF580093083E /* AFHTTPSessionManager.m in Sources */,
@@ -619,6 +729,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Trumaker/Trumaker-Prefix.pch";
 				INFOPLIST_FILE = "Trumaker/Trumaker-Info.plist";
@@ -633,6 +744,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Trumaker/Trumaker-Prefix.pch";
 				INFOPLIST_FILE = "Trumaker/Trumaker-Info.plist";

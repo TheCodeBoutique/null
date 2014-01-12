@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MMDrawerController.h"
 @interface TRMAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) MMDrawerController *rootViewController;
+@property (strong, nonatomic) UIBarButtonItem *menuBarButton;
 
+-(void)hideMenuButton;
+-(void)showMenuButton;
 @end
