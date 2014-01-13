@@ -13,4 +13,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *heroImage;
 @property (weak, nonatomic) IBOutlet UILabel *outfitterName;
 @property (weak, nonatomic) IBOutlet UILabel *outfitterLocation;
+@property (strong, nonatomic) IBOutlet UIImageView *outfitterImageView;
 @end

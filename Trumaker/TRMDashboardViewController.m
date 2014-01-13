@@ -8,9 +8,15 @@
 #import "TRMDashboardModel.h"
 #import "TRMDashboardViewController.h"
 #import "TRMDashboardTableViewCell.h"
+#import "TRMOrderCustomerTypeViewController.h"
+
+#import "TRMOutfitterModel.h"
+#import "TRMCoreApi.h"
+#import "TRMUtils.h"
 
 @interface TRMDashboardViewController ()
 @property (nonatomic, strong) NSMutableArray *dashboardData;
+@property (nonatomic, strong) TRMOutfitterModel *outfitter;
 @end
 
 @implementation TRMDashboardViewController
@@ -23,6 +29,11 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)udpateImageView {
+    UIImage *maskedImage = [TRMUtils maskImage:[UIImage imageNamed:@"profile_image_mask_base"] withMask:[_outfitter outfitterImage]];
+    [[self outfitterImageView] setImage:maskedImage];
 }
 
 -(void)setupTableViewData
@@ -53,7 +64,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _outfitter = [[TRMCoreApi sharedInstance] outfitter];
+    [_outfitterName setText:[_outfitter fullName]];
+    [_outfitterLocation setText:[_outfitter city]];
+    [self udpateImageView];
     [self setupTableViewData];
+    
 }
 
 #pragma mark - Table view data source
@@ -84,10 +100,30 @@
     
     return cell;
 }
-
-
-- (void)didReceiveMemoryWarning
+#pragma mark - Table view delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([indexPath row] == 0) {
+        //order selected
+        TRMOrderCustomerTypeViewController *orderCustomerTypeViewController = [[TRMOrderCustomerTypeViewController alloc] initWithNibName:@"TRMOrderCustomerTypeViewController" bundle:nil];
+        [[orderCustomerTypeViewController navigationItem] setTitle:@"TRUMAKER"];
+        [[[orderCustomerTypeViewController navigationItem] backBarButtonItem] setTitle:@"Back"];
+        [orderCustomerTypeViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+        [[self navigationController] pushViewController:orderCustomerTypeViewController animated:YES];
+    }       
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[self navigationItem] setTitle:@"Back"];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[self navigationItem] setTitle:@"TRUMAKER"];
+}
+
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 

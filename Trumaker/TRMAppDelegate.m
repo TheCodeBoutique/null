@@ -23,6 +23,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [[self window] makeKeyAndVisible];
     [self loadDeviceControllers];
+    [[self window] setTintColor:[TRMUtils colorWithHexString:@"959fa5"]];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:20.0f]}];
     return YES;
 }
 
@@ -38,8 +41,6 @@
         TRMLoginViewController *loginViewController = [[TRMLoginViewController alloc] initWithNibName:@"TRMLoginViewController" bundle:nil];
         
         TRMLoadingViewController *loadingViewController = [[TRMLoadingViewController alloc] initWithNibName:@"TRMLoadingViewController" bundle:nil];
-
-        TRMDashboardViewController *dashboardViewController = [[TRMDashboardViewController alloc] initWithNibName:@"TRMDashboardViewController" bundle:nil];
         
         TRMTaskListViewController *taskListViewController = [[TRMTaskListViewController alloc] initWithNibName:@"TRMTaskListViewController" bundle:nil];
         
@@ -50,14 +51,8 @@
             TRMLoginDAO *loginDAO = [[TRMLoginDAO alloc] init];
             [loginDAO login:username withPassword:pasword completionHandler:^(BOOL successful, NSError *error) {
                 if (!error) {
-                    UINavigationController *mainNavigationController = [[UINavigationController alloc] initWithRootViewController:dashboardViewController];
-                   
-                    [dashboardViewController setEdgesForExtendedLayout:UIRectEdgeNone];
-                    
-                    [[dashboardViewController navigationItem] setLeftBarButtonItem :[self menuBarButton]];
-                    
                     [[self rootViewController] setLeftDrawerViewController:taskListViewController];
-                    [[self rootViewController] setCenterViewController:mainNavigationController];
+                    [self setDashboardViewContorllerToCenterViewController];
                     [[self window] setRootViewController:[self rootViewController]];
                 }
             }];
@@ -72,11 +67,9 @@
 }
 
 
-
 -(MMDrawerController *)rootViewController {
     if (!rootViewController) {
         rootViewController = [[MMDrawerController alloc] init];
-        [rootViewController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
         [rootViewController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
         return rootViewController;
     }
@@ -91,18 +84,47 @@
     return menuBarButton;
 }
 
+-(void)setDashboardViewContorllerToCenterViewController {
+    TRMDashboardViewController *dashboardViewController = [[TRMDashboardViewController alloc] initWithNibName:@"TRMDashboardViewController" bundle:nil];
+    UINavigationController *mainNavigationController = [self getNavigationController:dashboardViewController];
+    [dashboardViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+    [[dashboardViewController navigationItem] setTitle:@"TRUMAKER"];
+    [[self rootViewController] setCenterViewController:mainNavigationController];
+}
+
+
+-(void)setCenterViewController:(UIViewController *)viewController {
+    [viewController setEdgesForExtendedLayout:UIRectEdgeNone];
+    [viewController setTitle:@"TRUMAKER"];
+    [[viewController navigationItem] setLeftBarButtonItem:[self menuBarButton]];
+    [rootViewController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [rootViewController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    [[self rootViewController] setCenterViewController:[self getNavigationController:viewController]];
+}
+
+-(UINavigationController *)getNavigationController:(UIViewController *)viewController {
+    UINavigationController *mainNavigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    return mainNavigationController;
+}
+
 -(void)menuButtonTapped:(id)sender {
     [[self rootViewController] openDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
 -(void)hideMenuButton {
     
+//    [[dashboardViewController navigationItem] setLeftBarButtonItem :[self menuBarButton]];
 }
 
 -(void)showMenuButton {
     
+//    [[dashboardViewController navigationItem] setLeftBarButtonItem :[self menuBarButton]];
 }
-							
+
+-(void)allowOpenDrawer {
+    [rootViewController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
 }
 

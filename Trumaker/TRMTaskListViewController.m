@@ -10,6 +10,8 @@
 #import "TRMUtils.h"
 #import "TRMTaskModel.h"
 #import "TRMTaskListCell.h"
+#import "UIAlertView+Blocks.h"
+#import "TRMAppDelegate.h"
 @interface TRMTaskListViewController ()
 @property (nonatomic, strong) NSMutableArray *tableDataSource;
 
@@ -116,5 +118,17 @@
 }
 
 - (IBAction)cancelOrderTapped:(id)sender {
+    [[[UIAlertView alloc] initWithTitle:@"Cancel Order"
+                                message:@"Are you sure you want to cancel this order?"
+                       cancelButtonItem:[RIButtonItem itemWithLabel:@"No" action:^{
+    }]
+                       otherButtonItems:[RIButtonItem itemWithLabel:@"Yes" action:^{
+        TRMAppDelegate *del = (TRMAppDelegate *)[[UIApplication sharedApplication] delegate];
+        [del setDashboardViewContorllerToCenterViewController];
+        [[del rootViewController] closeDrawerAnimated:YES completion:^(BOOL finished) {
+            [[self tableView] scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+            [[del rootViewController] setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+        }];
+    }], nil] show];
 }
 @end

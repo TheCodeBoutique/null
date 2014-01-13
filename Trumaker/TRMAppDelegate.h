@@ -14,6 +14,11 @@
 @property (strong, nonatomic) MMDrawerController *rootViewController;
 @property (strong, nonatomic) UIBarButtonItem *menuBarButton;
 
+
+-(void)setCenterViewController:(UIViewController *)viewController;
+-(void)setDashboardViewContorllerToCenterViewController;
+
 -(void)hideMenuButton;
 -(void)showMenuButton;
+-(void)allowOpenDrawer;
 @end
