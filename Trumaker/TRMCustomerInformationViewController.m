@@ -10,10 +10,14 @@
 #import "NSObject+JTObjectMapping.h"
 
 #import "TRMCustomerCell.h"
-#import "TRMCustomerTableViewModel.h"
 #import "TRMCustomerDAO.h"
 #import "MBProgressHUD.h"
 #import "TRMUtils.h"
+
+
+#import "TRMCustomerTableViewModel.h"
+#import "TRMAddressModel.h"
+#import "TRMPhoneModel.h"
 
 @interface TRMCustomerInformationViewController () <UITextFieldDelegate>
 @property (nonatomic, strong) NSMutableArray *tableDataSource;
@@ -58,36 +62,62 @@
 }
 
 -(void)saveTapped:(id)sender {
-    NSMutableDictionary *dataDict = [[NSMutableDictionary alloc] init];
+    //we should check if its an exisisting customer
+    
+    [self saveNewCustomer];
+}
+
+-(void)saveNewCustomer {
     TRMCustomerModel *customer = [[TRMCustomerModel alloc] init];
+    TRMAddressModel *address = [[TRMAddressModel alloc] init];
+    TRMPhoneModel *phone = [[TRMPhoneModel alloc] init];
+    
     for (int i = 0 ; i < [tableDataSource count]; i++) {
-      NSIndexPath* cellPath = [NSIndexPath indexPathForRow:i inSection:0];
-      TRMCustomerCell *cell = (TRMCustomerCell *)[_tableView cellForRowAtIndexPath:cellPath];
+        NSIndexPath *cellPath = [NSIndexPath indexPathForRow:i inSection:0];
+        TRMCustomerCell *cell = (TRMCustomerCell *)[_tableView cellForRowAtIndexPath:cellPath];
         TRMIndentTextField *textField = [cell textField];
         NSString *placeHolder = [textField placeholder];
-        [dataDict setValue:[textField text] forKey:placeHolder];
+        
+        if ([placeHolder isEqualToString:@"First Name"]) {
+            [customer setFirst_name:textField.text];
+        } else if ([placeHolder isEqualToString:@"Last Name"]) {
+            [customer setLast_name:textField.text];
+        } else if ([placeHolder isEqualToString:@"Address"]) {
+            [address setAddress1:textField.text];
+        } else if ([placeHolder isEqualToString:@"City"]) {
+            [address setCity:textField.text];
+        } else if ([placeHolder isEqualToString:@"State"]) {
+            [address setState_abbr_name:textField.text];
+        } else if ([placeHolder isEqualToString:@"Zip"]) {
+            [address setZip_code:textField.text];
+        } else if ([placeHolder isEqualToString:@"Phone"]) {
+            [phone setNumber:textField.text];
+        } else if ([placeHolder isEqualToString:@"Email"]) {
+            [customer setEmail:textField.text];
+        }
     }
     
-    [dataDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        if ([key isEqualToString:@"First Name"]) {
-            [customer setFirst_name:obj];            
-        } else if ([key isEqualToString:@"Last Name"]) {
-            [customer setLast_name:obj];
-        } else if ([key isEqualToString:@"Address"]) {
-            // customer does not have address
-        } else if ([key isEqualToString:@"City"]) {
-            //customer does not have city
-        } else if ([key isEqualToString:@"State"]) {
-            //customer does not have state
-        } else if ([key isEqualToString:@"Zip"]) {
-            //customer does not have zip
-        } else if ([key isEqualToString:@"Phone"]) {
-            //customer does not have phone
-        } else if ([key isEqualToString:@"Email"]) {
-            [customer setEmail:obj];
-        }
-    }];
+    //default monogram will be TRU
+    [customer setDefault_monogram:@"TRM"];
     
+    //we need to make these the primary when creating new users
+    [address setActive:YES];
+    [address setName:[customer fullName]];
+    [address setBilling_default:YES];
+    [address setShipping_default:YES];
+    [address setBusiness:NO];
+    
+    //we need to make these the primary when creating new users
+//    [phone setPhone_type:@"mobile"];
+    
+    NSMutableArray *addresses = [[NSMutableArray alloc] initWithArray:@[address]];
+    NSMutableArray *phones = [[NSMutableArray alloc] initWithArray:@[phone]];
+    [customer setAddresses:addresses];
+    [customer setPhones:phones];
+    [self sendCustomerToServer:customer];
+}
+
+-(void)sendCustomerToServer:(TRMCustomerModel *)customer {
     TRMCustomerDAO *dao = [[TRMCustomerDAO alloc] init];
     [dao createNewCustomer:customer completionHandler:^(TRMCustomerModel *newCustomer, NSError *error) {
         if (!error) {

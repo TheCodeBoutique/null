@@ -89,6 +89,8 @@
 		D4C3E2CE18827CDA00112E83 /* navigation_back_arrow_on_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C3E2CD18827CDA00112E83 /* navigation_back_arrow_on_@2x.png */; };
 		D4C3E2D018827CE500112E83 /* navigation_forward_arrow_off_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C3E2CF18827CE500112E83 /* navigation_forward_arrow_off_@2x.png */; };
 		D4C3E2D218827CF400112E83 /* navigation_forward_arrow_on_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C3E2D118827CF400112E83 /* navigation_forward_arrow_on_@2x.png */; };
+		D4C726AB1886276F00681344 /* TRMAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C726AA1886276F00681344 /* TRMAddressModel.m */; };
+		D4C726AE1886278400681344 /* TRMPhoneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C726AD1886278400681344 /* TRMPhoneModel.m */; };
 		D4E0913018827E9F00FB52F2 /* navigation_back_arrow_off.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E0912F18827E9F00FB52F2 /* navigation_back_arrow_off.png */; };
 		D4E0913218827EAE00FB52F2 /* navigation_back_arrow_on.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E0913118827EAE00FB52F2 /* navigation_back_arrow_on.png */; };
 		D4E0913418827EBA00FB52F2 /* navigation_forward_arrow_off.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E0913318827EBA00FB52F2 /* navigation_forward_arrow_off.png */; };
@@ -239,6 +241,10 @@
 		D4C3E2CD18827CDA00112E83 /* navigation_back_arrow_on_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_back_arrow_on_@2x.png"; sourceTree = "<group>"; };
 		D4C3E2CF18827CE500112E83 /* navigation_forward_arrow_off_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_forward_arrow_off_@2x.png"; sourceTree = "<group>"; };
 		D4C3E2D118827CF400112E83 /* navigation_forward_arrow_on_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_forward_arrow_on_@2x.png"; sourceTree = "<group>"; };
+		D4C726A91886276F00681344 /* TRMAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMAddressModel.h; sourceTree = "<group>"; };
+		D4C726AA1886276F00681344 /* TRMAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMAddressModel.m; sourceTree = "<group>"; };
+		D4C726AC1886278400681344 /* TRMPhoneModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMPhoneModel.h; sourceTree = "<group>"; };
+		D4C726AD1886278400681344 /* TRMPhoneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMPhoneModel.m; sourceTree = "<group>"; };
 		D4E0912F18827E9F00FB52F2 /* navigation_back_arrow_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_back_arrow_off.png; sourceTree = "<group>"; };
 		D4E0913118827EAE00FB52F2 /* navigation_back_arrow_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_back_arrow_on.png; sourceTree = "<group>"; };
 		D4E0913318827EBA00FB52F2 /* navigation_forward_arrow_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_forward_arrow_off.png; sourceTree = "<group>"; };
@@ -527,6 +533,10 @@
 				D40D75FA18831E90000AB22E /* TRMCustomerTableViewModel.m */,
 				D40D76031883949C000AB22E /* TRMCustomerModel.h */,
 				D40D76041883949C000AB22E /* TRMCustomerModel.m */,
+				D4C726A91886276F00681344 /* TRMAddressModel.h */,
+				D4C726AA1886276F00681344 /* TRMAddressModel.m */,
+				D4C726AC1886278400681344 /* TRMPhoneModel.h */,
+				D4C726AD1886278400681344 /* TRMPhoneModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -855,11 +865,13 @@
 				D4C3E2721881DD1500112E83 /* TRMTaskListViewController.m in Sources */,
 				7EC31916187BC74F0093083E /* TRMIndentTextField.m in Sources */,
 				D4C3E2B018825F2700112E83 /* UIAlertView+Blocks.m in Sources */,
+				D4C726AB1886276F00681344 /* TRMAddressModel.m in Sources */,
 				7EC3193C187BD3CB0093083E /* TRMLoginDAO.m in Sources */,
 				D4E09143188282F600FB52F2 /* JTDataMappings.m in Sources */,
 				7EC318EA187BC2650093083E /* TRMViewController.m in Sources */,
 				7E9EAE34187D28ED008DDA2E /* TRMLoadingViewController.m in Sources */,
 				D4C3E27D1881E3AB00112E83 /* TRMTaskListCell.m in Sources */,
+				D4C726AE1886278400681344 /* TRMPhoneModel.m in Sources */,
 				7EC3192D187BCF580093083E /* AFHTTPRequestOperationManager.m in Sources */,
 				7EC31938187BD3410093083E /* TRMUtils.m in Sources */,
 				D4C3E25A1881C09300112E83 /* MMDrawerController.m in Sources */,

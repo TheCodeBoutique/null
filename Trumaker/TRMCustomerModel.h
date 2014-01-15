@@ -17,7 +17,8 @@
 @property (strong, nonatomic) NSNumber *finished_orders_count; //number of finished orders
 @property (assign, nonatomic) CGFloat  store_credit;
 
+@property (strong, nonatomic) NSMutableArray *addresses; //TRMAddress
+@property (strong, nonatomic) NSMutableArray *phones; //TRMPhone
 
-//private used for mapping
-+(void)mapKey:(NSDictionary *)mapping;
+-(NSString *)fullName;
 @end

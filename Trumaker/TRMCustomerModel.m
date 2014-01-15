@@ -9,7 +9,7 @@
 #import "TRMCustomerModel.h"
 
 @implementation TRMCustomerModel
-+(void)mapKey:(NSDictionary *)mapping {
-    
+-(NSString *)fullName {
+    return  [NSString stringWithFormat:@"%@ %@",[self first_name], [self last_name]];
 }
 @end
