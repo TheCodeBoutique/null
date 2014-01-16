@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TRMProductSelectionViewController.h"
 @interface TRMShopingCartViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *selectedProducts;
+
+//for reference
+@property (strong, nonatomic) TRMProductSelectionViewController *productSelectionViewController;
 @end

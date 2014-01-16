@@ -56,9 +56,10 @@
 
 
 -(IBAction)didTapClose:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{        
-    }];
-    
+    [self dismissViewControllerAnimated:YES completion:^{
+        //update collection view
+        [[_productSelectionViewController collectionView] reloadData];
+    }];    
 }
 
 #pragma mark - Table view data source

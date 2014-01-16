@@ -82,6 +82,8 @@
     [self removeDuplicatesFromArray:_selectedProducts];
     [shopingCartViewController setSelectedProducts:_selectedProducts];
     [shopingCartViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+    [shopingCartViewController setProductSelectionViewController:self];
+
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:shopingCartViewController];
     [self presentViewController:navigationController animated:YES completion:nil];
 }
