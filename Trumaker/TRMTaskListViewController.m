@@ -8,6 +8,7 @@
 
 #import "TRMTaskListViewController.h"
 #import "TRMBuildPreferenceViewController.h"
+#import "TRMProductSelectionViewController.h"
 
 #import "TRMUtils.h"
 #import "TRMTaskModel.h"
@@ -111,6 +112,12 @@
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([indexPath row] == 1) {
+        TRMProductSelectionViewController *productSelectionViewController =[[TRMProductSelectionViewController alloc] initWithNibName:@"TRMProductSelectionViewController" bundle:nil];
+        [productSelectionViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+        [[productSelectionViewController navigationItem] setHidesBackButton:YES];
+        [self pushViewControllerStack:productSelectionViewController withTitle:@"Orders"];
+    }
     
     if ([indexPath row] == 3) {
         TRMBuildPreferenceViewController *buildPreferenceViewController = [[TRMBuildPreferenceViewController alloc] initWithNibName:@"TRMBuildPreferenceViewController" bundle:nil];
@@ -123,8 +130,10 @@
     [[viewController navigationItem] setTitle:title];
     UINavigationController *mainNavigationControllter = [[UINavigationController alloc] initWithRootViewController:viewController];
     TRMAppDelegate *del = (TRMAppDelegate *)[[UIApplication sharedApplication] delegate];
+
+
     [[del rootViewController] setCenterViewController:mainNavigationControllter withCloseAnimation:YES completion:^(BOOL finished) {
-        
+        [del showMenuButton];        
     }];
 }
 

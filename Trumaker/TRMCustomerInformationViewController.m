@@ -393,15 +393,6 @@
     return length;
 }
 
-#pragma mark REMOVE JUST TESTING
-- (IBAction)goToProductSelection:(id)sender {
-    TRMProductSelectionViewController *productSelectionViewController = [[TRMProductSelectionViewController alloc] initWithNibName:@"TRMProductSelectionViewController" bundle:nil];
-    [productSelectionViewController setEdgesForExtendedLayout:UIRectEdgeNone];
-    [[productSelectionViewController navigationItem] setHidesBackButton:YES];
-    [[productSelectionViewController navigationItem] setTitle:@"Orders"];
-    [[self navigationController] pushViewController:productSelectionViewController animated:YES];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
