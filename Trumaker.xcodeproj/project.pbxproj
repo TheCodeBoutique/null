@@ -91,6 +91,34 @@
 		D4C3E2D218827CF400112E83 /* navigation_forward_arrow_on_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C3E2D118827CF400112E83 /* navigation_forward_arrow_on_@2x.png */; };
 		D4C726AB1886276F00681344 /* TRMAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C726AA1886276F00681344 /* TRMAddressModel.m */; };
 		D4C726AE1886278400681344 /* TRMPhoneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C726AD1886278400681344 /* TRMPhoneModel.m */; };
+		D4C726B218864C7F00681344 /* TRMProductsDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C726B118864C7F00681344 /* TRMProductsDAO.m */; };
+		D4C726B51886588D00681344 /* TRMProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C726B41886588D00681344 /* TRMProductModel.m */; };
+		D4C726BB1886625200681344 /* TRMProductSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C726B91886625200681344 /* TRMProductSelectionViewController.m */; };
+		D4C726BC1886625200681344 /* TRMProductSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C726BA1886625200681344 /* TRMProductSelectionViewController.xib */; };
+		D4C726C0188662A000681344 /* TRMShopingCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C726BE188662A000681344 /* TRMShopingCartViewController.m */; };
+		D4C726C1188662A000681344 /* TRMShopingCartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C726BF188662A000681344 /* TRMShopingCartViewController.xib */; };
+		D4C726C8188666F300681344 /* TRMProductSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C726C7188666F300681344 /* TRMProductSelectionCell.m */; };
+		D4C726CA1886673C00681344 /* TRMProductSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C726C91886673C00681344 /* TRMProductSelectionCell.xib */; };
+		D4C726CD1886684C00681344 /* badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C726CC1886684C00681344 /* badge@2x.png */; };
+		D4C726CF1886685500681344 /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C726CE1886685500681344 /* cart.png */; };
+		D4C726D11886685C00681344 /* cart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C726D01886685C00681344 /* cart@2x.png */; };
+		D4C726D318866A0100681344 /* placeholder_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C726D218866A0100681344 /* placeholder_image@2x.png */; };
+		D4C7270C18866D7700681344 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C726F218866D7700681344 /* MKAnnotationView+WebCache.m */; };
+		D4C7270D18866D7700681344 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C726F418866D7700681344 /* SDImageCache.m */; };
+		D4C7270E18866D7700681344 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C726F618866D7700681344 /* SDWebImageCompat.m */; };
+		D4C7270F18866D7700681344 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C726F818866D7700681344 /* SDWebImageDecoder.m */; };
+		D4C7271018866D7700681344 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C726FA18866D7700681344 /* SDWebImageDownloader.m */; };
+		D4C7271118866D7700681344 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C726FC18866D7700681344 /* SDWebImageDownloaderOperation.m */; };
+		D4C7271218866D7700681344 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C726FE18866D7700681344 /* SDWebImageManager.m */; };
+		D4C7271318866D7700681344 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C7270118866D7700681344 /* SDWebImagePrefetcher.m */; };
+		D4C7271418866D7700681344 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C7270318866D7700681344 /* UIButton+WebCache.m */; };
+		D4C7271518866D7700681344 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C7270518866D7700681344 /* UIImage+GIF.m */; };
+		D4C7271618866D7700681344 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C7270718866D7700681344 /* UIImage+MultiFormat.m */; };
+		D4C7271718866D7700681344 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C7270918866D7700681344 /* UIImage+WebP.m */; };
+		D4C7271818866D7700681344 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C7270B18866D7700681344 /* UIImageView+WebCache.m */; };
+		D4C7271B18866D8300681344 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C7271A18866D8300681344 /* NSData+ImageContentType.m */; };
+		D4C7271F1886875C00681344 /* TRMProductSelectionSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C7271E1886875C00681344 /* TRMProductSelectionSearchView.m */; };
+		D4C7272118868A0D00681344 /* TRMProductSelectionSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C7272018868A0D00681344 /* TRMProductSelectionSearchView.xib */; };
 		D4E0913018827E9F00FB52F2 /* navigation_back_arrow_off.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E0912F18827E9F00FB52F2 /* navigation_back_arrow_off.png */; };
 		D4E0913218827EAE00FB52F2 /* navigation_back_arrow_on.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E0913118827EAE00FB52F2 /* navigation_back_arrow_on.png */; };
 		D4E0913418827EBA00FB52F2 /* navigation_forward_arrow_off.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E0913318827EBA00FB52F2 /* navigation_forward_arrow_off.png */; };
@@ -103,6 +131,9 @@
 		D4E09148188282F600FB52F2 /* NSObject+JTObjectMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E09142188282F600FB52F2 /* NSObject+JTObjectMapping.m */; };
 		D4E0914E1882858700FB52F2 /* TRMOutfitterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E0914D1882858700FB52F2 /* TRMOutfitterModel.m */; };
 		D4E09151188290CE00FB52F2 /* TRMCoreApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E09150188290CE00FB52F2 /* TRMCoreApi.m */; };
+		D4FAB5F218879410004AC0C2 /* TRMConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FAB5F118879410004AC0C2 /* TRMConfigurationModel.m */; };
+		D4FAB5F818879F5C004AC0C2 /* TRMBuildPreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FAB5F618879F5C004AC0C2 /* TRMBuildPreferenceViewController.m */; };
+		D4FAB5F918879F5C004AC0C2 /* TRMBuildPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4FAB5F718879F5C004AC0C2 /* TRMBuildPreferenceViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -245,6 +276,55 @@
 		D4C726AA1886276F00681344 /* TRMAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMAddressModel.m; sourceTree = "<group>"; };
 		D4C726AC1886278400681344 /* TRMPhoneModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMPhoneModel.h; sourceTree = "<group>"; };
 		D4C726AD1886278400681344 /* TRMPhoneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMPhoneModel.m; sourceTree = "<group>"; };
+		D4C726B018864C7F00681344 /* TRMProductsDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMProductsDAO.h; sourceTree = "<group>"; };
+		D4C726B118864C7F00681344 /* TRMProductsDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMProductsDAO.m; sourceTree = "<group>"; };
+		D4C726B31886588D00681344 /* TRMProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMProductModel.h; sourceTree = "<group>"; };
+		D4C726B41886588D00681344 /* TRMProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMProductModel.m; sourceTree = "<group>"; };
+		D4C726B81886625200681344 /* TRMProductSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMProductSelectionViewController.h; sourceTree = "<group>"; };
+		D4C726B91886625200681344 /* TRMProductSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMProductSelectionViewController.m; sourceTree = "<group>"; };
+		D4C726BA1886625200681344 /* TRMProductSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMProductSelectionViewController.xib; sourceTree = "<group>"; };
+		D4C726BD188662A000681344 /* TRMShopingCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMShopingCartViewController.h; sourceTree = "<group>"; };
+		D4C726BE188662A000681344 /* TRMShopingCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMShopingCartViewController.m; sourceTree = "<group>"; };
+		D4C726BF188662A000681344 /* TRMShopingCartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMShopingCartViewController.xib; sourceTree = "<group>"; };
+		D4C726C6188666F300681344 /* TRMProductSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMProductSelectionCell.h; sourceTree = "<group>"; };
+		D4C726C7188666F300681344 /* TRMProductSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMProductSelectionCell.m; sourceTree = "<group>"; };
+		D4C726C91886673C00681344 /* TRMProductSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMProductSelectionCell.xib; sourceTree = "<group>"; };
+		D4C726CC1886684C00681344 /* badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "badge@2x.png"; sourceTree = "<group>"; };
+		D4C726CE1886685500681344 /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart.png; sourceTree = "<group>"; };
+		D4C726D01886685C00681344 /* cart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart@2x.png"; sourceTree = "<group>"; };
+		D4C726D218866A0100681344 /* placeholder_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder_image@2x.png"; sourceTree = "<group>"; };
+		D4C726F118866D7700681344 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
+		D4C726F218866D7700681344 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
+		D4C726F318866D7700681344 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
+		D4C726F418866D7700681344 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
+		D4C726F518866D7700681344 /* SDWebImageCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageCompat.h; sourceTree = "<group>"; };
+		D4C726F618866D7700681344 /* SDWebImageCompat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageCompat.m; sourceTree = "<group>"; };
+		D4C726F718866D7700681344 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDecoder.h; sourceTree = "<group>"; };
+		D4C726F818866D7700681344 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDecoder.m; sourceTree = "<group>"; };
+		D4C726F918866D7700681344 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloader.h; sourceTree = "<group>"; };
+		D4C726FA18866D7700681344 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloader.m; sourceTree = "<group>"; };
+		D4C726FB18866D7700681344 /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
+		D4C726FC18866D7700681344 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
+		D4C726FD18866D7700681344 /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
+		D4C726FE18866D7700681344 /* SDWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageManager.m; sourceTree = "<group>"; };
+		D4C726FF18866D7700681344 /* SDWebImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageOperation.h; sourceTree = "<group>"; };
+		D4C7270018866D7700681344 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImagePrefetcher.h; sourceTree = "<group>"; };
+		D4C7270118866D7700681344 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImagePrefetcher.m; sourceTree = "<group>"; };
+		D4C7270218866D7700681344 /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
+		D4C7270318866D7700681344 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
+		D4C7270418866D7700681344 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
+		D4C7270518866D7700681344 /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
+		D4C7270618866D7700681344 /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MultiFormat.h"; sourceTree = "<group>"; };
+		D4C7270718866D7700681344 /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MultiFormat.m"; sourceTree = "<group>"; };
+		D4C7270818866D7700681344 /* UIImage+WebP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WebP.h"; sourceTree = "<group>"; };
+		D4C7270918866D7700681344 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
+		D4C7270A18866D7700681344 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
+		D4C7270B18866D7700681344 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		D4C7271918866D8300681344 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
+		D4C7271A18866D8300681344 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+ImageContentType.m"; sourceTree = "<group>"; };
+		D4C7271D1886875C00681344 /* TRMProductSelectionSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMProductSelectionSearchView.h; sourceTree = "<group>"; };
+		D4C7271E1886875C00681344 /* TRMProductSelectionSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMProductSelectionSearchView.m; sourceTree = "<group>"; };
+		D4C7272018868A0D00681344 /* TRMProductSelectionSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMProductSelectionSearchView.xib; sourceTree = "<group>"; };
 		D4E0912F18827E9F00FB52F2 /* navigation_back_arrow_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_back_arrow_off.png; sourceTree = "<group>"; };
 		D4E0913118827EAE00FB52F2 /* navigation_back_arrow_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_back_arrow_on.png; sourceTree = "<group>"; };
 		D4E0913318827EBA00FB52F2 /* navigation_forward_arrow_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_forward_arrow_off.png; sourceTree = "<group>"; };
@@ -265,6 +345,11 @@
 		D4E0914D1882858700FB52F2 /* TRMOutfitterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMOutfitterModel.m; sourceTree = "<group>"; };
 		D4E0914F188290CE00FB52F2 /* TRMCoreApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMCoreApi.h; sourceTree = "<group>"; };
 		D4E09150188290CE00FB52F2 /* TRMCoreApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMCoreApi.m; sourceTree = "<group>"; };
+		D4FAB5F018879410004AC0C2 /* TRMConfigurationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMConfigurationModel.h; sourceTree = "<group>"; };
+		D4FAB5F118879410004AC0C2 /* TRMConfigurationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMConfigurationModel.m; sourceTree = "<group>"; };
+		D4FAB5F518879F5C004AC0C2 /* TRMBuildPreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMBuildPreferenceViewController.h; sourceTree = "<group>"; };
+		D4FAB5F618879F5C004AC0C2 /* TRMBuildPreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMBuildPreferenceViewController.m; sourceTree = "<group>"; };
+		D4FAB5F718879F5C004AC0C2 /* TRMBuildPreferenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMBuildPreferenceViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +452,7 @@
 		7EC318CF187BC2650093083E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4C7271C18866D8900681344 /* SDWebImage */,
 				D4E091491882830200FB52F2 /* Object Mapper */,
 				D4C3E24F1881C06200112E83 /* Drawer Framework */,
 				7EC31918187BCEAA0093083E /* AFNNetworking */,
@@ -382,6 +468,8 @@
 		7EC318D6187BC2650093083E /* Trumaker */ = {
 			isa = PBXGroup;
 			children = (
+				D4FAB5F318879EEA004AC0C2 /* Build Preference */,
+				D4C726AF18864C6300681344 /* Product Selection */,
 				D4E0914A1882854800FB52F2 /* Outfitter */,
 				D4C3E2901882475900112E83 /* Order */,
 				D4C3E2641881CA4100112E83 /* Task List */,
@@ -435,12 +523,7 @@
 		7EC3190F187BC4250093083E /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				7E9EAE31187D28ED008DDA2E /* TRMLoadingViewController.h */,
-				7E9EAE32187D28ED008DDA2E /* TRMLoadingViewController.m */,
-				7E9EAE33187D28ED008DDA2E /* TRMLoadingViewController.xib */,
-				7EC31908187BC3C30093083E /* TRMLoginViewController.h */,
-				7EC31909187BC3C30093083E /* TRMLoginViewController.m */,
-				7EC3190A187BC3C30093083E /* TRMLoginViewController.xib */,
+				D4C726C4188665FA00681344 /* Controllers */,
 				7EC31912187BC54F0093083E /* LoginImages */,
 			);
 			name = Login;
@@ -512,6 +595,8 @@
 				7E8ABC33187CF9EC00F792DA /* TRMCustomerDAO.m */,
 				7E8ABC35187CFB9400F792DA /* TRMAuthHolder.h */,
 				7E8ABC36187CFB9400F792DA /* TRMAuthHolder.m */,
+				D4C726B018864C7F00681344 /* TRMProductsDAO.h */,
+				D4C726B118864C7F00681344 /* TRMProductsDAO.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -572,9 +657,7 @@
 				D4C3E27A1881DDB100112E83 /* Resources */,
 				D4C3E26B1881CD9A00112E83 /* Models */,
 				D4C3E26A1881CD7D00112E83 /* Views */,
-				D4C3E26F1881DD1500112E83 /* TRMTaskListViewController.h */,
-				D4C3E2701881DD1500112E83 /* TRMTaskListViewController.m */,
-				D4C3E2711881DD1500112E83 /* TRMTaskListViewController.xib */,
+				D4C726C3188665E200681344 /* Controllers */,
 			);
 			name = "Task List";
 			sourceTree = "<group>";
@@ -612,9 +695,7 @@
 			isa = PBXGroup;
 			children = (
 				D4C3E2C118826BC100112E83 /* Customer */,
-				D4C3E291188247EA00112E83 /* TRMOrderCustomerTypeViewController.h */,
-				D4C3E292188247EA00112E83 /* TRMOrderCustomerTypeViewController.m */,
-				D4C3E293188247EA00112E83 /* TRMOrderCustomerTypeViewController.xib */,
+				D4C726C2188665D500681344 /* Controllers */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -667,6 +748,135 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		D4C726AF18864C6300681344 /* Product Selection */ = {
+			isa = PBXGroup;
+			children = (
+				D4C726CB1886682700681344 /* Resources */,
+				D4C726C51886669D00681344 /* Views */,
+				D4C726B7188661C600681344 /* Controllers */,
+				D4C726B6188661BC00681344 /* Models */,
+			);
+			name = "Product Selection";
+			sourceTree = "<group>";
+		};
+		D4C726B6188661BC00681344 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D4C726B31886588D00681344 /* TRMProductModel.h */,
+				D4C726B41886588D00681344 /* TRMProductModel.m */,
+				D4FAB5F018879410004AC0C2 /* TRMConfigurationModel.h */,
+				D4FAB5F118879410004AC0C2 /* TRMConfigurationModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D4C726B7188661C600681344 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4C726B81886625200681344 /* TRMProductSelectionViewController.h */,
+				D4C726B91886625200681344 /* TRMProductSelectionViewController.m */,
+				D4C726BA1886625200681344 /* TRMProductSelectionViewController.xib */,
+				D4C726BD188662A000681344 /* TRMShopingCartViewController.h */,
+				D4C726BE188662A000681344 /* TRMShopingCartViewController.m */,
+				D4C726BF188662A000681344 /* TRMShopingCartViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D4C726C2188665D500681344 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4C3E291188247EA00112E83 /* TRMOrderCustomerTypeViewController.h */,
+				D4C3E292188247EA00112E83 /* TRMOrderCustomerTypeViewController.m */,
+				D4C3E293188247EA00112E83 /* TRMOrderCustomerTypeViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D4C726C3188665E200681344 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4C3E26F1881DD1500112E83 /* TRMTaskListViewController.h */,
+				D4C3E2701881DD1500112E83 /* TRMTaskListViewController.m */,
+				D4C3E2711881DD1500112E83 /* TRMTaskListViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D4C726C4188665FA00681344 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7E9EAE31187D28ED008DDA2E /* TRMLoadingViewController.h */,
+				7E9EAE32187D28ED008DDA2E /* TRMLoadingViewController.m */,
+				7E9EAE33187D28ED008DDA2E /* TRMLoadingViewController.xib */,
+				7EC31908187BC3C30093083E /* TRMLoginViewController.h */,
+				7EC31909187BC3C30093083E /* TRMLoginViewController.m */,
+				7EC3190A187BC3C30093083E /* TRMLoginViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D4C726C51886669D00681344 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D4C726C6188666F300681344 /* TRMProductSelectionCell.h */,
+				D4C726C7188666F300681344 /* TRMProductSelectionCell.m */,
+				D4C726C91886673C00681344 /* TRMProductSelectionCell.xib */,
+				D4C7271D1886875C00681344 /* TRMProductSelectionSearchView.h */,
+				D4C7271E1886875C00681344 /* TRMProductSelectionSearchView.m */,
+				D4C7272018868A0D00681344 /* TRMProductSelectionSearchView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D4C726CB1886682700681344 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D4C726D218866A0100681344 /* placeholder_image@2x.png */,
+				D4C726CE1886685500681344 /* cart.png */,
+				D4C726CC1886684C00681344 /* badge@2x.png */,
+				D4C726D01886685C00681344 /* cart@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D4C7271C18866D8900681344 /* SDWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				D4C7271918866D8300681344 /* NSData+ImageContentType.h */,
+				D4C7271A18866D8300681344 /* NSData+ImageContentType.m */,
+				D4C726F118866D7700681344 /* MKAnnotationView+WebCache.h */,
+				D4C726F218866D7700681344 /* MKAnnotationView+WebCache.m */,
+				D4C726F318866D7700681344 /* SDImageCache.h */,
+				D4C726F418866D7700681344 /* SDImageCache.m */,
+				D4C726F518866D7700681344 /* SDWebImageCompat.h */,
+				D4C726F618866D7700681344 /* SDWebImageCompat.m */,
+				D4C726F718866D7700681344 /* SDWebImageDecoder.h */,
+				D4C726F818866D7700681344 /* SDWebImageDecoder.m */,
+				D4C726F918866D7700681344 /* SDWebImageDownloader.h */,
+				D4C726FA18866D7700681344 /* SDWebImageDownloader.m */,
+				D4C726FB18866D7700681344 /* SDWebImageDownloaderOperation.h */,
+				D4C726FC18866D7700681344 /* SDWebImageDownloaderOperation.m */,
+				D4C726FD18866D7700681344 /* SDWebImageManager.h */,
+				D4C726FE18866D7700681344 /* SDWebImageManager.m */,
+				D4C726FF18866D7700681344 /* SDWebImageOperation.h */,
+				D4C7270018866D7700681344 /* SDWebImagePrefetcher.h */,
+				D4C7270118866D7700681344 /* SDWebImagePrefetcher.m */,
+				D4C7270218866D7700681344 /* UIButton+WebCache.h */,
+				D4C7270318866D7700681344 /* UIButton+WebCache.m */,
+				D4C7270418866D7700681344 /* UIImage+GIF.h */,
+				D4C7270518866D7700681344 /* UIImage+GIF.m */,
+				D4C7270618866D7700681344 /* UIImage+MultiFormat.h */,
+				D4C7270718866D7700681344 /* UIImage+MultiFormat.m */,
+				D4C7270818866D7700681344 /* UIImage+WebP.h */,
+				D4C7270918866D7700681344 /* UIImage+WebP.m */,
+				D4C7270A18866D7700681344 /* UIImageView+WebCache.h */,
+				D4C7270B18866D7700681344 /* UIImageView+WebCache.m */,
+			);
+			name = SDWebImage;
+			path = Trumaker;
+			sourceTree = "<group>";
+		};
 		D4E091491882830200FB52F2 /* Object Mapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -704,6 +914,32 @@
 				D4E0914D1882858700FB52F2 /* TRMOutfitterModel.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		D4FAB5F318879EEA004AC0C2 /* Build Preference */ = {
+			isa = PBXGroup;
+			children = (
+				D4FAB5FA1887A0EC004AC0C2 /* Model */,
+				D4FAB5F418879F02004AC0C2 /* Controllers */,
+			);
+			name = "Build Preference";
+			sourceTree = "<group>";
+		};
+		D4FAB5F418879F02004AC0C2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4FAB5F518879F5C004AC0C2 /* TRMBuildPreferenceViewController.h */,
+				D4FAB5F618879F5C004AC0C2 /* TRMBuildPreferenceViewController.m */,
+				D4FAB5F718879F5C004AC0C2 /* TRMBuildPreferenceViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D4FAB5FA1887A0EC004AC0C2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -789,30 +1025,39 @@
 				D4C3E28B188236D600112E83 /* task_list_bridge_on.png in Resources */,
 				D4C3E2BB1882649100112E83 /* trumaker_hero_two@2x.png in Resources */,
 				7EC547D9187D39D500DAC090 /* TRMDashboardTableViewCell.xib in Resources */,
+				D4C726D11886685C00681344 /* cart@2x.png in Resources */,
+				D4C726CD1886684C00681344 /* badge@2x.png in Resources */,
 				D4C3E2A718825E5A00112E83 /* dashboard_camera_icon@2x.png in Resources */,
+				D4C726D318866A0100681344 /* placeholder_image@2x.png in Resources */,
 				D4C3E2CE18827CDA00112E83 /* navigation_back_arrow_on_@2x.png in Resources */,
 				D4C3E2C918826C9E00112E83 /* TRMCustomerInformationViewController.xib in Resources */,
 				D4C3E29F1882563800112E83 /* mark_photo@2x.png in Resources */,
+				D4C726BC1886625200681344 /* TRMProductSelectionViewController.xib in Resources */,
 				D4C3E2CC18827CCD00112E83 /* navigation_back_arrow_off_@2x.png in Resources */,
 				D4E0913418827EBA00FB52F2 /* navigation_forward_arrow_off.png in Resources */,
 				D4C3E2B618825F8C00112E83 /* dashboard_post_icon@2x.png in Resources */,
 				7EC547DB187D3B0600DAC090 /* dashboard_arrow@2x.png in Resources */,
+				D4C726CA1886673C00681344 /* TRMProductSelectionCell.xib in Resources */,
 				D4C3E2991882550300112E83 /* profile_image_mask_base@2x.png in Resources */,
 				D40D760218831F17000AB22E /* TRMCustomerCell.xib in Resources */,
 				D4C3E2D018827CE500112E83 /* navigation_forward_arrow_off_@2x.png in Resources */,
 				7EC3190E187BC40C0093083E /* login-icon.png in Resources */,
 				D4C3E29B1882560300112E83 /* mark_photo.png in Resources */,
+				D4C7272118868A0D00681344 /* TRMProductSelectionSearchView.xib in Resources */,
+				D4FAB5F918879F5C004AC0C2 /* TRMBuildPreferenceViewController.xib in Resources */,
 				D4C3E2731881DD1500112E83 /* TRMTaskListViewController.xib in Resources */,
 				7E9EAE3E187D2AED008DDA2E /* trumaker_hero@2x.png in Resources */,
 				D4C3E2A518825E5200112E83 /* dashboard_camera_icon.png in Resources */,
 				D4E0913618827EC200FB52F2 /* navigation_forward_arrow_on.png in Resources */,
 				D4C3E2611881C64B00112E83 /* hamburger.png in Resources */,
 				7E9EAE35187D28ED008DDA2E /* TRMLoadingViewController.xib in Resources */,
+				D4C726CF1886685500681344 /* cart.png in Resources */,
 				D4C3E297188254F500112E83 /* profile_image_mask_base.png in Resources */,
 				D4C3E2A318825B3500112E83 /* profile_image_mask_stroke@2x.png in Resources */,
 				D4C3E2D218827CF400112E83 /* navigation_forward_arrow_on_@2x.png in Resources */,
 				D4C3E2B418825F8100112E83 /* dashboard_post_icon.png in Resources */,
 				D4C3E2631881C65700112E83 /* hamburger@2x.png in Resources */,
+				D4C726C1188662A000681344 /* TRMShopingCartViewController.xib in Resources */,
 				7EC3190C187BC3C30093083E /* TRMLoginViewController.xib in Resources */,
 				D4E0913218827EAE00FB52F2 /* navigation_back_arrow_on.png in Resources */,
 				D4C3E2891882355B00112E83 /* task_list_circle_on.png in Resources */,
@@ -843,25 +1088,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4FAB5F818879F5C004AC0C2 /* TRMBuildPreferenceViewController.m in Sources */,
+				D4C726B218864C7F00681344 /* TRMProductsDAO.m in Sources */,
 				7EC31931187BCF580093083E /* AFURLConnectionOperation.m in Sources */,
+				D4C726B51886588D00681344 /* TRMProductModel.m in Sources */,
 				D4C3E26E1881CDB700112E83 /* TRMTaskModel.m in Sources */,
+				D4FAB5F218879410004AC0C2 /* TRMConfigurationModel.m in Sources */,
 				7EC3192C187BCF580093083E /* AFHTTPRequestOperation.m in Sources */,
 				7E8ABC34187CF9EC00F792DA /* TRMCustomerDAO.m in Sources */,
+				D4C7271118866D7700681344 /* SDWebImageDownloaderOperation.m in Sources */,
+				D4C7271418866D7700681344 /* UIButton+WebCache.m in Sources */,
 				7EC3192F187BCF580093083E /* AFNetworkReachabilityManager.m in Sources */,
 				7EC547DE187D3BF600DAC090 /* TRMDashboardTableViewCell.m in Sources */,
 				7EC31934187BCF580093083E /* AFURLSessionManager.m in Sources */,
 				D4C3E2AF18825F2700112E83 /* UIActionSheet+Blocks.m in Sources */,
+				D4C7270E18866D7700681344 /* SDWebImageCompat.m in Sources */,
+				D4C7271018866D7700681344 /* SDWebImageDownloader.m in Sources */,
 				D40D760018831F07000AB22E /* TRMCustomerCell.m in Sources */,
 				D4E0914E1882858700FB52F2 /* TRMOutfitterModel.m in Sources */,
 				7E9189A9187D307B0017C156 /* TRMDashboardModel.m in Sources */,
 				D4E09147188282F600FB52F2 /* JTValidMappingKey.m in Sources */,
+				D4C726C0188662A000681344 /* TRMShopingCartViewController.m in Sources */,
 				7E9EAE3A187D2AD2008DDA2E /* TRMDashboardViewController.m in Sources */,
 				7EC31932187BCF580093083E /* AFURLRequestSerialization.m in Sources */,
 				D4E09144188282F600FB52F2 /* JTDateMappings.m in Sources */,
 				7EC318E1187BC2650093083E /* TRMAppDelegate.m in Sources */,
 				D40D75FB18831E90000AB22E /* TRMCustomerTableViewModel.m in Sources */,
+				D4C726BB1886625200681344 /* TRMProductSelectionViewController.m in Sources */,
+				D4C7270F18866D7700681344 /* SDWebImageDecoder.m in Sources */,
+				D4C7271F1886875C00681344 /* TRMProductSelectionSearchView.m in Sources */,
+				D4C7271B18866D8300681344 /* NSData+ImageContentType.m in Sources */,
+				D4C7271218866D7700681344 /* SDWebImageManager.m in Sources */,
+				D4C7271818866D7700681344 /* UIImageView+WebCache.m in Sources */,
 				7E8ABC3B187D19BE00F792DA /* MBProgressHUD.m in Sources */,
 				7EC31933187BCF580093083E /* AFURLResponseSerialization.m in Sources */,
+				D4C7270C18866D7700681344 /* MKAnnotationView+WebCache.m in Sources */,
 				D4C3E2721881DD1500112E83 /* TRMTaskListViewController.m in Sources */,
 				7EC31916187BC74F0093083E /* TRMIndentTextField.m in Sources */,
 				D4C3E2B018825F2700112E83 /* UIAlertView+Blocks.m in Sources */,
@@ -874,7 +1135,10 @@
 				D4C726AE1886278400681344 /* TRMPhoneModel.m in Sources */,
 				7EC3192D187BCF580093083E /* AFHTTPRequestOperationManager.m in Sources */,
 				7EC31938187BD3410093083E /* TRMUtils.m in Sources */,
+				D4C7271518866D7700681344 /* UIImage+GIF.m in Sources */,
+				D4C7271718866D7700681344 /* UIImage+WebP.m in Sources */,
 				D4C3E25A1881C09300112E83 /* MMDrawerController.m in Sources */,
+				D4C726C8188666F300681344 /* TRMProductSelectionCell.m in Sources */,
 				D4E09148188282F600FB52F2 /* NSObject+JTObjectMapping.m in Sources */,
 				7EC31930187BCF580093083E /* AFSecurityPolicy.m in Sources */,
 				7E8ABC2D187CEE3800F792DA /* TRMEnviorment.m in Sources */,
@@ -882,16 +1146,19 @@
 				7EC3190B187BC3C30093083E /* TRMLoginViewController.m in Sources */,
 				D4E09145188282F600FB52F2 /* JTMappings.m in Sources */,
 				D4C3E25C1881C09300112E83 /* UIViewController+MMDrawerController.m in Sources */,
+				D4C7271618866D7700681344 /* UIImage+MultiFormat.m in Sources */,
 				D4E09151188290CE00FB52F2 /* TRMCoreApi.m in Sources */,
 				D4E09146188282F600FB52F2 /* JTSetMappings.m in Sources */,
 				D4C3E2B91882602800112E83 /* RIButtonItem.m in Sources */,
 				D4C3E294188247EA00112E83 /* TRMOrderCustomerTypeViewController.m in Sources */,
 				D40D76051883949C000AB22E /* TRMCustomerModel.m in Sources */,
+				D4C7271318866D7700681344 /* SDWebImagePrefetcher.m in Sources */,
 				D4C3E2C818826C9E00112E83 /* TRMCustomerInformationViewController.m in Sources */,
 				7EC318DD187BC2650093083E /* main.m in Sources */,
 				D40D7608188395B0000AB22E /* NSDictionary+dictionaryWithObject.m in Sources */,
 				7E8ABC37187CFB9400F792DA /* TRMAuthHolder.m in Sources */,
 				7EC3192E187BCF580093083E /* AFHTTPSessionManager.m in Sources */,
+				D4C7270D18866D7700681344 /* SDImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

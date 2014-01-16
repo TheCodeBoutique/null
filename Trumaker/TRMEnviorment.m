@@ -90,7 +90,6 @@
     return @"/api/me";
 }
 
-
 -(NSString *)urlForProducts
 {
     return [NSString stringWithFormat:@"%@/%@",[self currentServer],@"api/products.json"];

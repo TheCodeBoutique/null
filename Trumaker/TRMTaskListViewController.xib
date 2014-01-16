@@ -18,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="task_list_background.png" id="sRs-ds-98j">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="task_list_background.png" id="sRs-ds-98j">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
@@ -35,7 +35,7 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="65" sectionHeaderHeight="26" sectionFooterHeight="22" id="Xog-7l-hwZ">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="65" sectionHeaderHeight="26" sectionFooterHeight="22" id="Xog-7l-hwZ">
                     <rect key="frame" x="0.0" y="86" width="320" height="511"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -61,6 +61,7 @@
                     </view>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="J1P-zB-jJT"/>
+                        <outlet property="delegate" destination="-1" id="VUa-FJ-Cge"/>
                     </connections>
                 </tableView>
             </subviews>

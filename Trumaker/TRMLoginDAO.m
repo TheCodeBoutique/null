@@ -7,6 +7,7 @@
 //
 
 #import "AFHTTPRequestOperationManager.h"
+#import "UIImageView+WebCache.h"
 
 #import "TRMLoginDAO.h"
 #import "TRMCustomerDAO.h"
@@ -40,13 +41,13 @@
         //if we have image url go download it
         if ([outfitter picture]) {
             [self downloadImageForOutFitter:outfitter completionHandler:^(UIImage *image, NSError *error) {
-                if (!error) {
+                if (image) {
                     [outfitter setOutfitterImage:image];
-                    [[[TRMCustomerDAO alloc] init] fetchCustomersForOutfitter];
                     handler(YES, nil);
                 } else {
-                    handler(YES, nil);
+                    handler(NO, error);
                 }
+                 [[[TRMCustomerDAO alloc] init] fetchCustomersForOutfitter];
             }];
         } else {
             [[[TRMCustomerDAO alloc] init] fetchCustomersForOutfitter];
@@ -60,17 +61,18 @@
 
 //This operation will download a new image for the outfitter
 -(void)downloadImageForOutFitter:(TRMOutfitterModel *)outfitter completionHandler:(void(^)( UIImage *image, NSError *error))handler {
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[outfitter picture]]];
-    AFHTTPRequestOperation *postOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    postOperation.responseSerializer = [AFImageResponseSerializer serializer];
-    
-    [postOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        UIImage *image = responseObject;
-        handler(image, nil);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        handler(nil, error);
-    }];
-    
-    [postOperation start];
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    [manager downloadWithURL:[NSURL URLWithString:[outfitter picture]]
+                     options:0
+                    progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                        NSLog(@"receivedSize : %d expectedSize : %d",receivedSize,expectedSize);
+                    }
+                   completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                       if (image) {
+                           handler(image, nil);
+                       } else {
+                           handler(nil, error);
+                       }
+                   }];
 }
 @end

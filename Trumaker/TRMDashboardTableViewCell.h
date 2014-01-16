@@ -12,4 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *cellTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *rightArrow;
 @property (nonatomic, assign) BOOL isLastCell;
+
+//used for contacts
+@property (nonatomic, assign) BOOL isDisabled;
 @end

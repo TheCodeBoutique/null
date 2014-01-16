@@ -8,6 +8,7 @@
 
 #import "TRMLoginViewController.h"
 #import "TRMLoginDAO.h"
+#import "TRMProductsDAO.h"
 #import "MBProgressHUD.h"
 
 @interface TRMLoginViewController ()
@@ -101,7 +102,6 @@
     {
         [hud hide:YES];
         if (!error) {
-            
         }
     }];
     

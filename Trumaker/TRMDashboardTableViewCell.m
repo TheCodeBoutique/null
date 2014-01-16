@@ -10,6 +10,7 @@
 #import "TRMUtils.h"
 @interface TRMDashboardTableViewCell()
 @property (nonatomic, strong) CALayer *bottomBorder;
+@property (nonatomic, strong) UIActivityIndicatorView *spinner;
 @end
 
 @implementation TRMDashboardTableViewCell
@@ -29,7 +30,31 @@
 
 -(void)layoutSubviews {
     [[self cellTitle] sizeToFit];
+    CGRect cellFrame = [_cellTitle frame];
     [self drawBorderForCell];
+    
+    if (self.isDisabled) {
+        [self addSubview:[self spinnerView]];
+        CGRect spinnerFrame = [_spinner frame];
+        CGRect cellTitleFrame = [_cellTitle frame];
+        cellTitleFrame.origin.x = CGRectGetMaxX(spinnerFrame) + 7.0f;
+        [_cellTitle setFrame:cellTitleFrame];
+        [[self rightArrow] setHidden:YES];
+    } else {
+        cellFrame.origin.x = 20.0f;
+        [_cellTitle setFrame:cellFrame];
+        [_rightArrow setHidden:NO];
+    }
+}
+
+-(UIActivityIndicatorView *)spinnerView {
+    if (!_spinner) {
+        _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [_spinner startAnimating];
+        [_spinner setFrame:CGRectMake(10, 18, 40.0f, 40.0f)];
+        return _spinner;
+    }
+    return _spinner;
 }
 
 -(void)drawBorderForCell {

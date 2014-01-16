@@ -19,6 +19,10 @@
 #import "TRMAddressModel.h"
 #import "TRMPhoneModel.h"
 
+
+//REmove
+#import "TRMProductSelectionViewController.h"
+
 @interface TRMCustomerInformationViewController () <UITextFieldDelegate>
 @property (nonatomic, strong) NSMutableArray *tableDataSource;
 @property (nonatomic, weak) TRMCustomerCell *selectedCell;
@@ -387,6 +391,15 @@
     int length = (int)[mobileNumber length];
     
     return length;
+}
+
+#pragma mark REMOVE JUST TESTING
+- (IBAction)goToProductSelection:(id)sender {
+    TRMProductSelectionViewController *productSelectionViewController = [[TRMProductSelectionViewController alloc] initWithNibName:@"TRMProductSelectionViewController" bundle:nil];
+    [productSelectionViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+    [[productSelectionViewController navigationItem] setHidesBackButton:YES];
+    [[productSelectionViewController navigationItem] setTitle:@"Orders"];
+    [[self navigationController] pushViewController:productSelectionViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,6 +8,7 @@
 
 #import "TRMAppDelegate.h"
 #import "TRMLoginDAO.h"
+#import "TRMProductsDAO.h"
 #import "TRMUtils.h"
 
 #import "TRMLoginViewController.h"
@@ -51,6 +52,7 @@
             TRMLoginDAO *loginDAO = [[TRMLoginDAO alloc] init];
             [loginDAO login:username withPassword:pasword completionHandler:^(BOOL successful, NSError *error) {
                 if (!error) {
+                    [self fetchProducts];
                     [[self rootViewController] setLeftDrawerViewController:taskListViewController];
                     [self setDashboardViewContorllerToCenterViewController];
                     [[self window] setRootViewController:[self rootViewController]];
@@ -123,6 +125,14 @@
 
 -(void)allowOpenDrawer {
     [rootViewController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+}
+
+
+-(void)fetchProducts {
+    //we should fetch products
+    TRMProductsDAO *dao = [[TRMProductsDAO alloc] init];
+    [dao fetchProducts];
+    [dao fetchConfigurations];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

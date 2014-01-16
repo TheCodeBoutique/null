@@ -25,6 +25,12 @@
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
+        
+        //send push notifcations for customer
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"clientsUpdateNotification"
+         object:nil];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error: %@", error);
     }];

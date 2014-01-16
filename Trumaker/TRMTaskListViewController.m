@@ -7,6 +7,8 @@
 //
 
 #import "TRMTaskListViewController.h"
+#import "TRMBuildPreferenceViewController.h"
+
 #import "TRMUtils.h"
 #import "TRMTaskModel.h"
 #import "TRMTaskListCell.h"
@@ -96,9 +98,9 @@
     TRMTaskModel *model = [tableDataSource objectAtIndex:[indexPath row]];
     [[cell title] setText:[model title]];
     
-    if ([indexPath row] == 3) {
-        [cell setIsDisabled:YES];
-    }
+//    if ([indexPath row] == 3) {
+//        [cell setIsDisabled:YES];
+//    }
     
     if ([indexPath row] == [tableDataSource count] - 1) {
         [cell setIsLastCell:YES];
@@ -110,6 +112,20 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    if ([indexPath row] == 3) {
+        TRMBuildPreferenceViewController *buildPreferenceViewController = [[TRMBuildPreferenceViewController alloc] initWithNibName:@"TRMBuildPreferenceViewController" bundle:nil];
+        [self pushViewControllerStack:buildPreferenceViewController withTitle:@"Build Perference"];
+    }
+    
+}
+
+-(void)pushViewControllerStack:(UIViewController *)viewController withTitle:(NSString *)title {
+    [[viewController navigationItem] setTitle:title];
+    UINavigationController *mainNavigationControllter = [[UINavigationController alloc] initWithRootViewController:viewController];
+    TRMAppDelegate *del = (TRMAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [[del rootViewController] setCenterViewController:mainNavigationControllter withCloseAnimation:YES completion:^(BOOL finished) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning

@@ -27,12 +27,15 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="A1L-RU-nUv" userLabel="Forward Button">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="A1L-RU-nUv" userLabel="Forward Button">
                             <rect key="frame" x="276" y="-2" width="44" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="navigation_forward_arrow_on.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="goToProductSelection:" destination="-1" eventType="touchUpInside" id="Qdq-rE-EiG"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.45882352939999999" green="0.49803921569999998" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
@@ -42,7 +45,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <view key="tableFooterView" contentMode="scaleToFill" id="Cje-Mf-yeL" userLabel="Hidden View">
-                        <rect key="frame" x="0.0" y="463.99996948242188" width="320" height="1"/>
+                        <rect key="frame" x="0.0" y="464" width="320" height="1"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>

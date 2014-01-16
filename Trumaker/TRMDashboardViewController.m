@@ -17,16 +17,19 @@
 @interface TRMDashboardViewController ()
 @property (nonatomic, strong) NSMutableArray *dashboardData;
 @property (nonatomic, strong) TRMOutfitterModel *outfitter;
+@property (nonatomic, assign) BOOL customersUpdated;
 @end
 
 @implementation TRMDashboardViewController
 @synthesize dashboardData;
+@synthesize customersUpdated;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        customersUpdated = NO;
     }
     return self;
 }
@@ -97,12 +100,26 @@
     [[cell cellTitle] setText:[model title]];
      ([indexPath row] == [dashboardData count] - 1) ? [cell setIsLastCell:YES] :[cell setIsLastCell:NO];
     
+    //we need to make contacts cell deativated till notifcation registers and lets us know contacts have been updated
+    if ([[model title] isEqualToString:@"Contacts"] && !customersUpdated) {
+        [[cell cellTitle] setText:@"Loading Contacts..."];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        [cell setIsDisabled:YES];
+    } else {
+        [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
+        [cell setIsDisabled:NO];
+    }
     
     return cell;
 }
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //dont allow selection for contacts if its not updated
+    if ([indexPath row] == 3 && !customersUpdated) {
+        return;
+    }
+    
     if ([indexPath row] == 0) {
         //order selected
         TRMOrderCustomerTypeViewController *orderCustomerTypeViewController = [[TRMOrderCustomerTypeViewController alloc] initWithNibName:@"TRMOrderCustomerTypeViewController" bundle:nil];
@@ -116,11 +133,30 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [[self navigationItem] setTitle:@"Back"];
+
+    //notification for clients update
+    [[NSNotificationCenter defaultCenter]
+     removeObserver:self
+     name:@"clientsUpdateNotification"
+     object:nil
+     ];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [[self navigationItem] setTitle:@"TRUMAKER"];
+    [[NSNotificationCenter defaultCenter]
+     
+     addObserver:self
+     selector:@selector(updateClients:)
+     name:@"clientsUpdateNotification"
+     object:nil ];
+}
+
+-(void)updateClients:(NSNotification *)notification {
+    customersUpdated = YES;
+    [[self tableView] reloadData];
+    
 }
 
 - (void)didReceiveMemoryWarning {
