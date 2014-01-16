@@ -12,6 +12,7 @@
 #import "TRMProductSelectionSearchView.h"
 #import "TRMCoreApi.h"
 #import "UIImageView+WebCache.h"
+#import "TRMBadgeView.h"
 
 @interface TRMProductSelectionViewController ()<UISearchBarDelegate>
 @property (nonatomic, strong) NSMutableArray *products;
@@ -53,7 +54,17 @@
      _cpyOfProducts = [_products mutableCopy];
     
     //add shopping cart button
-    UIBarButtonItem *shoppingCartButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cart"] style:UIBarButtonItemStyleBordered target:self action:@selector(didTapShoppingCart:)];
+    UIButton *cartButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+//    [[cartButton layer] setBorderWidth:1.5];
+    [cartButton addTarget:self action:@selector(didTapShoppingCart:) forControlEvents:UIControlEventTouchUpInside];
+    [cartButton setImage:[UIImage imageNamed:@"cart"] forState:UIControlStateNormal];
+    
+    TRMBadgeView *badgeView = [[TRMBadgeView alloc] initWithFrame:CGRectMake(0, 0, 20.0f, 20.0f)];
+    [[badgeView badgeCount] setText:@"4"];
+    [cartButton addSubview:badgeView];
+    
+    UIBarButtonItem *shoppingCartButton = [[UIBarButtonItem alloc] initWithCustomView:cartButton];
+
     [[self navigationItem] setRightBarButtonItem:shoppingCartButton];
 }
 
@@ -66,8 +77,13 @@
 }
 
 -(void)didTapShoppingCart:(id)sender {
+
     TRMShopingCartViewController *shopingCartViewController = [[TRMShopingCartViewController alloc] initWithNibName:@"TRMShopingCartViewController" bundle:nil];
-    [self presentViewController:shopingCartViewController animated:YES completion:nil];
+    [self removeDuplicatesFromArray:_selectedProducts];
+    [shopingCartViewController setSelectedProducts:_selectedProducts];
+    [shopingCartViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:shopingCartViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 -(void)configureCollectionViewFlowLayout
@@ -114,7 +130,12 @@
     TRMProductSelectionCell *selectedCell = (TRMProductSelectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
     [[selectedCell proudct] setIsSelected:YES];
     [[selectedCell proudct] incrementSelectedCount];
-    [[self collectionView] reloadData];    
+    
+    //added product to selected products array to be used in shopping cart
+    [_selectedProducts addObject:[selectedCell proudct]];
+    
+    //update collection view
+    [[self collectionView] reloadData];
 }
 
 #pragma mark Filter Products
@@ -135,6 +156,19 @@
     }
 }
 
+
+
+#pragma mark Helpers
+-(void)removeDuplicatesFromArray:(NSMutableArray *)array {
+    NSArray *copy = [_selectedProducts copy];
+    NSInteger index = [copy count] - 1;
+    for (id object in [copy reverseObjectEnumerator]) {
+        if ([_selectedProducts indexOfObject:object inRange:NSMakeRange(0, index)] != NSNotFound) {
+            [_selectedProducts removeObjectAtIndex:index];
+        }
+        index--;
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

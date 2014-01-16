@@ -134,6 +134,9 @@
 		D4FAB5F218879410004AC0C2 /* TRMConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FAB5F118879410004AC0C2 /* TRMConfigurationModel.m */; };
 		D4FAB5F818879F5C004AC0C2 /* TRMBuildPreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FAB5F618879F5C004AC0C2 /* TRMBuildPreferenceViewController.m */; };
 		D4FAB5F918879F5C004AC0C2 /* TRMBuildPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4FAB5F718879F5C004AC0C2 /* TRMBuildPreferenceViewController.xib */; };
+		D4FAB5FF1887B59B004AC0C2 /* TRMShoppingCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FAB5FE1887B59B004AC0C2 /* TRMShoppingCartCell.m */; };
+		D4FAB6011887B5AC004AC0C2 /* TRMShoppingCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4FAB6001887B5AC004AC0C2 /* TRMShoppingCartCell.xib */; };
+		D4FAB6071887C795004AC0C2 /* TRMBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FAB6061887C795004AC0C2 /* TRMBadgeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -350,6 +353,11 @@
 		D4FAB5F518879F5C004AC0C2 /* TRMBuildPreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMBuildPreferenceViewController.h; sourceTree = "<group>"; };
 		D4FAB5F618879F5C004AC0C2 /* TRMBuildPreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMBuildPreferenceViewController.m; sourceTree = "<group>"; };
 		D4FAB5F718879F5C004AC0C2 /* TRMBuildPreferenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMBuildPreferenceViewController.xib; sourceTree = "<group>"; };
+		D4FAB5FD1887B59B004AC0C2 /* TRMShoppingCartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMShoppingCartCell.h; sourceTree = "<group>"; };
+		D4FAB5FE1887B59B004AC0C2 /* TRMShoppingCartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMShoppingCartCell.m; sourceTree = "<group>"; };
+		D4FAB6001887B5AC004AC0C2 /* TRMShoppingCartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMShoppingCartCell.xib; sourceTree = "<group>"; };
+		D4FAB6051887C795004AC0C2 /* TRMBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMBadgeView.h; sourceTree = "<group>"; };
+		D4FAB6061887C795004AC0C2 /* TRMBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMBadgeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -468,6 +476,7 @@
 		7EC318D6187BC2650093083E /* Trumaker */ = {
 			isa = PBXGroup;
 			children = (
+				D4FAB5FB1887B30F004AC0C2 /* Shopping Cart */,
 				D4FAB5F318879EEA004AC0C2 /* Build Preference */,
 				D4C726AF18864C6300681344 /* Product Selection */,
 				D4E0914A1882854800FB52F2 /* Outfitter */,
@@ -544,6 +553,8 @@
 				D4C3E2B118825F4300112E83 /* Alert View */,
 				7EC31914187BC74F0093083E /* TRMIndentTextField.h */,
 				7EC31915187BC74F0093083E /* TRMIndentTextField.m */,
+				D4FAB6051887C795004AC0C2 /* TRMBadgeView.h */,
+				D4FAB6061887C795004AC0C2 /* TRMBadgeView.m */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -776,9 +787,6 @@
 				D4C726B81886625200681344 /* TRMProductSelectionViewController.h */,
 				D4C726B91886625200681344 /* TRMProductSelectionViewController.m */,
 				D4C726BA1886625200681344 /* TRMProductSelectionViewController.xib */,
-				D4C726BD188662A000681344 /* TRMShopingCartViewController.h */,
-				D4C726BE188662A000681344 /* TRMShopingCartViewController.m */,
-				D4C726BF188662A000681344 /* TRMShopingCartViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -942,6 +950,27 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		D4FAB5FB1887B30F004AC0C2 /* Shopping Cart */ = {
+			isa = PBXGroup;
+			children = (
+				D4FAB5FC1887B559004AC0C2 /* New Group */,
+				D4C726BD188662A000681344 /* TRMShopingCartViewController.h */,
+				D4C726BE188662A000681344 /* TRMShopingCartViewController.m */,
+				D4C726BF188662A000681344 /* TRMShopingCartViewController.xib */,
+			);
+			name = "Shopping Cart";
+			sourceTree = "<group>";
+		};
+		D4FAB5FC1887B559004AC0C2 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				D4FAB5FD1887B59B004AC0C2 /* TRMShoppingCartCell.h */,
+				D4FAB5FE1887B59B004AC0C2 /* TRMShoppingCartCell.m */,
+				D4FAB6001887B5AC004AC0C2 /* TRMShoppingCartCell.xib */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1040,6 +1069,7 @@
 				D4C726CA1886673C00681344 /* TRMProductSelectionCell.xib in Resources */,
 				D4C3E2991882550300112E83 /* profile_image_mask_base@2x.png in Resources */,
 				D40D760218831F17000AB22E /* TRMCustomerCell.xib in Resources */,
+				D4FAB6011887B5AC004AC0C2 /* TRMShoppingCartCell.xib in Resources */,
 				D4C3E2D018827CE500112E83 /* navigation_forward_arrow_off_@2x.png in Resources */,
 				7EC3190E187BC40C0093083E /* login-icon.png in Resources */,
 				D4C3E29B1882560300112E83 /* mark_photo.png in Resources */,
@@ -1125,6 +1155,7 @@
 				D4C7270C18866D7700681344 /* MKAnnotationView+WebCache.m in Sources */,
 				D4C3E2721881DD1500112E83 /* TRMTaskListViewController.m in Sources */,
 				7EC31916187BC74F0093083E /* TRMIndentTextField.m in Sources */,
+				D4FAB5FF1887B59B004AC0C2 /* TRMShoppingCartCell.m in Sources */,
 				D4C3E2B018825F2700112E83 /* UIAlertView+Blocks.m in Sources */,
 				D4C726AB1886276F00681344 /* TRMAddressModel.m in Sources */,
 				7EC3193C187BD3CB0093083E /* TRMLoginDAO.m in Sources */,
@@ -1136,6 +1167,7 @@
 				7EC3192D187BCF580093083E /* AFHTTPRequestOperationManager.m in Sources */,
 				7EC31938187BD3410093083E /* TRMUtils.m in Sources */,
 				D4C7271518866D7700681344 /* UIImage+GIF.m in Sources */,
+				D4FAB6071887C795004AC0C2 /* TRMBadgeView.m in Sources */,
 				D4C7271718866D7700681344 /* UIImage+WebP.m in Sources */,
 				D4C3E25A1881C09300112E83 /* MMDrawerController.m in Sources */,
 				D4C726C8188666F300681344 /* TRMProductSelectionCell.m in Sources */,
