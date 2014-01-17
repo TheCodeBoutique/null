@@ -154,10 +154,10 @@ ABAddressBookRef addressBook;
         NSString *email = (__bridge_transfer NSString *)
         ABMultiValueCopyValueAtIndex(emails, emailCounter);
         
-        NSLog(@"Label = %@, Localized Label = %@, Email = %@",
-              emailLabel,
-              localizedEmailLabel,
-              email);
+//        NSLog(@"Label = %@, Localized Label = %@, Email = %@",
+//              emailLabel,
+//              localizedEmailLabel,
+//              email);
         
         emailLabel = (emailLabel.length != 0) ? emailLabel : @"Other";
         NSDictionary *emailDict = [[NSDictionary alloc] initWithObjectsAndKeys:email, emailLabel,nil];
@@ -203,10 +203,10 @@ ABAddressBookRef addressBook;
         NSString *phoneNumber = (__bridge_transfer NSString *)
         ABMultiValueCopyValueAtIndex(phones, phoneCounter);
         
-        NSLog(@"Label = %@, Localized Label = %@, phone = %@",
-              phoneLabel,
-              localizedPhoneLabel,
-              phoneNumber);
+//        NSLog(@"Label = %@, Localized Label = %@, phone = %@",
+//              phoneLabel,
+//              localizedPhoneLabel,
+//              phoneNumber);
         
         phoneLabel = (phoneLabel.length != 0) ? phoneLabel : @"Other";
         NSDictionary *phoneDict = [[NSDictionary alloc] initWithObjectsAndKeys:phoneNumber, phoneLabel,nil];
@@ -252,10 +252,10 @@ ABAddressBookRef addressBook;
         NSString *address = (__bridge_transfer NSString *)
         ABMultiValueCopyValueAtIndex(addresses, addressCounter);
         
-        NSLog(@"Label = %@, Localized Label = %@, address = %@",
-              addressLabel,
-              localizedAddressLabel,
-              address);
+//        NSLog(@"Label = %@, Localized Label = %@, address = %@",
+//              addressLabel,
+//              localizedAddressLabel,
+//              address);
         
         addressLabel = (addressLabel.length != 0) ? addressLabel : @"Other";
         NSDictionary *addressDict = [[NSDictionary alloc] initWithObjectsAndKeys:address, addressLabel,nil];
@@ -289,8 +289,9 @@ ABAddressBookRef addressBook;
         ABRecordCopyValue(thisPerson, kABPersonLastNameProperty);
         
         
-        NSLog(@"First Name = %@", firstName);
-        NSLog(@"Last Name = %@", lastName);
+//        NSLog(@"First Name = %@", firstName);
+//        NSLog(@"Last Name = %@", lastName);
+        
         
         NSMutableArray *emails = [self logPersonEmails:thisPerson];
         NSMutableArray *phoneNumbers = [self logPhoneNumbrs:thisPerson];
@@ -303,7 +304,22 @@ ABAddressBookRef addressBook;
         [contact setAddresses:address];
         [contact setEmails:emails];
         [contact setPhone_numbers:phoneNumbers];
-        [localContacts addObject:contact];
+        
+        //handle null checks and remove contacts that have both first and last names as nulls
+        if (firstName.length == 0 && lastName.length == 0) {
+            NSLog(@"removing local contact cause both first name and last name are null");
+        }else {
+            
+            if (lastName.length == 0) {
+                [contact setLast_name:@""];
+            }
+            
+            if (firstName.length == 0) {
+                [contact setFirst_name:@""];
+            }
+            
+            [localContacts addObject:contact];
+        }
     }
     [[TRMCoreApi sharedInstance] setLocalContacts:localContacts];
 }
