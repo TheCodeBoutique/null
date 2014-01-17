@@ -131,6 +131,12 @@
 		D4E09148188282F600FB52F2 /* NSObject+JTObjectMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E09142188282F600FB52F2 /* NSObject+JTObjectMapping.m */; };
 		D4E0914E1882858700FB52F2 /* TRMOutfitterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E0914D1882858700FB52F2 /* TRMOutfitterModel.m */; };
 		D4E09151188290CE00FB52F2 /* TRMCoreApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E09150188290CE00FB52F2 /* TRMCoreApi.m */; };
+		D4E60A911889092700DC1678 /* TRMCustomersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E60A8F1889092700DC1678 /* TRMCustomersViewController.m */; };
+		D4E60A921889092700DC1678 /* TRMCustomersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E60A901889092700DC1678 /* TRMCustomersViewController.xib */; };
+		D4E60A9D18890DCE00DC1678 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4E60A9B18890DCE00DC1678 /* AddressBook.framework */; };
+		D4E60A9E18890DCE00DC1678 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4E60A9C18890DCE00DC1678 /* AddressBookUI.framework */; };
+		D4E60AA11889126C00DC1678 /* TRMAddressBookApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E60AA01889126C00DC1678 /* TRMAddressBookApi.m */; };
+		D4E60AA51889175100DC1678 /* TRMPhoneContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E60AA41889175100DC1678 /* TRMPhoneContactModel.m */; };
 		D4FAB5F218879410004AC0C2 /* TRMConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FAB5F118879410004AC0C2 /* TRMConfigurationModel.m */; };
 		D4FAB5F818879F5C004AC0C2 /* TRMBuildPreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FAB5F618879F5C004AC0C2 /* TRMBuildPreferenceViewController.m */; };
 		D4FAB5F918879F5C004AC0C2 /* TRMBuildPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4FAB5F718879F5C004AC0C2 /* TRMBuildPreferenceViewController.xib */; };
@@ -348,6 +354,15 @@
 		D4E0914D1882858700FB52F2 /* TRMOutfitterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMOutfitterModel.m; sourceTree = "<group>"; };
 		D4E0914F188290CE00FB52F2 /* TRMCoreApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMCoreApi.h; sourceTree = "<group>"; };
 		D4E09150188290CE00FB52F2 /* TRMCoreApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMCoreApi.m; sourceTree = "<group>"; };
+		D4E60A8E1889092700DC1678 /* TRMCustomersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMCustomersViewController.h; sourceTree = "<group>"; };
+		D4E60A8F1889092700DC1678 /* TRMCustomersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMCustomersViewController.m; sourceTree = "<group>"; };
+		D4E60A901889092700DC1678 /* TRMCustomersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMCustomersViewController.xib; sourceTree = "<group>"; };
+		D4E60A9B18890DCE00DC1678 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		D4E60A9C18890DCE00DC1678 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		D4E60A9F1889126C00DC1678 /* TRMAddressBookApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMAddressBookApi.h; sourceTree = "<group>"; };
+		D4E60AA01889126C00DC1678 /* TRMAddressBookApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMAddressBookApi.m; sourceTree = "<group>"; };
+		D4E60AA31889175100DC1678 /* TRMPhoneContactModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMPhoneContactModel.h; sourceTree = "<group>"; };
+		D4E60AA41889175100DC1678 /* TRMPhoneContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMPhoneContactModel.m; sourceTree = "<group>"; };
 		D4FAB5F018879410004AC0C2 /* TRMConfigurationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMConfigurationModel.h; sourceTree = "<group>"; };
 		D4FAB5F118879410004AC0C2 /* TRMConfigurationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMConfigurationModel.m; sourceTree = "<group>"; };
 		D4FAB5F518879F5C004AC0C2 /* TRMBuildPreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMBuildPreferenceViewController.h; sourceTree = "<group>"; };
@@ -365,6 +380,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4E60A9D18890DCE00DC1678 /* AddressBook.framework in Frameworks */,
+				D4E60A9E18890DCE00DC1678 /* AddressBookUI.framework in Frameworks */,
 				7EC318D3187BC2650093083E /* CoreGraphics.framework in Frameworks */,
 				7EC318D5187BC2650093083E /* UIKit.framework in Frameworks */,
 				7EC318D1187BC2650093083E /* Foundation.framework in Frameworks */,
@@ -460,6 +477,8 @@
 		7EC318CF187BC2650093083E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4E60A9B18890DCE00DC1678 /* AddressBook.framework */,
+				D4E60A9C18890DCE00DC1678 /* AddressBookUI.framework */,
 				D4C7271C18866D8900681344 /* SDWebImage */,
 				D4E091491882830200FB52F2 /* Object Mapper */,
 				D4C3E24F1881C06200112E83 /* Drawer Framework */,
@@ -476,6 +495,7 @@
 		7EC318D6187BC2650093083E /* Trumaker */ = {
 			isa = PBXGroup;
 			children = (
+				D4E60A8D1889042200DC1678 /* Customers */,
 				D4FAB5FB1887B30F004AC0C2 /* Shopping Cart */,
 				D4FAB5F318879EEA004AC0C2 /* Build Preference */,
 				D4C726AF18864C6300681344 /* Product Selection */,
@@ -496,6 +516,8 @@
 				7EC318D7187BC2650093083E /* Supporting Files */,
 				D4E0914F188290CE00FB52F2 /* TRMCoreApi.h */,
 				D4E09150188290CE00FB52F2 /* TRMCoreApi.m */,
+				D4E60A9F1889126C00DC1678 /* TRMAddressBookApi.h */,
+				D4E60AA01889126C00DC1678 /* TRMAddressBookApi.m */,
 			);
 			path = Trumaker;
 			sourceTree = "<group>";
@@ -924,6 +946,26 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		D4E60A8D1889042200DC1678 /* Customers */ = {
+			isa = PBXGroup;
+			children = (
+				D4E60AA21889172800DC1678 /* Phone Contacts */,
+				D4E60A8E1889092700DC1678 /* TRMCustomersViewController.h */,
+				D4E60A8F1889092700DC1678 /* TRMCustomersViewController.m */,
+				D4E60A901889092700DC1678 /* TRMCustomersViewController.xib */,
+			);
+			name = Customers;
+			sourceTree = "<group>";
+		};
+		D4E60AA21889172800DC1678 /* Phone Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				D4E60AA31889175100DC1678 /* TRMPhoneContactModel.h */,
+				D4E60AA41889175100DC1678 /* TRMPhoneContactModel.m */,
+			);
+			name = "Phone Contacts";
+			sourceTree = "<group>";
+		};
 		D4FAB5F318879EEA004AC0C2 /* Build Preference */ = {
 			isa = PBXGroup;
 			children = (
@@ -1065,6 +1107,7 @@
 				D4C3E2CC18827CCD00112E83 /* navigation_back_arrow_off_@2x.png in Resources */,
 				D4E0913418827EBA00FB52F2 /* navigation_forward_arrow_off.png in Resources */,
 				D4C3E2B618825F8C00112E83 /* dashboard_post_icon@2x.png in Resources */,
+				D4E60A921889092700DC1678 /* TRMCustomersViewController.xib in Resources */,
 				7EC547DB187D3B0600DAC090 /* dashboard_arrow@2x.png in Resources */,
 				D4C726CA1886673C00681344 /* TRMProductSelectionCell.xib in Resources */,
 				D4C3E2991882550300112E83 /* profile_image_mask_base@2x.png in Resources */,
@@ -1122,6 +1165,7 @@
 				D4C726B218864C7F00681344 /* TRMProductsDAO.m in Sources */,
 				7EC31931187BCF580093083E /* AFURLConnectionOperation.m in Sources */,
 				D4C726B51886588D00681344 /* TRMProductModel.m in Sources */,
+				D4E60A911889092700DC1678 /* TRMCustomersViewController.m in Sources */,
 				D4C3E26E1881CDB700112E83 /* TRMTaskModel.m in Sources */,
 				D4FAB5F218879410004AC0C2 /* TRMConfigurationModel.m in Sources */,
 				7EC3192C187BCF580093083E /* AFHTTPRequestOperation.m in Sources */,
@@ -1180,6 +1224,7 @@
 				D4C3E25C1881C09300112E83 /* UIViewController+MMDrawerController.m in Sources */,
 				D4C7271618866D7700681344 /* UIImage+MultiFormat.m in Sources */,
 				D4E09151188290CE00FB52F2 /* TRMCoreApi.m in Sources */,
+				D4E60AA11889126C00DC1678 /* TRMAddressBookApi.m in Sources */,
 				D4E09146188282F600FB52F2 /* JTSetMappings.m in Sources */,
 				D4C3E2B91882602800112E83 /* RIButtonItem.m in Sources */,
 				D4C3E294188247EA00112E83 /* TRMOrderCustomerTypeViewController.m in Sources */,
@@ -1191,6 +1236,7 @@
 				7E8ABC37187CFB9400F792DA /* TRMAuthHolder.m in Sources */,
 				7EC3192E187BCF580093083E /* AFHTTPSessionManager.m in Sources */,
 				D4C7270D18866D7700681344 /* SDImageCache.m in Sources */,
+				D4E60AA51889175100DC1678 /* TRMPhoneContactModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

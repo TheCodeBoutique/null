@@ -20,5 +20,8 @@
 @property (strong, nonatomic) NSMutableArray *addresses; //TRMAddress
 @property (strong, nonatomic) NSMutableArray *phones; //TRMPhone
 
+@property (strong, nonatomic) NSMutableArray *in_progress_orders;
+
 -(NSString *)fullName;
+-(NSNumber *)idForOrder;
 @end

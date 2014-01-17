@@ -63,7 +63,6 @@
     
 }
 
-
 - (void)fetchConfigurations {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [[manager requestSerializer] setValue:[[TRMAuthHolder sharedInstance] authString] forHTTPHeaderField:@"HTTP_AUTHORIZATION"];
@@ -85,4 +84,98 @@
         NSLog(@"error: %@", error);
     }];
 }
+
+
+- (void)saveSelectedProducts:(NSMutableArray *)selectedProducts {
+    
+}
+
+
+
+//-(void)updateProductSelectionForOrder:(NSMutableArray *)products withOrderId:(NSInteger )orderId completionHandler:(void (^)(TRMOrder *order, NSError *))handler
+//{
+//    NSString *updateOrderUrl = [[TRMEnviorment sharedInstance] urlForUpdatingOrder];
+//    NSString *orderStringId   = [NSString stringWithFormat:@"%d",orderId];
+//    NSString *orderUrl = [NSString stringWithFormat:@"%@%@",updateOrderUrl,orderStringId];
+//    NSURL *baseURL = [NSURL URLWithString:[[TRMEnviorment sharedInstance] baseURL]];
+//    
+//    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
+//    [client setParameterEncoding:AFJSONParameterEncoding];
+//    [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
+//    [client setDefaultHeader:@"HTTP_AUTHORIZATION" value:[[TRMAuthHolder sharedInstance] authString]];
+//    NSLog(@"HTTP_AUTHORIZATION  %@",[[TRMAuthHolder sharedInstance] authString]);
+//    NSMutableArray *productsArray = [[NSMutableArray alloc] init];
+//    
+//    
+//    
+//#pragma mark finished orders check
+//    BOOL isFirstShirtState = [[TRMCoreApi sharedInstance] isFirstShirtSelection];
+//    
+//    //parse products then add first shirt
+//    for (int i = 0; i < [products count]; i++) {
+//        TRMProduct *product = [products objectAtIndex:i];
+//        NSLog(@"Poduct ID %d",[product id]);
+//        NSMutableDictionary *orderDict = [[NSMutableDictionary alloc] init];
+//        [orderDict setValue:[NSNumber numberWithInt:[product id]] forKey:@"product_id"];
+//        
+//        if (isFirstShirtState) {
+//            [orderDict setValue:@"remaining" forKey:@"item_type"];
+//        }
+//        
+//        NSMutableArray *configurationsForProducts = [[TRMParser sharedInstance] JSONForConfigurationsCheckout:[product configurations]];
+//        //        [orderDict setObject:configurationsForProducts forKey:@"customizations"];
+//        
+//        [productsArray addObject:orderDict];
+//    }
+//    
+//    
+//    //finished orders check
+//    if (isFirstShirtState) {
+//        TRMProduct *firstShirt = [[[TRMCoreApi sharedInstance] firstShirtSelection] objectAtIndex:0];
+//        if (firstShirt) {
+//            NSLog(@"We found first Shirt %@",firstShirt.name);
+//            NSMutableDictionary *orderDict = [[NSMutableDictionary alloc] init];
+//            NSLog(@"FirstShirt Poduct ID %d",[firstShirt id]);
+//            [orderDict setValue:[NSNumber numberWithInt:[firstShirt id]] forKey:@"product_id"];
+//            [orderDict setValue:@"first" forKey:@"item_type"];
+//            
+//            NSMutableArray *configurationsForProducts = [[TRMParser sharedInstance] JSONForConfigurationsCheckout:[firstShirt configurations]];
+//            //            [orderDict setObject:configurationsForProducts forKey:@"customizations"];
+//            [productsArray addObject:orderDict];
+//        }
+//    }
+//    
+//    NSMutableDictionary *productsDict = [[NSMutableDictionary alloc] init];
+//    [productsDict setObject:productsArray forKey:@"order_items"];
+//    
+//    
+//    
+//    //update missing user key for json
+//    NSMutableDictionary *dataDict = [[NSMutableDictionary alloc] init];
+//    [dataDict setObject:productsDict forKey:@"order"];
+//    
+//    [self sampleJSON:dataDict];
+//    
+//    [client putPath:orderUrl parameters:dataDict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        
+//        if (responseObject)
+//        {
+//            NSDictionary *json =  [NSJSONSerialization
+//                                   JSONObjectWithData:responseObject
+//                                   options:NSJSONReadingAllowFragments
+//                                   error:nil];
+//            
+//            NSLog(@"resonse JSON = %@",json);
+//            TRMOrder *orderUpdate =[[TRMParser sharedInstance] parseOrderFromJSON:json];
+//            handler(orderUpdate, nil);
+//        }
+//        else
+//        {
+//            NSLog(@"JSON error");
+//        }
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        [[TRMErrorState sharedInstance] HandleStateWithError:error withOperation:operation];
+//    }];
+//    
+//}
 @end

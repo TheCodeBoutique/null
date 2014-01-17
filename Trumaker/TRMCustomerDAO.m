@@ -9,6 +9,8 @@
 #import "TRMCustomerDAO.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "NSDictionary+dictionaryWithObject.h"
+#import "NSObject+JTObjectMapping.h"
+#import "TRMCoreApi.h"
 
 #import "TRMAuthHolder.h"
 #import "TRMEnviorment.h"
@@ -24,7 +26,16 @@
     
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        NSMutableArray *jsonArray = [responseObject objectForKey:@"array"];
+        NSMutableArray *customers = [[NSMutableArray alloc] init];
         
+        [jsonArray enumerateObjectsUsingBlock:^(NSDictionary *customerDictionary, NSUInteger idx, BOOL *stop) {
+            TRMCustomerModel *customer = [TRMCustomerModel objectFromJSONObject:customerDictionary mapping:nil];
+            [customers addObject:customer];
+        }];
+        
+        //add customers to core api
+        [[TRMCoreApi sharedInstance] setOutfitterCustomers:customers];
         
         //send push notifcations for customer
         [[NSNotificationCenter defaultCenter]

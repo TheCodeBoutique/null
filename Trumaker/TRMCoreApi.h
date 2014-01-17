@@ -14,5 +14,7 @@
 @property (nonatomic, strong) NSMutableArray *products; //this is the list of trumaker products (shirts)
 @property (nonatomic, strong) NSMutableArray *configurations; //shirt configurations
 
+@property (nonatomic, strong) NSMutableArray *outfitterCustomers; // customer that are sent from server for outfitter
+@property (nonatomic, strong) NSMutableArray *localContacts; //contacts that are stored on the device 
 + (TRMCoreApi *)sharedInstance;
 @end

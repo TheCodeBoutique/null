@@ -12,4 +12,9 @@
 -(NSString *)fullName {
     return  [NSString stringWithFormat:@"%@ %@",[self first_name], [self last_name]];
 }
+
+-(NSNumber *)idForOrder {
+    
+    return [[[self in_progress_orders] objectAtIndex:0] id];
+}
 @end

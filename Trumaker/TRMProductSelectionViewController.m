@@ -166,7 +166,6 @@
 }
 
 
-
 #pragma mark Helpers
 -(void)removeDuplicatesFromArray:(NSMutableArray *)array {
     NSArray *copy = [_selectedProducts copy];

@@ -11,4 +11,5 @@
 @interface TRMProductsDAO : NSObject
 - (void)fetchProducts;
 - (void)fetchConfigurations;
+- (void)saveSelectedProducts:(NSMutableArray *)selectedProducts;
 @end
