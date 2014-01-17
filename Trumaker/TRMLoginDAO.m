@@ -65,7 +65,7 @@
     [manager downloadWithURL:[NSURL URLWithString:[outfitter picture]]
                      options:0
                     progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                        NSLog(@"receivedSize : %d expectedSize : %d",receivedSize,expectedSize);
+                        NSLog(@"receivedSize : %ld expectedSize : %ld",(long)receivedSize,(long)expectedSize);
                     }
                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
                        if (image) {
