@@ -118,8 +118,10 @@
 //    [[dashboardViewController navigationItem] setLeftBarButtonItem :[self menuBarButton]];
 }
 
--(void)showMenuButton {
-    [[[self rootViewController] navigationItem] setLeftBarButtonItem:[self menuBarButton]];
+-(void)showMenuButton {    
+    
+    //better testing not all controllers will have navigation controller
+    [[[[[[self rootViewController] centerViewController] childViewControllers] objectAtIndex:0] navigationItem] setLeftBarButtonItem:[self menuBarButton]];
 }
 
 -(void)allowOpenDrawer {

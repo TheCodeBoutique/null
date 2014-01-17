@@ -66,8 +66,7 @@
 }
 
 -(void)saveTapped:(id)sender {
-    //we should check if its an exisisting customer
-    
+    //we should check if its an exisisting customer    
     [self saveNewCustomer];
 }
 

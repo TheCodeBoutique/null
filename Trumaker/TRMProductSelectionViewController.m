@@ -55,7 +55,6 @@
     
     //add shopping cart button
     UIButton *cartButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-//    [[cartButton layer] setBorderWidth:1.5];
     [cartButton addTarget:self action:@selector(didTapShoppingCart:) forControlEvents:UIControlEventTouchUpInside];
     [cartButton setImage:[UIImage imageNamed:@"cart"] forState:UIControlStateNormal];
     
@@ -64,8 +63,10 @@
     [cartButton addSubview:badgeView];
     
     UIBarButtonItem *shoppingCartButton = [[UIBarButtonItem alloc] initWithCustomView:cartButton];
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(didTapSave:)];
 
-    [[self navigationItem] setRightBarButtonItem:shoppingCartButton];
+    NSArray *array = @[saveButton, shoppingCartButton];
+    [[self navigationItem] setRightBarButtonItems:array];
 }
 
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -74,6 +75,10 @@
     
     [[headerView searchBar] setDelegate:self];
     return headerView;
+}
+
+-(void)didTapSave:(id)sender {
+    
 }
 
 -(void)didTapShoppingCart:(id)sender {
@@ -124,6 +129,8 @@
     
     [[cell badgeView] setHidden:![[cell proudct] isSelected]];
     [[cell badgeCount] setText:[NSString stringWithFormat:@"%@",[[cell proudct] selectedCount]]];
+    
+    
     return cell;
 }
 
