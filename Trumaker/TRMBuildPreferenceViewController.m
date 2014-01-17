@@ -10,13 +10,15 @@
 #import "TRMCoreApi.h"
 #import "TRMConfigurationModel.h"
 #import "UIImageView+WebCache.h"
+#import "TRMBuildPreferenceDetailViewController.h"
 
-@interface TRMBuildPreferenceViewController ()
-@property(nonatomic, strong) NSMutableArray *tableDataSource;
+@interface TRMBuildPreferenceViewController () <TRMBuildPreferenceDetailDelegate>
+@property(nonatomic, strong) NSMutableArray *buildConfigurationsTypeArray;
+@property (nonatomic, strong) NSIndexPath *currentSelectedIndex;
 @end
 
 @implementation TRMBuildPreferenceViewController
-@synthesize tableDataSource;
+@synthesize buildConfigurationsTypeArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+     buildConfigurationsTypeArray = [[NSMutableArray alloc] initWithObjects:@"Fit", @"Collar", @"Cuffs", @"Pocket", @"Placket", @"Pleat", @"Length", @"Monogram", nil];
+    
 }
 
 #pragma mark - Table view data source
@@ -38,26 +43,54 @@
     return 1;
 }
 
+//make a cell for each item in the array
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return [buildConfigurationsTypeArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //create a cell if there isnt one, or use a pre-existing one if we already have one
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    [[cell textLabel] setText:@"Cell"];
-    return cell;
+    
+    //set the cell's text to item in the array
+    [[cell textLabel] setText:[buildConfigurationsTypeArray objectAtIndex:indexPath.row]];
+    
+        return cell;
 }
 
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //push self navingationController to new view
+    TRMBuildPreferenceDetailViewController *buildPreferenceDetailViewController = [[TRMBuildPreferenceDetailViewController alloc] init];
+    [buildPreferenceDetailViewController setDelgate:self];
     
+    //get the title of the current cell
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *cellTitle = cell.textLabel.text;
+    
+    //pass the title to the detailTableView to use in sort predicate
+    [buildPreferenceDetailViewController setSelectedConfigurationName:cellTitle];
+    
+    _currentSelectedIndex = indexPath;
+    
+    //push the detailView onto the screen
+    [[self navigationController] pushViewController:buildPreferenceDetailViewController animated:YES];
+}
+
+-(void)didSelectConfiguration:(NSString *)selectedConfiguration
+{
+    //update the cell with the new info (update the array)
+
+    [buildConfigurationsTypeArray replaceObjectAtIndex:_currentSelectedIndex.row withObject:selectedConfiguration];
+    
+    [[self tableView] reloadData];
 }
 
 - (void)didReceiveMemoryWarning
