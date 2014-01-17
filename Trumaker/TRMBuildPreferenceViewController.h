@@ -10,5 +10,7 @@
 
 @interface TRMBuildPreferenceViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSString *selectedConfigurationTitle; //use to pass cell title between viewcontrollers
+@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 
 @end
