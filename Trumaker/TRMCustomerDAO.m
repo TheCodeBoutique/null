@@ -14,6 +14,9 @@
 
 #import "TRMAuthHolder.h"
 #import "TRMEnviorment.h"
+#import "TRMAddressModel.h"
+#import "TRMPhoneModel.h"
+#import "TRMOrderModel.h"
 
 @implementation TRMCustomerDAO
 
@@ -26,11 +29,46 @@
     
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        
         NSMutableArray *jsonArray = [responseObject objectForKey:@"array"];
         NSMutableArray *customers = [[NSMutableArray alloc] init];
         
         [jsonArray enumerateObjectsUsingBlock:^(NSDictionary *customerDictionary, NSUInteger idx, BOOL *stop) {
+            //parse customer
             TRMCustomerModel *customer = [TRMCustomerModel objectFromJSONObject:customerDictionary mapping:nil];
+            
+            //array of addresses
+            NSMutableArray *customerAddresses = [[NSMutableArray alloc] init];
+            [[customer addresses] enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSDictionary *addressDictionary, NSUInteger idx, BOOL *stop) {
+                TRMAddressModel *address = [TRMAddressModel objectFromJSONObject:addressDictionary mapping:nil];
+                [customerAddresses addObject:address];
+            }];
+            
+            //array of phone numbers
+            NSMutableArray *phoneNumbers = [[NSMutableArray alloc] init];
+            [[customer phones] enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSDictionary *phoneDict, NSUInteger idx, BOOL *stop) {
+                TRMPhoneModel *phone = [TRMPhoneModel objectFromJSONObject:phoneDict mapping:nil];
+                [phoneNumbers addObject:phone];
+            }];
+            
+            //need to map orders
+            NSMutableArray *inProgressOrders = [[NSMutableArray alloc] init];
+            [[customer in_progress_orders] enumerateObjectsUsingBlock:^(NSDictionary *orderDictionary, NSUInteger idx, BOOL *stop) {
+                TRMOrderModel *order = [TRMOrderModel objectFromJSONObject:orderDictionary mapping:nil];
+                [inProgressOrders addObject:order];
+                
+                //will need to process order items if they exsist
+            }];
+            
+            //update in progree orders
+            [customer setIn_progress_orders:inProgressOrders];
+            
+            //update phone numbers for customer
+            [customer setPhones:phoneNumbers];
+            
+            //update addresses for customer
+            [customer setAddresses:customerAddresses];
+
             [customers addObject:customer];
         }];
         

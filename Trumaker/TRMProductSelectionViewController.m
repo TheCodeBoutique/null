@@ -13,14 +13,14 @@
 #import "TRMCoreApi.h"
 #import "UIImageView+WebCache.h"
 #import "TRMBadgeView.h"
+#import "TRMAppDelegate.h"
+#import "TRMProductsDAO.h"
+#import "TRMCustomerModel.h"
+#import "MBProgressHUD.h"
 
-@interface TRMProductSelectionViewController ()<UISearchBarDelegate>
+@interface TRMProductSelectionViewController ()
 @property (nonatomic, strong) NSMutableArray *products;
 @property (nonatomic, strong) NSMutableArray *selectedProducts;
-@property (nonatomic, strong) UISearchBar *searchBar;
-
-//we need to keep a copy of products around for search
-@property (nonatomic, strong)  NSMutableArray *cpyOfProducts;
 @end
 
 @implementation TRMProductSelectionViewController
@@ -41,17 +41,11 @@
     // Do any additional setup after loading the view from its nib.
     [self.collectionView registerClass:[TRMProductSelectionCell class] forCellWithReuseIdentifier:@"productSelectionCell"];
     
-    //Setup search bar for product selection
-    [[self collectionView] registerClass:[TRMProductSelectionSearchView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"searchCell"];
-    
     //Configure Flow Layout
     [self configureCollectionViewFlowLayout];
     
     //update products with products from the server
     self.products = [[TRMCoreApi sharedInstance] products];
-    
-    //keep a local copy around for search
-     _cpyOfProducts = [_products mutableCopy];
     
     //add shopping cart button
     UIButton *cartButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
@@ -64,21 +58,28 @@
     
     UIBarButtonItem *shoppingCartButton = [[UIBarButtonItem alloc] initWithCustomView:cartButton];
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(didTapSave:)];
+    
+    TRMAppDelegate *del = [[UIApplication sharedApplication] delegate];
+    [[self navigationItem] setLeftBarButtonItem:[del menuBarButton]];
 
     NSArray *array = @[saveButton, shoppingCartButton];
     [[self navigationItem] setRightBarButtonItems:array];
 }
 
--(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
-    TRMProductSelectionSearchView *headerView = [[self collectionView] dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"searchCell" forIndexPath:indexPath];
-    
-    [[headerView searchBar] setDelegate:self];
-    return headerView;
-}
-
 -(void)didTapSave:(id)sender {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[[[[UIApplication sharedApplication] keyWindow] rootViewController] view] animated:YES];
+    [hud setMode:MBProgressHUDModeIndeterminate];
+    [hud show:YES];
+    [hud setLabelText:NSLocalizedString(@"Processing...", @"Processing...")];
     
+    TRMCustomerModel *customer = [[TRMCoreApi sharedInstance] customer];
+    int orderItem = [[customer idForOrder] intValue];
+    [[[TRMProductsDAO alloc] init] saveSelectedProducts:_selectedProducts withOrderId:orderItem completionHandler:^(TRMOrderModel *order, NSError *error) {
+        if (!error) {
+            
+        }
+        [hud hide:YES];
+    }];
 }
 
 -(void)didTapShoppingCart:(id)sender {
@@ -146,25 +147,6 @@
     //update collection view
     [[self collectionView] reloadData];
 }
-
-#pragma mark Filter Products
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    
-}
--(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    [searchBar setShowsSearchResultsButton:YES];
-}
-
-- (void)searchBarResultsListButtonClicked:(UISearchBar *)searchBar {
-    NSArray *array = _products;
-    NSPredicate *configPredicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@",[searchBar text]];
-    NSArray *results = [array filteredArrayUsingPredicate:configPredicate];
-    if ([results count] > 0) {
-        _products = [[NSMutableArray alloc] initWithArray:results];
-        [[self collectionView] reloadData];
-    }
-}
-
 
 #pragma mark Helpers
 -(void)removeDuplicatesFromArray:(NSMutableArray *)array {

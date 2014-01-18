@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 @interface TRMPhoneModel : NSObject
-@property (strong, nonatomic) NSNumber *id;
+@property (assign,nonatomic) int id;
 @property (strong, nonatomic) NSString *number;
 @property (strong, nonatomic) NSString *phone_type;
+
+-(NSString *)formattedNumber;
 @end

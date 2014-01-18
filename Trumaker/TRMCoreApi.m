@@ -19,6 +19,14 @@
     return self;
 }
 
+-(BOOL)isFirstTimeCustomer {
+    return ([[self customer] finished_orders_count] == 0) ? YES : NO;
+}
+
+-(BOOL)hasCustomerModel {
+    return ([self customer]) ? YES : NO;
+}
+
 + (TRMCoreApi *)sharedInstance
 {
     static TRMCoreApi *sharedInstance = nil;

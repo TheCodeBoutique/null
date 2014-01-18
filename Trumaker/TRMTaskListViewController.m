@@ -9,12 +9,14 @@
 #import "TRMTaskListViewController.h"
 #import "TRMBuildPreferenceViewController.h"
 #import "TRMProductSelectionViewController.h"
+#import "TRMCustomerInformationViewController.h"
 
 #import "TRMUtils.h"
 #import "TRMTaskModel.h"
 #import "TRMTaskListCell.h"
 #import "UIAlertView+Blocks.h"
 #import "TRMAppDelegate.h"
+#import "TRMCoreApi.h"
 @interface TRMTaskListViewController ()
 @property (nonatomic, strong) NSMutableArray *tableDataSource;
 
@@ -112,6 +114,14 @@
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([indexPath row] == 0) {
+        TRMCustomerInformationViewController *customerInformationViewController =[[TRMCustomerInformationViewController alloc] initWithNibName:@"TRMCustomerInformationViewController" bundle:nil];
+        [customerInformationViewController setCustomer:[[TRMCoreApi sharedInstance] customer]];
+        [customerInformationViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+        [[customerInformationViewController navigationItem] setHidesBackButton:YES];
+        [self pushViewControllerStack:customerInformationViewController withTitle:@"TRUMAKER"];
+    }
+    
     if ([indexPath row] == 1) {
         TRMProductSelectionViewController *productSelectionViewController =[[TRMProductSelectionViewController alloc] initWithNibName:@"TRMProductSelectionViewController" bundle:nil];
         [productSelectionViewController setEdgesForExtendedLayout:UIRectEdgeNone];

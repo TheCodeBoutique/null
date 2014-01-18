@@ -54,6 +54,8 @@
 		D40D760218831F17000AB22E /* TRMCustomerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40D760118831F17000AB22E /* TRMCustomerCell.xib */; };
 		D40D76051883949C000AB22E /* TRMCustomerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D40D76041883949C000AB22E /* TRMCustomerModel.m */; };
 		D40D7608188395B0000AB22E /* NSDictionary+dictionaryWithObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D40D7607188395B0000AB22E /* NSDictionary+dictionaryWithObject.m */; };
+		D492AE401889F80500CA7715 /* TRMCustomerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D492AE3E1889F80500CA7715 /* TRMCustomerDetailViewController.m */; };
+		D492AE411889F80500CA7715 /* TRMCustomerDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D492AE3F1889F80500CA7715 /* TRMCustomerDetailViewController.xib */; };
 		D4C3E25A1881C09300112E83 /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3E2531881C09300112E83 /* MMDrawerController.m */; };
 		D4C3E25B1881C09300112E83 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3E2561881C09300112E83 /* MMDrawerVisualState.m */; };
 		D4C3E25C1881C09300112E83 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3E2581881C09300112E83 /* UIViewController+MMDrawerController.m */; };
@@ -119,6 +121,7 @@
 		D4C7271B18866D8300681344 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C7271A18866D8300681344 /* NSData+ImageContentType.m */; };
 		D4C7271F1886875C00681344 /* TRMProductSelectionSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C7271E1886875C00681344 /* TRMProductSelectionSearchView.m */; };
 		D4C7272118868A0D00681344 /* TRMProductSelectionSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C7272018868A0D00681344 /* TRMProductSelectionSearchView.xib */; };
+		D4CCB713188B0877001FB6A3 /* TRMOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CCB712188B0877001FB6A3 /* TRMOrderModel.m */; };
 		D4E0913018827E9F00FB52F2 /* navigation_back_arrow_off.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E0912F18827E9F00FB52F2 /* navigation_back_arrow_off.png */; };
 		D4E0913218827EAE00FB52F2 /* navigation_back_arrow_on.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E0913118827EAE00FB52F2 /* navigation_back_arrow_on.png */; };
 		D4E0913418827EBA00FB52F2 /* navigation_forward_arrow_off.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E0913318827EBA00FB52F2 /* navigation_forward_arrow_off.png */; };
@@ -237,6 +240,9 @@
 		D40D76041883949C000AB22E /* TRMCustomerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMCustomerModel.m; sourceTree = "<group>"; };
 		D40D7606188395B0000AB22E /* NSDictionary+dictionaryWithObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+dictionaryWithObject.h"; sourceTree = "<group>"; };
 		D40D7607188395B0000AB22E /* NSDictionary+dictionaryWithObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+dictionaryWithObject.m"; sourceTree = "<group>"; };
+		D492AE3D1889F80500CA7715 /* TRMCustomerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMCustomerDetailViewController.h; sourceTree = "<group>"; };
+		D492AE3E1889F80500CA7715 /* TRMCustomerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMCustomerDetailViewController.m; sourceTree = "<group>"; };
+		D492AE3F1889F80500CA7715 /* TRMCustomerDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMCustomerDetailViewController.xib; sourceTree = "<group>"; };
 		D4C3E2521881C09300112E83 /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
 		D4C3E2531881C09300112E83 /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
 		D4C3E2541881C09300112E83 /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
@@ -337,6 +343,8 @@
 		D4C7271D1886875C00681344 /* TRMProductSelectionSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMProductSelectionSearchView.h; sourceTree = "<group>"; };
 		D4C7271E1886875C00681344 /* TRMProductSelectionSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMProductSelectionSearchView.m; sourceTree = "<group>"; };
 		D4C7272018868A0D00681344 /* TRMProductSelectionSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMProductSelectionSearchView.xib; sourceTree = "<group>"; };
+		D4CCB711188B0877001FB6A3 /* TRMOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMOrderModel.h; sourceTree = "<group>"; };
+		D4CCB712188B0877001FB6A3 /* TRMOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMOrderModel.m; sourceTree = "<group>"; };
 		D4E0912F18827E9F00FB52F2 /* navigation_back_arrow_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_back_arrow_off.png; sourceTree = "<group>"; };
 		D4E0913118827EAE00FB52F2 /* navigation_back_arrow_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_back_arrow_on.png; sourceTree = "<group>"; };
 		D4E0913318827EBA00FB52F2 /* navigation_forward_arrow_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_forward_arrow_off.png; sourceTree = "<group>"; };
@@ -503,6 +511,7 @@
 		7EC318D6187BC2650093083E /* Trumaker */ = {
 			isa = PBXGroup;
 			children = (
+				D4CCB70F188B085A001FB6A3 /* Checkout */,
 				D4E60A8D1889042200DC1678 /* Customers */,
 				D4FAB5FB1887B30F004AC0C2 /* Shopping Cart */,
 				D4FAB5F318879EEA004AC0C2 /* Build Preference */,
@@ -675,6 +684,26 @@
 				D40D760118831F17000AB22E /* TRMCustomerCell.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		D492AE3B1889F73F00CA7715 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D492AE3C1889F75100CA7715 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4E60A8E1889092700DC1678 /* TRMCustomersViewController.h */,
+				D4E60A8F1889092700DC1678 /* TRMCustomersViewController.m */,
+				D4E60A901889092700DC1678 /* TRMCustomersViewController.xib */,
+				D492AE3D1889F80500CA7715 /* TRMCustomerDetailViewController.h */,
+				D492AE3E1889F80500CA7715 /* TRMCustomerDetailViewController.m */,
+				D492AE3F1889F80500CA7715 /* TRMCustomerDetailViewController.xib */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		D4C3E24F1881C06200112E83 /* Drawer Framework */ = {
@@ -915,6 +944,39 @@
 			path = Trumaker;
 			sourceTree = "<group>";
 		};
+		D4CCB70F188B085A001FB6A3 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				D4CCB715188B0AF4001FB6A3 /* Resources */,
+				D4CCB714188B0AED001FB6A3 /* Controllers */,
+				D4CCB710188B0863001FB6A3 /* Model */,
+			);
+			name = Checkout;
+			sourceTree = "<group>";
+		};
+		D4CCB710188B0863001FB6A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D4CCB711188B0877001FB6A3 /* TRMOrderModel.h */,
+				D4CCB712188B0877001FB6A3 /* TRMOrderModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D4CCB714188B0AED001FB6A3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D4CCB715188B0AF4001FB6A3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		D4E091491882830200FB52F2 /* Object Mapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -957,10 +1019,9 @@
 		D4E60A8D1889042200DC1678 /* Customers */ = {
 			isa = PBXGroup;
 			children = (
+				D492AE3C1889F75100CA7715 /* Controllers */,
+				D492AE3B1889F73F00CA7715 /* Resources */,
 				D4E60AA21889172800DC1678 /* Phone Contacts */,
-				D4E60A8E1889092700DC1678 /* TRMCustomersViewController.h */,
-				D4E60A8F1889092700DC1678 /* TRMCustomersViewController.m */,
-				D4E60A901889092700DC1678 /* TRMCustomersViewController.xib */,
 			);
 			name = Customers;
 			sourceTree = "<group>";
@@ -1109,6 +1170,7 @@
 				D4C3E28B188236D600112E83 /* task_list_bridge_on.png in Resources */,
 				D4C3E2BB1882649100112E83 /* trumaker_hero_two@2x.png in Resources */,
 				7EC547D9187D39D500DAC090 /* TRMDashboardTableViewCell.xib in Resources */,
+				D492AE411889F80500CA7715 /* TRMCustomerDetailViewController.xib in Resources */,
 				D4C726D11886685C00681344 /* cart@2x.png in Resources */,
 				D4C726CD1886684C00681344 /* badge@2x.png in Resources */,
 				D4C3E2A718825E5A00112E83 /* dashboard_camera_icon@2x.png in Resources */,
@@ -1201,6 +1263,7 @@
 				7E9EAE3A187D2AD2008DDA2E /* TRMDashboardViewController.m in Sources */,
 				7EC31932187BCF580093083E /* AFURLRequestSerialization.m in Sources */,
 				D4E09144188282F600FB52F2 /* JTDateMappings.m in Sources */,
+				D4CCB713188B0877001FB6A3 /* TRMOrderModel.m in Sources */,
 				7EC318E1187BC2650093083E /* TRMAppDelegate.m in Sources */,
 				D40D75FB18831E90000AB22E /* TRMCustomerTableViewModel.m in Sources */,
 				D4C726BB1886625200681344 /* TRMProductSelectionViewController.m in Sources */,
@@ -1233,6 +1296,7 @@
 				D4C726C8188666F300681344 /* TRMProductSelectionCell.m in Sources */,
 				D4E09148188282F600FB52F2 /* NSObject+JTObjectMapping.m in Sources */,
 				7EC31930187BCF580093083E /* AFSecurityPolicy.m in Sources */,
+				D492AE401889F80500CA7715 /* TRMCustomerDetailViewController.m in Sources */,
 				7E8ABC2D187CEE3800F792DA /* TRMEnviorment.m in Sources */,
 				D4C3E25B1881C09300112E83 /* MMDrawerVisualState.m in Sources */,
 				7EC3190B187BC3C30093083E /* TRMLoginViewController.m in Sources */,

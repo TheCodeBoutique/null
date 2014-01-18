@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "TRMAddressModel.h"
+#import "TRMPhoneModel.h"
 @interface TRMCustomerModel : NSObject
 @property (strong, nonatomic) NSNumber *id;
 @property (strong, nonatomic) NSString *email;
@@ -24,4 +25,8 @@
 
 -(NSString *)fullName;
 -(NSNumber *)idForOrder;
+-(BOOL)isExisitingCustomer;
+
+-(TRMAddressModel *)primaryAddress;
+-(TRMPhoneModel *)primaryPhone;
 @end

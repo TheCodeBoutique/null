@@ -10,7 +10,7 @@
 
 @interface TRMAddressModel : NSObject
 
-@property (strong, nonatomic) NSNumber *id;
+@property (assign, nonatomic) int id;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *address1;
 @property (strong, nonatomic) NSString *address2;

@@ -147,8 +147,8 @@ ABAddressBookRef addressBook;
         NSString *emailLabel = (__bridge_transfer NSString *)
         ABMultiValueCopyLabelAtIndex(emails, emailCounter);
         
-        NSString *localizedEmailLabel = (__bridge_transfer NSString *)
-        ABAddressBookCopyLocalizedLabel((__bridge CFStringRef)emailLabel);
+//        NSString *localizedEmailLabel = (__bridge_transfer NSString *)
+//        ABAddressBookCopyLocalizedLabel((__bridge CFStringRef)emailLabel);
         
         /* And then get the email address itself */
         NSString *email = (__bridge_transfer NSString *)
@@ -196,8 +196,8 @@ ABAddressBookRef addressBook;
         NSString *phoneLabel = (__bridge_transfer NSString *)
         ABMultiValueCopyLabelAtIndex(phones, phoneCounter);
         
-        NSString *localizedPhoneLabel = (__bridge_transfer NSString *)
-        ABAddressBookCopyLocalizedLabel((__bridge CFStringRef)phoneLabel);
+//        NSString *localizedPhoneLabel = (__bridge_transfer NSString *)
+//        ABAddressBookCopyLocalizedLabel((__bridge CFStringRef)phoneLabel);
         
         /* And then get the phone address itself */
         NSString *phoneNumber = (__bridge_transfer NSString *)
@@ -245,8 +245,8 @@ ABAddressBookRef addressBook;
         NSString *addressLabel = (__bridge_transfer NSString *)
         ABMultiValueCopyLabelAtIndex(addresses, addressCounter);
         
-        NSString *localizedAddressLabel = (__bridge_transfer NSString *)
-        ABAddressBookCopyLocalizedLabel((__bridge CFStringRef)addressLabel);
+//        NSString *localizedAddressLabel = (__bridge_transfer NSString *)
+//        ABAddressBookCopyLocalizedLabel((__bridge CFStringRef)addressLabel);
         
         /* And then get the phone address itself */
         NSString *address = (__bridge_transfer NSString *)
@@ -321,6 +321,8 @@ ABAddressBookRef addressBook;
             [localContacts addObject:contact];
         }
     }
+    //we should order the array by last or frist name we should add settings option
+    
     [[TRMCoreApi sharedInstance] setLocalContacts:localContacts];
 }
 @end

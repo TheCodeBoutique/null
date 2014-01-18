@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "TRMOrderModel.h"
 @interface TRMProductsDAO : NSObject
 - (void)fetchProducts;
 - (void)fetchConfigurations;
-- (void)saveSelectedProducts:(NSMutableArray *)selectedProducts;
+- (void)saveSelectedProducts:(NSMutableArray *)selectedProducts withOrderId:(int)orderId completionHandler:(void (^)(TRMOrderModel *order, NSError *))handler;
 @end

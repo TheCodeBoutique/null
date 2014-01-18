@@ -7,6 +7,8 @@
 //
 
 #import "TRMCustomerInformationViewController.h"
+#import "TRMProductSelectionViewController.h"
+
 #import "NSObject+JTObjectMapping.h"
 
 #import "TRMCustomerCell.h"
@@ -14,30 +16,28 @@
 #import "MBProgressHUD.h"
 #import "TRMUtils.h"
 
-
 #import "TRMCustomerTableViewModel.h"
 #import "TRMAddressModel.h"
 #import "TRMPhoneModel.h"
 
-
-//REmove
-#import "TRMProductSelectionViewController.h"
-
-@interface TRMCustomerInformationViewController () <UITextFieldDelegate>
-@property (nonatomic, strong) NSMutableArray *tableDataSource;
-@property (nonatomic, weak) TRMCustomerCell *selectedCell;
+@interface TRMCustomerInformationViewController ()
+@property (nonatomic, assign) CGSize scrollViewContentSize;
+@property (nonatomic, strong) TRMIndentTextField *indentTextField;
 @property (nonatomic, strong) UIBarButtonItem *nextButton;
 @property (nonatomic, strong) UIBarButtonItem *previousButton;
-@property (nonatomic, strong) TRMIndentTextField *indentTextField;
-
+@property (nonatomic, strong) UIBarButtonItem *nextBarButtonItem;
+@property (nonatomic, strong) UIBarButtonItem *backBarButton;
+@property (nonatomic, strong) MBProgressHUD *hud;
 @end
 
 @implementation TRMCustomerInformationViewController
-@synthesize tableDataSource;
-@synthesize selectedCell;
+@synthesize nextBarButtonItem;
+@synthesize scrollView;
+@synthesize hud;
+@synthesize indentTextField;
 @synthesize nextButton;
 @synthesize previousButton;
-@synthesize indentTextField;
+@synthesize scrollViewContentSize;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,22 +52,220 @@
     [self registerKeyboardNotifications];
 }
 
+-(void)unregisterKeyboardNotifications {
+    [[NSNotificationCenter defaultCenter]
+     removeObserver:self
+     name:UIKeyboardDidShowNotification
+     object:nil];
+    
+    [[NSNotificationCenter defaultCenter]
+     removeObserver:self
+     name:UIKeyboardDidHideNotification
+     object:nil];
+    
+    [[NSNotificationCenter defaultCenter]
+     removeObserver:self
+     name:UIKeyboardWillHideNotification
+     object:nil];
+}
+
+-(void)registerKeyboardNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasHidden:)
+                                                 name:UIKeyboardDidHideNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+
+-(void)keyboardWillHide:(NSNotification *)aNotification {
+    [[self scrollView] setContentSize:CGSizeMake(scrollViewContentSize.width, scrollViewContentSize.height - 700)];
+}
+
+- (void)keyboardWasShown:(NSNotification *)aNotification
+{
+    [[self scrollView] setContentSize:CGSizeMake(scrollViewContentSize.width, scrollViewContentSize.height + 700)];
+}
+
+- (void)keyboardWasHidden:(NSNotification *)aNotification
+{
+    [[self scrollView] setContentSize:CGSizeMake(scrollViewContentSize.width, scrollViewContentSize.height - 700)];
+}
+
+
 -(void)viewWillDisappear:(BOOL)animated {
     [self unregisterKeyboardNotifications];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupTableViewData];
-    [self registerTapGesture];
+    
+    UIGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboardTap:)];
+    [[self view] addGestureRecognizer:tap];
+    
     
     UIBarButtonItem *saveButon = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveTapped:)];
     [[self navigationItem] setRightBarButtonItem:saveButon];
+    
+    
+    //set content size of scroll view so the view is scrollable on the 4s
+    CGFloat textViewWidth = self.view.frame.size.width;
+    [[self scrollView] setContentSize:CGSizeMake(textViewWidth, scrollView.frame.size.height)];
+    
+    [self updateFieldBorders];
+    
+    //update customer fields with customer data
+    if (_customer) {
+        [self updateFieldsWithCustomerData];
+    }
 }
 
+-(void)updateFieldsWithCustomerData {
+    [_firstName setText:[_customer first_name]];
+    [_lastName setText:[_customer last_name]];
+    [_addressField setText:[[_customer primaryAddress] address1]];
+    [_cityField setText:[[_customer primaryAddress] city]];
+    [_stateField setText:[[_customer primaryAddress] state_abbr_name]];
+    [_zipField setText:[[_customer primaryAddress] zip_code]];
+    [_emailField setText:[_customer email]];
+    [_phoneNumber setText:[[_customer primaryPhone] formattedNumber]];
+}
+
+//draw custom bottom border on each textfield
+-(void)updateFieldBorders
+{
+    for (id view in [[self scrollView] subviews])
+    {
+        if ([view isKindOfClass:[UITextField class]]) {
+            [TRMUtils drawBorderForView:view isBottomBorder:YES];
+            [self addAccessoryViewForTextField:view];
+        }
+    }
+}
+
+#pragma mark UITextFieldDelegate
+-(void)registerTextFieldEvents
+{
+    [_firstName addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [_lastName addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [_addressField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [_stateField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [_cityField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [_phoneNumber addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [_emailField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [_zipField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+}
+
+-(void)textFieldDidChange:(id)sender
+{
+    [[self nextBarButtonItem] setEnabled:YES];
+}
+
+-(IBAction)dismissKeyboardTap:(id)sender
+{
+    [self.view endEditing:YES];
+}
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    indentTextField = (TRMIndentTextField *)textField;
+    [self scrollViewToCenterOfScreen:textField];
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    [scrollView scrollRectToVisible:[textField frame] animated:YES];
+}
+
+-(void)addAccessoryViewForTextField:(UITextField *)textField
+{
+    UIToolbar *toolbar = [[UIToolbar alloc] init] ;
+    [toolbar setBarStyle:UIBarStyleDefault];
+    [toolbar sizeToFit];
+    
+    UIBarButtonItem *flexButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIBarButtonItem *doneButton =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(resignKeyboard)];
+    
+    nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(nextTapped:)];
+    
+    previousButton = [[UIBarButtonItem alloc] initWithTitle:@"Previous" style:UIBarButtonItemStylePlain target:self action:@selector(previousTapped:)];
+    
+    [nextButton setTintColor:[TRMUtils colorWithHexString:@"959fa5"]];
+    [previousButton setTintColor:[TRMUtils colorWithHexString:@"959fa5"]];
+    [doneButton setTintColor:[TRMUtils colorWithHexString:@"959fa5"]];
+    
+    NSArray *itemsArray = [NSArray arrayWithObjects:previousButton,nextButton,flexButton, doneButton, nil];
+    
+    [toolbar setItems:itemsArray];
+    
+    [textField setInputAccessoryView:toolbar];
+}
+
+-(void)nextTapped:(id)sender
+{
+    int currentTag = [indentTextField tag];
+    if (currentTag == 8)
+    {
+        [self resignKeyboard];
+    }
+    UITextField *nextTextField = (UITextField *)[[self view] viewWithTag:currentTag + 1];
+    [[self scrollView] scrollRectToVisible:[nextTextField frame] animated:YES];
+    [nextTextField becomeFirstResponder];
+}
+
+-(void)previousTapped:(id)sender
+{
+    int currentTag = [indentTextField tag];
+    if (currentTag == 1)
+    {
+        [self resignKeyboard];
+    }
+    UITextField *nextTextField = (UITextField *)[[self view] viewWithTag:currentTag - 1];
+    [[self scrollView] scrollRectToVisible:[nextTextField frame] animated:YES];
+    [nextTextField becomeFirstResponder];
+}
+
+
+-(void)resignKeyboard {
+    [_firstName resignFirstResponder];
+    [_firstName resignFirstResponder];
+    [_lastName resignFirstResponder];
+    [_addressField resignFirstResponder];
+    [_cityField resignFirstResponder];
+    [_phoneNumber resignFirstResponder];
+    [_emailField resignFirstResponder];
+}
+
+
+-(void)scrollViewToCenterOfScreen:(UIView *)theView
+{
+    CGFloat viewCenterY = theView.center.y;
+    CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
+    
+    CGFloat availableHeight = applicationFrame.size.height - 200; // Remove area covered by keyboard
+    
+    CGFloat y = viewCenterY - availableHeight / 2.0;
+    if (y < 0) {
+        y = 0;
+    }
+    [self.scrollView setContentOffset:CGPointMake(0, y) animated:YES];
+}
+
+
+#pragma mark Save Customer
 -(void)saveTapped:(id)sender {
-    //we should check if its an exisisting customer    
-    [self saveNewCustomer];
+    //we should check if its an exisisting customer
+    if ([_customer isExisitingCustomer]) {
+        
+    } else {
+        [self saveNewCustomer];
+    }
 }
 
 -(void)saveNewCustomer {
@@ -75,33 +273,17 @@
     TRMAddressModel *address = [[TRMAddressModel alloc] init];
     TRMPhoneModel *phone = [[TRMPhoneModel alloc] init];
     
-    for (int i = 0 ; i < [tableDataSource count]; i++) {
-        NSIndexPath *cellPath = [NSIndexPath indexPathForRow:i inSection:0];
-        TRMCustomerCell *cell = (TRMCustomerCell *)[_tableView cellForRowAtIndexPath:cellPath];
-        TRMIndentTextField *textField = [cell textField];
-        NSString *placeHolder = [textField placeholder];
-        
-        if ([placeHolder isEqualToString:@"First Name"]) {
-            [customer setFirst_name:textField.text];
-        } else if ([placeHolder isEqualToString:@"Last Name"]) {
-            [customer setLast_name:textField.text];
-        } else if ([placeHolder isEqualToString:@"Address"]) {
-            [address setAddress1:textField.text];
-        } else if ([placeHolder isEqualToString:@"City"]) {
-            [address setCity:textField.text];
-        } else if ([placeHolder isEqualToString:@"State"]) {
-            [address setState_abbr_name:textField.text];
-        } else if ([placeHolder isEqualToString:@"Zip"]) {
-            [address setZip_code:textField.text];
-        } else if ([placeHolder isEqualToString:@"Phone"]) {
-            [phone setNumber:textField.text];
-        } else if ([placeHolder isEqualToString:@"Email"]) {
-            [customer setEmail:textField.text];
-        }
-    }
+    [customer setEmail:[_emailField text]];
+    [customer setFirst_name:[_firstName text]];
+    [customer setLast_name:[_lastName text]];
+    [address setZip_code:[_zipField text]];
+    [address setAddress1:[_addressField text]];
+    [address setCity:[_cityField text]];
+    [address setState_abbr_name:[_stateField text]];
+    [phone setNumber:[_phoneNumber text]];
     
     //default monogram will be TRU
-    [customer setDefault_monogram:@"TRM"];
+    [customer setDefault_monogram:@""];
     
     //we need to make these the primary when creating new users
     [address setActive:YES];
@@ -121,206 +303,37 @@
 }
 
 -(void)sendCustomerToServer:(TRMCustomerModel *)customer {
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [hud show:YES];
+    
     TRMCustomerDAO *dao = [[TRMCustomerDAO alloc] init];
     [dao createNewCustomer:customer completionHandler:^(TRMCustomerModel *newCustomer, NSError *error) {
         if (!error) {
-            
+            [self pushProductSelection];
         }
+        [hud hide:YES];
     }];
 }
-
--(void)unregisterKeyboardNotifications {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+- (IBAction)didTapNextArrow:(id)sender {
+    [self pushProductSelection];
 }
 
--(void)registerKeyboardNotifications {
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(keyboardWillShow:)
-     name:UIKeyboardWillShowNotification
-     object:nil];
+-(void)pushProductSelection {
+    TRMProductSelectionViewController *productSelectionViewController = [[TRMProductSelectionViewController alloc] initWithNibName:@"TRMProductSelectionViewController" bundle:nil];
+    [[productSelectionViewController navigationItem] setTitle:@"TRUMAKER"];
+    [[productSelectionViewController navigationItem] setHidesBackButton:YES];
+    [productSelectionViewController setEdgesForExtendedLayout:UIRectEdgeNone];
     
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(keyboardDidShow:)
-     name:UIKeyboardDidShowNotification
-     object:nil];
-    
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(keyboardWillHide:)
-     name:UIKeyboardWillHideNotification
-     object:nil];
+    [[self navigationController] pushViewController:productSelectionViewController animated:YES];
 }
 
-- (void)keyboardWillShow:(NSNotification *)aNotification {
-    CGSize keyboardSize = [[[aNotification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    [[self tableView] setContentSize:CGSizeMake(CGRectGetWidth([_tableView frame]), CGRectGetHeight([_tableView frame]) + keyboardSize.height)];
-}
-
--(void)keyboardDidShow:(NSNotification *)aNotification {
-    //delgates are firing before the notification so we need to manual scroll to the seleced cell
-    [self scrollToSelectedCell];
-}
-
-- (void)keyboardWillHide:(NSNotification *)aNotification {
-    CGSize keyboardSize = [[[aNotification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    [[self tableView] setContentSize:CGSizeMake(CGRectGetWidth([_tableView frame]), CGRectGetHeight([_tableView frame]) - keyboardSize.height)];
-}
-
-
-
--(void)registerTapGesture {
-    UIGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                initWithTarget:self
-                                action:@selector(dismissKeyboardTap:)];
-    
-    [[self view] addGestureRecognizer:tap];
-}
-
--(IBAction)dismissKeyboardTap:(id)sender {
-    [self.view endEditing:YES];
-}
-
-
--(void)setupTableViewData
-{
-    tableDataSource = [[NSMutableArray alloc] init];
-    
-    TRMCustomerTableViewModel *firstName = [[TRMCustomerTableViewModel  alloc] init];
-    [firstName setPlacholderText:NSLocalizedString(@"First Name", @"First Name")];
-    
-    TRMCustomerTableViewModel *lastName = [[TRMCustomerTableViewModel  alloc] init];
-    [lastName setPlacholderText:NSLocalizedString(@"Last Name", @"Last Name")];
-    
-    TRMCustomerTableViewModel *address = [[TRMCustomerTableViewModel  alloc] init];
-    [address setPlacholderText:NSLocalizedString(@"Address", @"Address")];
-    
-    TRMCustomerTableViewModel *city = [[TRMCustomerTableViewModel  alloc] init];
-    [city setPlacholderText:NSLocalizedString(@"City", @"City")];
-    
-    TRMCustomerTableViewModel *state = [[TRMCustomerTableViewModel  alloc] init];
-    [state setPlacholderText:NSLocalizedString(@"State", @"State")];
-    
-    TRMCustomerTableViewModel *zip = [[TRMCustomerTableViewModel  alloc] init];
-    [zip setPlacholderText:NSLocalizedString(@"Zip", @"Zip")];
-    
-    TRMCustomerTableViewModel *phone = [[TRMCustomerTableViewModel  alloc] init];
-    [phone setPlacholderText:NSLocalizedString(@"Phone", @"Phone")];
-    
-    TRMCustomerTableViewModel *email = [[TRMCustomerTableViewModel  alloc] init];
-    [email setPlacholderText:NSLocalizedString(@"Email", @"Email")];
-    
-    [tableDataSource addObject:firstName];
-    [tableDataSource addObject:lastName];
-    [tableDataSource addObject:address];
-    [tableDataSource addObject:city];
-    [tableDataSource addObject:state];
-    [tableDataSource addObject:zip];
-    [tableDataSource addObject:phone];
-    [tableDataSource addObject:email];
-}
-
-#pragma mark - Table view data source
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[self tableDataSource] count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"customerCell";
-    TRMCustomerCell *cell = (TRMCustomerCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil)
-    {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TRMCustomerCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
-    
-    TRMCustomerTableViewModel *model = [tableDataSource objectAtIndex:[indexPath row]];
-    [[cell textField] setTag:[indexPath row] + 1]; // we need to start at 1
-    [[cell textField] setDelegate:self];
-    [self addAccessoryViewForTextField:[cell textField]];
-    [cell setCustomerTableViewModel:model];
-    [[cell textField] setPlaceholder:[model placholderText]];
-    return cell;
-}
-
-#pragma UITextFieldDelegate
-- (void) textFieldDidBeginEditing:(UITextField *)textField {
-    TRMCustomerCell *cell = (TRMCustomerCell*) [[[textField superview] superview] superview];
-    indentTextField = [cell textField];
-    selectedCell = cell;
-}
-
--(void)scrollToSelectedCell {
-}
-
-#pragma mark - Table view delegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-}
-
-
-
--(void)addAccessoryViewForTextField:(UITextField *)textField
-{
-    UIToolbar *toolbar = [[UIToolbar alloc] init] ;
-    [toolbar setBarStyle:UIBarStyleDefault];
-    [toolbar sizeToFit];
-    
-    UIBarButtonItem *flexButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-    UIBarButtonItem *doneButton =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(resignKeyboard:)];
-    
-    nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(nextTapped:)];
-    
-    previousButton = [[UIBarButtonItem alloc] initWithTitle:@"Previous" style:UIBarButtonItemStylePlain target:self action:@selector(previousTapped:)];
-    [nextButton setTintColor:[UIColor grayColor]];
-    [previousButton setTintColor:[UIColor grayColor]];
-    [doneButton setTintColor:[UIColor grayColor]];
-    
-    NSArray *itemsArray = [NSArray arrayWithObjects:previousButton,nextButton,flexButton, doneButton, nil];
-    [toolbar setItems:itemsArray];
-    [textField setInputAccessoryView:toolbar];
-}
-
--(void)resignKeyboard:(id)sender {
-    [indentTextField resignFirstResponder];
-}
-
--(void)nextTapped:(id)sender
-{
-    int currentTag = (int)[indentTextField tag];
-    if (currentTag == 8)
-    {
-        [self resignKeyboard:nil];
-    }
-    TRMIndentTextField *nextTextField = (TRMIndentTextField *)[[self view] viewWithTag:currentTag + 1];
-
-    [_tableView scrollRectToVisible:[nextTextField frame] animated:YES];
-    [nextTextField becomeFirstResponder];
-}
-
--(void)previousTapped:(id)sender
-{
-    int currentTag = (int)[indentTextField tag];
-    if (currentTag == 1) {
-        [self resignKeyboard:nil];
-    }
-    
-    UITextField *nextTextField = (UITextField *)[[self view] viewWithTag:currentTag - 1];
-    [_tableView scrollRectToVisible:[nextTextField frame] animated:YES];
-    [nextTextField becomeFirstResponder];
-}
-
+#pragma mark Phone Formtatter
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if ([[textField placeholder] isEqualToString:@"Phone"])
     {
         int length = [self getLength:textField.text];
+        //NSLog(@"Length  =  %d ",length);
+        
         if(length == 10)
         {
             if(range.length == 0)
@@ -337,6 +350,8 @@
         else if(length == 6)
         {
             NSString *num = [self formatNumber:textField.text];
+            //NSLog(@"%@",[num  substringToIndex:3]);
+            //NSLog(@"%@",[num substringFromIndex:3]);
             textField.text = [NSString stringWithFormat:@"(%@) %@-",[num  substringToIndex:3],[num substringFromIndex:3]];
             if(range.length > 0)
                 textField.text = [NSString stringWithFormat:@"(%@) %@",[num substringToIndex:3],[num substringFromIndex:3]];
@@ -356,7 +371,6 @@
 
 -(NSString*)formatNumber:(NSString*)mobileNumber
 {
-    
     mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"(" withString:@""];
     mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@")" withString:@""];
     mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -365,18 +379,15 @@
     
     NSLog(@"%@", mobileNumber);
     
-    int length = (int)[mobileNumber length];
+    int length = [mobileNumber length];
     if(length > 10)
     {
         mobileNumber = [mobileNumber substringFromIndex: length-10];
         NSLog(@"%@", mobileNumber);
         
     }
-    
-    
     return mobileNumber;
 }
-
 
 -(int)getLength:(NSString*)mobileNumber
 {
@@ -387,7 +398,7 @@
     mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"-" withString:@""];
     mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"+" withString:@""];
     
-    int length = (int)[mobileNumber length];
+    int length = [mobileNumber length];
     
     return length;
 }

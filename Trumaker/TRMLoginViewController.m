@@ -165,6 +165,10 @@
     [self.loginScrollView setContentOffset:CGPointMake(0, y) animated:YES];
 }
 
+- (IBAction)forgotPasswordTapped:(id)sender {
+     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://outfitter.trumaker.com/users/password/new"]];
+}
+
 - (IBAction)didTapScreen:(id)sender
 {
     [self.view endEditing:YES];

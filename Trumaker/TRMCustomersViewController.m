@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Trumaker. All rights reserved.
 
 #import "TRMCustomersViewController.h"
+#import "TRMCustomerDetailViewController.h"
 #import "TRMCustomerModel.h"
 #import "TRMPhoneContactModel.h"
 #import "TRMCoreApi.h"
@@ -16,9 +17,10 @@
 @implementation TRMCustomersViewController
 @synthesize customersDataSource;
 @synthesize localContactsDataSource;
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+
+- (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
     }
@@ -75,7 +77,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    TRMCustomerDetailViewController *customerDetailViewController = [[TRMCustomerDetailViewController alloc] initWithNibName:@"TRMCustomerDetailViewController" bundle:nil];
+    [[customerDetailViewController navigationItem] setTitle:@"TRUMAKER"];
     
+    if (indexPath.section == 0) {
+        [customerDetailViewController setCustomer:[customersDataSource objectAtIndex:[indexPath row]]];
+        [[TRMCoreApi sharedInstance] setCustomer:[customersDataSource objectAtIndex:[indexPath row]]];
+        [[self navigationController] pushViewController:customerDetailViewController animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning

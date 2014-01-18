@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TRMCustomersViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface TRMCustomersViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *customersDataSource;
 @end
