@@ -16,7 +16,9 @@
 @property (strong, nonatomic) NSString *last_name;
 @property (strong, nonatomic) NSString *default_monogram; //tcb example
 @property (strong, nonatomic) NSNumber *finished_orders_count; //number of finished orders
+@property (strong, nonatomic) NSNumber *confirmed_fit;
 @property (assign, nonatomic) CGFloat  store_credit;
+
 
 @property (strong, nonatomic) NSMutableArray *addresses; //TRMAddress
 @property (strong, nonatomic) NSMutableArray *phones; //TRMPhone

@@ -59,8 +59,7 @@
     for (int i = 0; i < [buildConfigurationsTypeArray count]; i++) {
         
         [_selectedImages addObject:[UIImage imageNamed:@"placeholder"]];
-    }
-    
+    }    
 }
 
 #pragma mark - Table view data source

@@ -78,6 +78,21 @@
     [view.layer addSublayer: border];
 }
 
++ (void)drawLeftBorder:(UIView *)view {
+    CALayer *border = [CALayer layer];
+    CGFloat pixelHeight = [TRMUtils halfPixel];
+    
+    border.frame = CGRectMake(pixelHeight,
+                              0,
+                              pixelHeight,
+                              CGRectGetHeight([view frame]));
+    
+    border.backgroundColor = [UIColor lightGrayColor].CGColor;
+    [view.layer addSublayer: border];
+}
+
+
+
 
 + (UIImage*) maskImage:(UIImage *) image withMask:(UIImage *) mask
 {
