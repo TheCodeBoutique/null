@@ -64,6 +64,9 @@
     [dashboardData addObject:trumakerNewsModel];
     [dashboardData addObject:contactsModel];
     [dashboardData addObject:catalogueModel];
+    
+    
+    customersUpdated = [[TRMCoreApi sharedInstance] existingCustomersLoaded];
 }
 
 - (void)viewDidLoad
@@ -187,9 +190,8 @@
 }
 
 -(void)updateClients:(NSNotification *)notification {
-    customersUpdated = YES;
+    customersUpdated = [[TRMCoreApi sharedInstance] existingCustomersLoaded];
     [[self tableView] reloadData];
-    
 }
 
 - (void)didReceiveMemoryWarning {

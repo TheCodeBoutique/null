@@ -90,7 +90,7 @@
         //send push notifcations for customer
         [[NSNotificationCenter defaultCenter]
          postNotificationName:@"clientsUpdateNotification"
-         object:nil];
+         object:nil];        
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error: %@", error);
