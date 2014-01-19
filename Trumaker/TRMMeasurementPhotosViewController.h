@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TRMMeasurementPhotosViewController : UIViewController
+@interface TRMMeasurementPhotosViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (strong, nonatomic) IBOutlet UIImageView *mainImage;
+@property (strong, nonatomic) IBOutlet UIScrollView *imagesScrollView;
+@property (strong, nonatomic) IBOutlet UIButton *deleteButton;
+@property (strong, nonatomic) IBOutlet UIButton *cameraButton;
+@property (strong, nonatomic) IBOutlet UILabel *PhotoLabel;
+@property (strong, nonatomic) UIImagePickerController *picker;
 
+- (IBAction)reatakeTapped:(id)sender;
+- (IBAction)deleteTapped:(id)sender;
 @end
