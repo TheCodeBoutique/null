@@ -27,9 +27,16 @@
 @property (assign,nonatomic) BOOL low_stock;
 @property (assign,nonatomic) BOOL sold_out;
 
+//combine order items with product selection since all we care about is customizations and order_item id
+@property (strong, nonatomic) NSString *build_name;
+@property (strong, nonatomic) NSMutableArray *customizations;
+@property (strong, nonatomic) NSString *item_total;
+@property (assign, nonatomic) int order_item_id;
+
 //helpers
 -(NSString *)parseTitle;
 
+//add helper to say if its order item
 
 //private
 @property (strong, nonatomic) NSNumber *selectedCount;

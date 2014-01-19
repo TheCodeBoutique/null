@@ -122,6 +122,8 @@
 		D4C7271F1886875C00681344 /* TRMProductSelectionSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C7271E1886875C00681344 /* TRMProductSelectionSearchView.m */; };
 		D4C7272118868A0D00681344 /* TRMProductSelectionSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C7272018868A0D00681344 /* TRMProductSelectionSearchView.xib */; };
 		D4CCB713188B0877001FB6A3 /* TRMOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CCB712188B0877001FB6A3 /* TRMOrderModel.m */; };
+		D4CCB719188B47EB001FB6A3 /* TRMBuildPreferenceDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CCB718188B47EB001FB6A3 /* TRMBuildPreferenceDetailCell.m */; };
+		D4CCB71B188B4815001FB6A3 /* TRMBuildPreferenceDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CCB71A188B4815001FB6A3 /* TRMBuildPreferenceDetailCell.xib */; };
 		D4E0913018827E9F00FB52F2 /* navigation_back_arrow_off.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E0912F18827E9F00FB52F2 /* navigation_back_arrow_off.png */; };
 		D4E0913218827EAE00FB52F2 /* navigation_back_arrow_on.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E0913118827EAE00FB52F2 /* navigation_back_arrow_on.png */; };
 		D4E0913418827EBA00FB52F2 /* navigation_forward_arrow_off.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E0913318827EBA00FB52F2 /* navigation_forward_arrow_off.png */; };
@@ -345,6 +347,9 @@
 		D4C7272018868A0D00681344 /* TRMProductSelectionSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMProductSelectionSearchView.xib; sourceTree = "<group>"; };
 		D4CCB711188B0877001FB6A3 /* TRMOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMOrderModel.h; sourceTree = "<group>"; };
 		D4CCB712188B0877001FB6A3 /* TRMOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMOrderModel.m; sourceTree = "<group>"; };
+		D4CCB717188B47EB001FB6A3 /* TRMBuildPreferenceDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMBuildPreferenceDetailCell.h; sourceTree = "<group>"; };
+		D4CCB718188B47EB001FB6A3 /* TRMBuildPreferenceDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMBuildPreferenceDetailCell.m; sourceTree = "<group>"; };
+		D4CCB71A188B4815001FB6A3 /* TRMBuildPreferenceDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMBuildPreferenceDetailCell.xib; sourceTree = "<group>"; };
 		D4E0912F18827E9F00FB52F2 /* navigation_back_arrow_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_back_arrow_off.png; sourceTree = "<group>"; };
 		D4E0913118827EAE00FB52F2 /* navigation_back_arrow_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_back_arrow_on.png; sourceTree = "<group>"; };
 		D4E0913318827EBA00FB52F2 /* navigation_forward_arrow_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_forward_arrow_off.png; sourceTree = "<group>"; };
@@ -977,6 +982,16 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		D4CCB716188B47AB001FB6A3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D4CCB717188B47EB001FB6A3 /* TRMBuildPreferenceDetailCell.h */,
+				D4CCB718188B47EB001FB6A3 /* TRMBuildPreferenceDetailCell.m */,
+				D4CCB71A188B4815001FB6A3 /* TRMBuildPreferenceDetailCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		D4E091491882830200FB52F2 /* Object Mapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -1038,6 +1053,7 @@
 		D4FAB5F318879EEA004AC0C2 /* Build Preference */ = {
 			isa = PBXGroup;
 			children = (
+				D4CCB716188B47AB001FB6A3 /* Views */,
 				D4FAB5FA1887A0EC004AC0C2 /* Model */,
 				D4FAB5F418879F02004AC0C2 /* Controllers */,
 			);
@@ -1189,6 +1205,7 @@
 				D40D760218831F17000AB22E /* TRMCustomerCell.xib in Resources */,
 				D4FAB6011887B5AC004AC0C2 /* TRMShoppingCartCell.xib in Resources */,
 				D4C3E2D018827CE500112E83 /* navigation_forward_arrow_off_@2x.png in Resources */,
+				D4CCB71B188B4815001FB6A3 /* TRMBuildPreferenceDetailCell.xib in Resources */,
 				7EC3190E187BC40C0093083E /* login-icon.png in Resources */,
 				D4C3E29B1882560300112E83 /* mark_photo.png in Resources */,
 				D4C7272118868A0D00681344 /* TRMProductSelectionSearchView.xib in Resources */,
@@ -1267,6 +1284,7 @@
 				7EC318E1187BC2650093083E /* TRMAppDelegate.m in Sources */,
 				D40D75FB18831E90000AB22E /* TRMCustomerTableViewModel.m in Sources */,
 				D4C726BB1886625200681344 /* TRMProductSelectionViewController.m in Sources */,
+				D4CCB719188B47EB001FB6A3 /* TRMBuildPreferenceDetailCell.m in Sources */,
 				D4C7270F18866D7700681344 /* SDWebImageDecoder.m in Sources */,
 				D4C7271F1886875C00681344 /* TRMProductSelectionSearchView.m in Sources */,
 				D4C7271B18866D8300681344 /* NSData+ImageContentType.m in Sources */,

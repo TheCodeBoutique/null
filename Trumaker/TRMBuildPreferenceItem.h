@@ -15,10 +15,4 @@
 @property (assign,nonatomic) int custom_type_id;
 @property (strong,nonatomic) NSString *blurb;
 @property (strong,nonatomic) NSString *description;
-
-
-
-
-
-
 @end

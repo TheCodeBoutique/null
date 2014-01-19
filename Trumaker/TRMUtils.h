@@ -11,4 +11,5 @@
 + (CGFloat)halfPixel;
 + (void)drawBorderForView:(UIView *)view isBottomBorder:(BOOL)bottomBorders;
 + (UIImage*) maskImage:(UIImage *) image withMask:(UIImage *) mask;
++ (void)removeDuplicatesFromArray:(NSMutableArray *)array;
 @end

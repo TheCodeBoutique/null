@@ -12,6 +12,8 @@
 #import "TRMBuildPreferenceViewController.h"
 #import "UIImageView+WebCache.h"
 #import "TRMConfigurationModel.h"
+#import "TRMBuildPreferenceDetailCell.h"
+#import "TRMUtils.h"
 
 @interface TRMBuildPreferenceDetailViewController ()
 @property (nonatomic, strong) NSArray *sortedConfigurationsArray;
@@ -32,9 +34,8 @@
 
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
-  sortedConfigurationsArray = [self sortCustomizationsArray];
+    sortedConfigurationsArray = [self sortCustomizationsArray];
 }
 
 //filter the entire customizations array based upon the cell you selected
@@ -67,22 +68,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"buildDetailCell";
+    TRMBuildPreferenceDetailCell *cell = (TRMBuildPreferenceDetailCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TRMBuildPreferenceDetailCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
      //set the cell's text to item in the array
     TRMConfigurationModel *buildPreferenceItem = [[self sortedConfigurationsArray] objectAtIndex:indexPath.row];
     
-    [[cell textLabel] setText:[NSString stringWithFormat:@"%@", [buildPreferenceItem name]]];
-    [[cell imageView] setImageWithURL:[NSURL URLWithString:[buildPreferenceItem outfit_url]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    [[cell configurationTitle] setText:[NSString stringWithFormat:@"%@", [buildPreferenceItem name]]];
+    [[cell produtImage] setImageWithURL:[NSURL URLWithString:[buildPreferenceItem outfit_url]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    [[cell produtImage] setContentMode:UIViewContentModeScaleAspectFit];
     
-    //set the cell's image to the items image in the array
-//    NSString *image = [NSString stringWithFormat:@"%@", buildPreferenceItem.image_url];
-//    
-//    cell.imageView.image = [UIImage imageNamed:image];
-//    
     return cell;
 }
 
@@ -92,11 +91,11 @@
     //push self navingationController back to build preference list
     
     //get the title of the current cell
-    UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    NSString *cellTitle = selectedCell.textLabel.text;
+    TRMBuildPreferenceDetailCell *selectedCell = (TRMBuildPreferenceDetailCell *)[tableView cellForRowAtIndexPath:indexPath];
+    NSString *cellTitle = selectedCell.configurationTitle.text;
     
     //pass the title to the delegate and use index path property
-    [[self delgate] didSelectConfiguration:cellTitle];
+    [[self delgate] didSelectConfiguration:cellTitle withImage:selectedCell.produtImage.image];
     
     [[self navigationController] popToRootViewControllerAnimated:YES];
 

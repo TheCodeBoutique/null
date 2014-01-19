@@ -105,4 +105,15 @@
     
     return maskedImage;
 }
+
++(void)removeDuplicatesFromArray:(NSMutableArray *)array {
+    NSArray *copy = [array copy];
+    NSInteger index = [copy count] - 1;
+    for (id object in [copy reverseObjectEnumerator]) {
+        if ([array indexOfObject:object inRange:NSMakeRange(0, index)] != NSNotFound) {
+            [array removeObjectAtIndex:index];
+        }
+        index--;
+    }
+}
 @end

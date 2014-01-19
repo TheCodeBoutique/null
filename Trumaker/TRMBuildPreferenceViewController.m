@@ -11,10 +11,14 @@
 #import "TRMConfigurationModel.h"
 #import "UIImageView+WebCache.h"
 #import "TRMBuildPreferenceDetailViewController.h"
+#import "TRMBuildPreferenceDetailCell.h"
+#import "TRMUtils.h"
 
 @interface TRMBuildPreferenceViewController () <TRMBuildPreferenceDetailDelegate>
 @property(nonatomic, strong) NSMutableArray *buildConfigurationsTypeArray;
+@property(nonatomic, strong) NSMutableArray *selectedImages;
 @property (nonatomic, strong) NSIndexPath *currentSelectedIndex;
+@property (nonatomic, strong) NSMutableArray *selectionList;
 @end
 
 @implementation TRMBuildPreferenceViewController
@@ -33,7 +37,28 @@
 {
     [super viewDidLoad];
     
-     buildConfigurationsTypeArray = [[NSMutableArray alloc] initWithObjects:@"Fit", @"Collar", @"Cuffs", @"Pocket", @"Placket", @"Pleat", @"Length", @"Monogram", nil];
+    NSMutableArray *allConfigurationsArray = [[TRMCoreApi sharedInstance] configurations];
+    
+    NSMutableArray *allCustomTypes = [[NSMutableArray alloc] init];
+    [allConfigurationsArray enumerateObjectsUsingBlock:^(TRMConfigurationModel *configurationModel, NSUInteger idx, BOOL *stop) {
+        NSString *type = [configurationModel custom_type_name];
+        [allCustomTypes addObject:type];
+    }];
+    
+    //remove all duplicates
+    [TRMUtils removeDuplicatesFromArray:allCustomTypes];
+    
+    //copy default
+    _selectionList = [allCustomTypes mutableCopy];
+    
+    //set data source
+     buildConfigurationsTypeArray = allCustomTypes;
+    
+    //selected images
+    _selectedImages = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [buildConfigurationsTypeArray count]; i++) {
+        [_selectedImages addObject:[UIImage imageNamed:@"placeholder"]];
+    }
     
 }
 
@@ -52,16 +77,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //create a cell if there isnt one, or use a pre-existing one if we already have one
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"buildDetailCell";
+    TRMBuildPreferenceDetailCell *cell = (TRMBuildPreferenceDetailCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TRMBuildPreferenceDetailCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
     
     //set the cell's text to item in the array
-    [[cell textLabel] setText:[buildConfigurationsTypeArray objectAtIndex:indexPath.row]];
-    
-        return cell;
+    [[cell configurationTitle] setText:[buildConfigurationsTypeArray objectAtIndex:indexPath.row]];
+    [[cell produtImage] setImage:[_selectedImages objectAtIndex:indexPath.row]];
+    return cell;
 }
 
 #pragma mark - Table view delegate
@@ -71,12 +98,9 @@
     TRMBuildPreferenceDetailViewController *buildPreferenceDetailViewController = [[TRMBuildPreferenceDetailViewController alloc] init];
     [buildPreferenceDetailViewController setDelgate:self];
     
-    //get the title of the current cell
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    NSString *cellTitle = cell.textLabel.text;
     
     //pass the title to the detailTableView to use in sort predicate
-    [buildPreferenceDetailViewController setSelectedConfigurationName:cellTitle];
+    [buildPreferenceDetailViewController setSelectedConfigurationName:[_selectionList objectAtIndex:indexPath.row]];
     
     _currentSelectedIndex = indexPath;
     
@@ -84,11 +108,12 @@
     [[self navigationController] pushViewController:buildPreferenceDetailViewController animated:YES];
 }
 
--(void)didSelectConfiguration:(NSString *)selectedConfiguration
+-(void)didSelectConfiguration:(NSString *)selectedConfiguration withImage:(UIImage *)selectedImage
 {
     //update the cell with the new info (update the array)
 
     [buildConfigurationsTypeArray replaceObjectAtIndex:_currentSelectedIndex.row withObject:selectedConfiguration];
+    [_selectedImages replaceObjectAtIndex:_currentSelectedIndex.row withObject:selectedImage];
     
     [[self tableView] reloadData];
 }

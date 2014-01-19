@@ -20,6 +20,6 @@
 
 @protocol TRMBuildPreferenceDetailDelegate <NSObject>
 
-- (void)didSelectConfiguration:(NSString *)selectedConfiguration;
+- (void)didSelectConfiguration:(NSString *)selectedConfiguration withImage:(UIImage *)selectedImage;
 
 @end
