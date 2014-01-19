@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E433F0E188BA54E00F525E6 /* TRMComingSoonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E433F0C188BA54E00F525E6 /* TRMComingSoonViewController.m */; };
+		7E433F0F188BA54E00F525E6 /* TRMComingSoonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F0D188BA54E00F525E6 /* TRMComingSoonViewController.xib */; };
 		7E8ABC2D187CEE3800F792DA /* TRMEnviorment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8ABC2C187CEE3800F792DA /* TRMEnviorment.m */; };
 		7E8ABC31187CF80900F792DA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7E8ABC30187CF80900F792DA /* Settings.bundle */; };
 		7E8ABC34187CF9EC00F792DA /* TRMCustomerDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8ABC33187CF9EC00F792DA /* TRMCustomerDAO.m */; };
@@ -184,6 +186,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E433F0B188BA54E00F525E6 /* TRMComingSoonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMComingSoonViewController.h; sourceTree = "<group>"; };
+		7E433F0C188BA54E00F525E6 /* TRMComingSoonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMComingSoonViewController.m; sourceTree = "<group>"; };
+		7E433F0D188BA54E00F525E6 /* TRMComingSoonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMComingSoonViewController.xib; sourceTree = "<group>"; };
 		7E8ABC2B187CEE3800F792DA /* TRMEnviorment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMEnviorment.h; sourceTree = "<group>"; };
 		7E8ABC2C187CEE3800F792DA /* TRMEnviorment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMEnviorment.m; sourceTree = "<group>"; };
 		7E8ABC30187CF80900F792DA /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -471,6 +476,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E433F10188BA55300F525E6 /* ComingSoon */ = {
+			isa = PBXGroup;
+			children = (
+				7E433F0B188BA54E00F525E6 /* TRMComingSoonViewController.h */,
+				7E433F0C188BA54E00F525E6 /* TRMComingSoonViewController.m */,
+				7E433F0D188BA54E00F525E6 /* TRMComingSoonViewController.xib */,
+			);
+			name = ComingSoon;
+			sourceTree = "<group>";
+		};
 		7E8ABC38187D199D00F792DA /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -590,6 +605,7 @@
 				D4E09150188290CE00FB52F2 /* TRMCoreApi.m */,
 				D4E60A9F1889126C00DC1678 /* TRMAddressBookApi.h */,
 				D4E60AA01889126C00DC1678 /* TRMAddressBookApi.m */,
+				7E433F10188BA55300F525E6 /* ComingSoon */,
 			);
 			path = Trumaker;
 			sourceTree = "<group>";
@@ -1278,7 +1294,7 @@
 				ORGANIZATIONNAME = Trumaker;
 				TargetAttributes = {
 					7EC318CC187BC2650093083E = {
-						DevelopmentTeam = 8LXD35UKX5;
+						DevelopmentTeam = 8UC7T5DXBM;
 					};
 					7EC318F0187BC2650093083E = {
 						TestTargetID = 7EC318CC187BC2650093083E;
@@ -1373,6 +1389,7 @@
 				D4C3E28F1882418800112E83 /* task_list_background@2x.png in Resources */,
 				D4C3E2A118825B2800112E83 /* profile_image_mask_stroke.png in Resources */,
 				D4E0913018827E9F00FB52F2 /* navigation_back_arrow_off.png in Resources */,
+				7E433F0F188BA54E00F525E6 /* TRMComingSoonViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1457,6 +1474,7 @@
 				D4E09148188282F600FB52F2 /* NSObject+JTObjectMapping.m in Sources */,
 				7EC31930187BCF580093083E /* AFSecurityPolicy.m in Sources */,
 				D492AE401889F80500CA7715 /* TRMCustomerDetailViewController.m in Sources */,
+				7E433F0E188BA54E00F525E6 /* TRMComingSoonViewController.m in Sources */,
 				D4343EA2188B8793009351FE /* TRMFormulaData.m in Sources */,
 				7E8ABC2D187CEE3800F792DA /* TRMEnviorment.m in Sources */,
 				D4C3E25B1881C09300112E83 /* MMDrawerVisualState.m in Sources */,

@@ -25,7 +25,7 @@ enum SelectionType {
 };
 
 
-@interface TRMMeasurementCustomerInfromationViewController ()<UIScrollViewDelegate>
+@interface TRMMeasurementCustomerInfromationViewController ()<UIScrollViewDelegate, UITextFieldDelegate>
 {
     NSArray *feet;
     NSArray *quarters;
@@ -33,6 +33,9 @@ enum SelectionType {
     NSString *quarterString;
     MBProgressHUD *hud;
 }
+
+@property (nonatomic, strong) UITextField *selectedTextField;
+
 @end
 
 @implementation TRMMeasurementCustomerInfromationViewController
@@ -42,6 +45,9 @@ enum SelectionType {
 @synthesize formulaData;
 @synthesize heightField;
 @synthesize heightInchesField;
+
+@synthesize selectedTextField;
+
 
 #define MAX_FEET_LENGTH 1
 #define MAX_INCHES_LENGTH 2
@@ -88,6 +94,12 @@ enum SelectionType {
     [[self measurementScrollView] setContentSize:CGSizeMake(VIEW_WIDTH, VIEW_HEIGHT)];
 }
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self setSelectedTextField:textField];
+    [self addAccessoryViewForTextField:textField];
+}
+
 //Make sure the inches are between 0 and 11
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
@@ -108,7 +120,7 @@ enum SelectionType {
 // Make the height field have a max length of one for feet
 - (BOOL)textField:(UITextField *) textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if ([[textField placeholder] isEqualToString:@"Height: Feet"]) {
+    if ([[textField placeholder] isEqualToString:@"ft"]) {
         NSUInteger oldLength = [heightField.text length];
         NSUInteger replacementLength = [string length];
         NSUInteger rangeLength = range.length;
@@ -119,7 +131,7 @@ enum SelectionType {
         
         return newLength <= MAX_FEET_LENGTH || returnKey;
         
-    } else if ([[textField placeholder] isEqualToString:@"Inches"]) {
+    } else if ([[textField placeholder] isEqualToString:@"in"]) {
         NSUInteger oldLength = [heightInchesField.text length];
         NSUInteger replacementLength = [string length];
         NSUInteger rangeLength = range.length;
@@ -130,7 +142,7 @@ enum SelectionType {
     
         return newLength <= MAX_INCHES_LENGTH || returnKey;
         
-    } else if([[textField placeholder] isEqualToString:@"Weight"]) {
+    } else if([[textField placeholder] isEqualToString:@"lbs."]) {
         NSUInteger oldLength = [weightField.text length];
         NSUInteger replacementLength = [string length];
         NSUInteger rangeLength = range.length;
@@ -320,13 +332,47 @@ enum SelectionType {
     [toolbar sizeToFit];
     
     UIBarButtonItem *flexButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    
     UIBarButtonItem *doneButton =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(resignKeyboard)];
     [doneButton setTintColor:[TRMUtils colorWithHexString:@"959fa5"]];
     
-    NSArray *itemsArray = [NSArray arrayWithObjects:flexButton, doneButton, nil];
+    UIBarButtonItem *previousButton = [[UIBarButtonItem alloc] initWithTitle:@"Previous" style:UIBarButtonItemStyleBordered target:self action:@selector(previousTapped:)];
+    [previousButton setTintColor:[TRMUtils colorWithHexString:@"959fa5"]];
+
+    
+    UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStyleBordered target:self action:@selector(nextTapped:)];
+    [nextButton setTintColor:[TRMUtils colorWithHexString:@"959fa5"]];
+
+    
+    NSArray *itemsArray = [NSArray arrayWithObjects:previousButton, nextButton, flexButton, doneButton, nil];
     [toolbar setItems:itemsArray];
     [textField setInputAccessoryView:toolbar];
 }
+
+- (void)previousTapped:(id)sender
+{
+    int currentTag = [selectedTextField tag];
+    if (currentTag == 1)
+    {
+        [self resignKeyboard];
+    }
+    UITextField *nextTextField = (UITextField *)[[self view] viewWithTag:currentTag - 1];
+    [[self measurementScrollView] scrollRectToVisible:[nextTextField frame] animated:YES];
+    [nextTextField becomeFirstResponder];
+}
+
+-(void)nextTapped:(id)sender
+{
+    int currentTag = [selectedTextField tag];
+    if (currentTag == 3)
+    {
+        [self resignKeyboard];
+    }
+    UITextField *nextTextField = (UITextField *)[[self view] viewWithTag:currentTag + 1];
+    [[self measurementScrollView] scrollRectToVisible:[nextTextField frame] animated:YES];
+    [nextTextField becomeFirstResponder];
+}
+
 
 -(void)resignKeyboard
 {
