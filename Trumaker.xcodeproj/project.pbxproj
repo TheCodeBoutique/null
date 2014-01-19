@@ -64,8 +64,6 @@
 		D4343E98188B8793009351FE /* TRMeasurementsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4343E85188B8793009351FE /* TRMeasurementsViewController.xib */; };
 		D4343E9B188B8793009351FE /* TRMMeasurementView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4343E8A188B8793009351FE /* TRMMeasurementView.m */; };
 		D4343E9C188B8793009351FE /* TRMCustomSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4343E8C188B8793009351FE /* TRMCustomSliderView.m */; };
-		D4343E9D188B8793009351FE /* TRMNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4343E8E188B8793009351FE /* TRMNotesViewController.m */; };
-		D4343E9E188B8793009351FE /* TRMNotesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4343E8F188B8793009351FE /* TRMNotesViewController.xib */; };
 		D4343E9F188B8793009351FE /* TRMMeasurementCustomerInfromationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4343E91188B8793009351FE /* TRMMeasurementCustomerInfromationViewController.m */; };
 		D4343EA0188B8793009351FE /* TRMMeasurementCustomerInfromationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4343E92188B8793009351FE /* TRMMeasurementCustomerInfromationViewController.xib */; };
 		D4343EA1188B8793009351FE /* TRMFormula.m in Sources */ = {isa = PBXBuildFile; fileRef = D4343E94188B8793009351FE /* TRMFormula.m */; };
@@ -306,9 +304,6 @@
 		D4343E8A188B8793009351FE /* TRMMeasurementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMMeasurementView.m; sourceTree = "<group>"; };
 		D4343E8B188B8793009351FE /* TRMCustomSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMCustomSliderView.h; sourceTree = "<group>"; };
 		D4343E8C188B8793009351FE /* TRMCustomSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMCustomSliderView.m; sourceTree = "<group>"; };
-		D4343E8D188B8793009351FE /* TRMNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMNotesViewController.h; sourceTree = "<group>"; };
-		D4343E8E188B8793009351FE /* TRMNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMNotesViewController.m; sourceTree = "<group>"; };
-		D4343E8F188B8793009351FE /* TRMNotesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMNotesViewController.xib; sourceTree = "<group>"; };
 		D4343E90188B8793009351FE /* TRMMeasurementCustomerInfromationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMMeasurementCustomerInfromationViewController.h; sourceTree = "<group>"; };
 		D4343E91188B8793009351FE /* TRMMeasurementCustomerInfromationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMMeasurementCustomerInfromationViewController.m; sourceTree = "<group>"; };
 		D4343E92188B8793009351FE /* TRMMeasurementCustomerInfromationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMMeasurementCustomerInfromationViewController.xib; sourceTree = "<group>"; };
@@ -870,9 +865,6 @@
 				D4343E83188B8793009351FE /* TRMeasurementsViewController.h */,
 				D4343E84188B8793009351FE /* TRMeasurementsViewController.m */,
 				D4343E85188B8793009351FE /* TRMeasurementsViewController.xib */,
-				D4343E8D188B8793009351FE /* TRMNotesViewController.h */,
-				D4343E8E188B8793009351FE /* TRMNotesViewController.m */,
-				D4343E8F188B8793009351FE /* TRMNotesViewController.xib */,
 				D4343E90188B8793009351FE /* TRMMeasurementCustomerInfromationViewController.h */,
 				D4343E91188B8793009351FE /* TRMMeasurementCustomerInfromationViewController.m */,
 				D4343E92188B8793009351FE /* TRMMeasurementCustomerInfromationViewController.xib */,
@@ -1451,7 +1443,6 @@
 				D4343EBF188B991E009351FE /* TRMMeasurementPhotosViewController.xib in Resources */,
 				D4C3E2CC18827CCD00112E83 /* navigation_back_arrow_off_@2x.png in Resources */,
 				D4E0913418827EBA00FB52F2 /* navigation_forward_arrow_off.png in Resources */,
-				D4343E9E188B8793009351FE /* TRMNotesViewController.xib in Resources */,
 				D4C3E2B618825F8C00112E83 /* dashboard_post_icon@2x.png in Resources */,
 				D4E60A921889092700DC1678 /* TRMCustomersViewController.xib in Resources */,
 				7EC547DB187D3B0600DAC090 /* dashboard_arrow@2x.png in Resources */,
@@ -1591,7 +1582,6 @@
 				7EC318EA187BC2650093083E /* TRMViewController.m in Sources */,
 				7E9EAE34187D28ED008DDA2E /* TRMLoadingViewController.m in Sources */,
 				D4C3E27D1881E3AB00112E83 /* TRMTaskListCell.m in Sources */,
-				D4343E9D188B8793009351FE /* TRMNotesViewController.m in Sources */,
 				D4E60AA918891D0F00DC1678 /* TRMBuildPreferenceDetailViewController.m in Sources */,
 				D4C726AE1886278400681344 /* TRMPhoneModel.m in Sources */,
 				7EC3192D187BCF580093083E /* AFHTTPRequestOperationManager.m in Sources */,
