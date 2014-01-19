@@ -10,6 +10,8 @@
 #import "TRMPhotoSelectionView.h"
 #import "UIAlertView+Blocks.h"
 #import "RIButtonItem.h"
+#import "TRMUtils.h"
+
 @interface TRMMeasurementPhotosViewController () {
     UIActivityIndicatorView *spinner;
     UIImageView *overlayImageView;
@@ -43,13 +45,16 @@
     [[_deleteButton layer] setOpacity:0.7];
     [[_deleteButton layer] setCornerRadius:20.0f];
     
+    [[_mainImage layer] setBorderWidth:[TRMUtils halfPixel]];
+    [[_mainImage layer] setBorderColor:[[UIColor lightGrayColor] CGColor]];
+    [_mainImage setClipsToBounds:YES];
     
     NSArray *typesArray = @[@"Front", @"Side",@"Back"];
     imagesArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"photo_placeholder"],[UIImage imageNamed:@"photo_placeholder"],[UIImage imageNamed:@"photo_placeholder"], nil];
     
     
     for (int i = 0; i < 3; i++) {
-        TRMPhotoSelectionView *photoSelectionView = [[TRMPhotoSelectionView alloc] initWithFrame:CGRectMake(i * 170.0f, 0.0f, 115.0f, 106.0f)];
+        TRMPhotoSelectionView *photoSelectionView = [[TRMPhotoSelectionView alloc] initWithFrame:CGRectMake(i * 110.0f, 5.0f, 160.0f, 109.0f)];
         [photoSelectionView setUserInteractionEnabled:YES];
         [[photoSelectionView photoType] setText:[typesArray objectAtIndex:i]];
         [[photoSelectionView photoImage] setImage:[imagesArray objectAtIndex:i]];
@@ -57,7 +62,7 @@
         [photoSelectionView addGestureRecognizer:tap];
         [_imagesScrollView addSubview:photoSelectionView];
     }
-    [_imagesScrollView setContentSize:CGSizeMake(170.0f * 3, 106.0f)];
+    [_imagesScrollView setContentSize:CGSizeMake(120.0f * 3, 109)];
 }
 
 
@@ -142,5 +147,9 @@
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)nextTapped:(id)sender {
+    
 }
 @end

@@ -56,6 +56,10 @@
 		D40D760218831F17000AB22E /* TRMCustomerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40D760118831F17000AB22E /* TRMCustomerCell.xib */; };
 		D40D76051883949C000AB22E /* TRMCustomerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D40D76041883949C000AB22E /* TRMCustomerModel.m */; };
 		D40D7608188395B0000AB22E /* NSDictionary+dictionaryWithObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D40D7607188395B0000AB22E /* NSDictionary+dictionaryWithObject.m */; };
+		D411DCD1188C6FED0028901F /* ruler.png in Resources */ = {isa = PBXBuildFile; fileRef = D411DCD0188C6FED0028901F /* ruler.png */; };
+		D411DCD3188C6FF40028901F /* ruler@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D411DCD2188C6FF40028901F /* ruler@2x.png */; };
+		D411DCD5188C71910028901F /* front@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D411DCD4188C71910028901F /* front@2x.png */; };
+		D411DCD7188C71B40028901F /* front.png in Resources */ = {isa = PBXBuildFile; fileRef = D411DCD6188C71B40028901F /* front.png */; };
 		D4343E97188B8793009351FE /* TRMeasurementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4343E84188B8793009351FE /* TRMeasurementsViewController.m */; };
 		D4343E98188B8793009351FE /* TRMeasurementsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4343E85188B8793009351FE /* TRMeasurementsViewController.xib */; };
 		D4343E9B188B8793009351FE /* TRMMeasurementView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4343E8A188B8793009351FE /* TRMMeasurementView.m */; };
@@ -291,6 +295,10 @@
 		D40D76041883949C000AB22E /* TRMCustomerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMCustomerModel.m; sourceTree = "<group>"; };
 		D40D7606188395B0000AB22E /* NSDictionary+dictionaryWithObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+dictionaryWithObject.h"; sourceTree = "<group>"; };
 		D40D7607188395B0000AB22E /* NSDictionary+dictionaryWithObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+dictionaryWithObject.m"; sourceTree = "<group>"; };
+		D411DCD0188C6FED0028901F /* ruler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ruler.png; sourceTree = "<group>"; };
+		D411DCD2188C6FF40028901F /* ruler@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ruler@2x.png"; sourceTree = "<group>"; };
+		D411DCD4188C71910028901F /* front@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "front@2x.png"; sourceTree = "<group>"; };
+		D411DCD6188C71B40028901F /* front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front.png; sourceTree = "<group>"; };
 		D4343E83188B8793009351FE /* TRMeasurementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMeasurementsViewController.h; sourceTree = "<group>"; };
 		D4343E84188B8793009351FE /* TRMeasurementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMeasurementsViewController.m; sourceTree = "<group>"; };
 		D4343E85188B8793009351FE /* TRMeasurementsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMeasurementsViewController.xib; sourceTree = "<group>"; };
@@ -629,20 +637,20 @@
 		7EC318D6187BC2650093083E /* Trumaker */ = {
 			isa = PBXGroup;
 			children = (
-				D4343E82188B877F009351FE /* Measurements */,
-				D4CCB70F188B085A001FB6A3 /* Checkout */,
-				D4E60A8D1889042200DC1678 /* Customers */,
-				D4FAB5FB1887B30F004AC0C2 /* Shopping Cart */,
 				D4FAB5F318879EEA004AC0C2 /* Build Preference */,
-				D4C726AF18864C6300681344 /* Product Selection */,
-				D4E0914A1882854800FB52F2 /* Outfitter */,
-				D4C3E2901882475900112E83 /* Order */,
-				D4C3E2641881CA4100112E83 /* Task List */,
-				7E9EAE36187D2AA7008DDA2E /* Dashboard */,
-				7EC31939187BD35E0093083E /* Network */,
-				7EC31935187BD3320093083E /* Utilities */,
-				7EC3190F187BC4250093083E /* Login */,
+				D4CCB70F188B085A001FB6A3 /* Checkout */,
 				7EC31917187BC7560093083E /* CustomViews */,
+				D4E60A8D1889042200DC1678 /* Customers */,
+				7E9EAE36187D2AA7008DDA2E /* Dashboard */,
+				7EC3190F187BC4250093083E /* Login */,
+				D4343E82188B877F009351FE /* Measurements */,
+				7EC31939187BD35E0093083E /* Network */,
+				D4C3E2901882475900112E83 /* Order */,
+				D4E0914A1882854800FB52F2 /* Outfitter */,
+				D4C726AF18864C6300681344 /* Product Selection */,
+				D4FAB5FB1887B30F004AC0C2 /* Shopping Cart */,
+				D4C3E2641881CA4100112E83 /* Task List */,
+				7EC31935187BD3320093083E /* Utilities */,
 				7EC318DF187BC2650093083E /* TRMAppDelegate.h */,
 				7EC318E0187BC2650093083E /* TRMAppDelegate.m */,
 				7EC318E8187BC2650093083E /* TRMViewController.h */,
@@ -901,6 +909,17 @@
 		D4343ED4188BD624009351FE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D492AE3B1889F73F00CA7715 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D411DCD4188C71910028901F /* front@2x.png */,
+				D411DCD6188C71B40028901F /* front.png */,
+				D411DCD0188C6FED0028901F /* ruler.png */,
+				D411DCD2188C6FF40028901F /* ruler@2x.png */,
 				D4343EF1188BEAA4009351FE /* trumaker_hero_3@2x.png */,
 				D4343EEF188BE074009351FE /* small_mail.png */,
 				D4343EED188BDFDC009351FE /* small_location.png */,
@@ -916,13 +935,6 @@
 				D4343ED9188BD87B009351FE /* phone@2x.png */,
 				D4343ED7188BD635009351FE /* calendar.png */,
 				D4343ED5188BD630009351FE /* calendar@2x.png */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		D492AE3B1889F73F00CA7715 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1460,10 +1472,12 @@
 				D4343EB0188B8808009351FE /* check_radio_off.png in Resources */,
 				D4C3E2731881DD1500112E83 /* TRMTaskListViewController.xib in Resources */,
 				7E9EAE3E187D2AED008DDA2E /* trumaker_hero@2x.png in Resources */,
+				D411DCD7188C71B40028901F /* front.png in Resources */,
 				D4343EB1188B8808009351FE /* check_radio_on.png in Resources */,
 				D4343EE6188BD9C7009351FE /* order_history@2x.png in Resources */,
 				D4C3E2A518825E5200112E83 /* dashboard_camera_icon.png in Resources */,
 				D4E0913618827EC200FB52F2 /* navigation_forward_arrow_on.png in Resources */,
+				D411DCD5188C71910028901F /* front@2x.png in Resources */,
 				D4343ECF188BBC53009351FE /* front_facing.png in Resources */,
 				D4C3E2611881C64B00112E83 /* hamburger.png in Resources */,
 				7E9EAE35187D28ED008DDA2E /* TRMLoadingViewController.xib in Resources */,
@@ -1478,6 +1492,7 @@
 				D4C3E2B418825F8100112E83 /* dashboard_post_icon.png in Resources */,
 				D4C3E2631881C65700112E83 /* hamburger@2x.png in Resources */,
 				D4343EEE188BDFDC009351FE /* small_location.png in Resources */,
+				D411DCD3188C6FF40028901F /* ruler@2x.png in Resources */,
 				D4C726C1188662A000681344 /* TRMShopingCartViewController.xib in Resources */,
 				D4E60AAA18891D0F00DC1678 /* TRMBuildPreferenceDetailViewController.xib in Resources */,
 				D4343EC7188BA6AB009351FE /* trash_icon.png in Resources */,
@@ -1498,6 +1513,7 @@
 				7E9EAE3B187D2AD2008DDA2E /* TRMDashboardViewController.xib in Resources */,
 				D4343EAC188B87ED009351FE /* normal_shoulders.png in Resources */,
 				D4C3E28F1882418800112E83 /* task_list_background@2x.png in Resources */,
+				D411DCD1188C6FED0028901F /* ruler.png in Resources */,
 				D4343EDE188BD8C6009351FE /* mail.png in Resources */,
 				D4C3E2A118825B2800112E83 /* profile_image_mask_stroke.png in Resources */,
 				D4E0913018827E9F00FB52F2 /* navigation_back_arrow_off.png in Resources */,

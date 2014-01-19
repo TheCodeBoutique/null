@@ -5,8 +5,6 @@
 //  Created by  7/18/13.
 //  Copyright (c) 2013 The Code Boutique. All rights reserved.
 //
-#import <QuartzCore/QuartzCore.h>
-
 #import "TRMeasurementsViewController.h"
 #import "TRMAppDelegate.h"
 #import "TRMMeasurementView.h"
@@ -212,6 +210,7 @@
     else
     {
         CGRect scrollViewRect = [[self scrollView] frame];
+        int currentPageControl = [[self pageControl] currentPage];
         int page = [[self pageControl] currentPage] - 1;
         currentConfig--;
         [[self scrollView] scrollRectToVisible:

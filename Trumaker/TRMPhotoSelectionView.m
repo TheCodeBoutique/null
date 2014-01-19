@@ -30,8 +30,8 @@
 
 -(UIImageView *)photoImage {
     if(!photoImage) {
-        photoImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, CGRectGetWidth([self frame]), CGRectGetHeight([self frame]) - 25.0f)];
-        [photoImage setContentMode:UIViewContentModeScaleToFill];
+        photoImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 100.0f, 70.0f)];
+        [photoImage setContentMode:UIViewContentModeScaleAspectFill];
         [[photoImage layer] setBorderWidth:[TRMUtils halfPixel]];
         [[photoImage layer] setBorderColor:[[TRMUtils colorWithHexString:@"959fa5"] CGColor]];
         [[photoImage layer] setCornerRadius:5.0f];
@@ -44,7 +44,9 @@
 
 -(UILabel *)photoType {
     if (!photoType) {
-        photoType = [[UILabel alloc] initWithFrame:CGRectMake(13.0f, 10.0f, CGRectGetWidth([self frame]) - 10.0f, 23.0f)];
+        photoType = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 85.0f, 100.0f, 23.0f)];
+        [photoType setTextColor:[UIColor blackColor]];
+        [photoType setTextAlignment:NSTextAlignmentCenter];
         [self addSubview:photoType];
         [self bringSubviewToFront:photoType];
         return photoType;
