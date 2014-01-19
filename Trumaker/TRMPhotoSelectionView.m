@@ -31,10 +31,11 @@
 -(UIImageView *)photoImage {
     if(!photoImage) {
         photoImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, CGRectGetWidth([self frame]), CGRectGetHeight([self frame]) - 25.0f)];
-        [photoImage setContentMode:UIViewContentModeScaleAspectFit];
+        [photoImage setContentMode:UIViewContentModeScaleToFill];
         [[photoImage layer] setBorderWidth:[TRMUtils halfPixel]];
         [[photoImage layer] setBorderColor:[[TRMUtils colorWithHexString:@"959fa5"] CGColor]];
         [[photoImage layer] setCornerRadius:5.0f];
+        [photoImage setClipsToBounds:YES];
         [self addSubview:photoImage];
         return photoImage;
     }
@@ -45,6 +46,7 @@
     if (!photoType) {
         photoType = [[UILabel alloc] initWithFrame:CGRectMake(13.0f, 10.0f, CGRectGetWidth([self frame]) - 10.0f, 23.0f)];
         [self addSubview:photoType];
+        [self bringSubviewToFront:photoType];
         return photoType;
     }
     return photoType;

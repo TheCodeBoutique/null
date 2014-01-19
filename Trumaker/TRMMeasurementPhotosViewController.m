@@ -11,8 +11,10 @@
 #import "UIAlertView+Blocks.h"
 #import "RIButtonItem.h"
 @interface TRMMeasurementPhotosViewController () {
-        UIActivityIndicatorView *spinner;
+    UIActivityIndicatorView *spinner;
     UIImageView *overlayImageView;
+    NSMutableArray *imagesArray; //photos taken
+    TRMPhotoSelectionView *selectedPhoto;
 }
 @end
 
@@ -43,11 +45,14 @@
     
     
     NSArray *typesArray = @[@"Front", @"Side",@"Back"];
+    imagesArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"photo_placeholder"],[UIImage imageNamed:@"photo_placeholder"],[UIImage imageNamed:@"photo_placeholder"], nil];
+    
+    
     for (int i = 0; i < 3; i++) {
         TRMPhotoSelectionView *photoSelectionView = [[TRMPhotoSelectionView alloc] initWithFrame:CGRectMake(i * 170.0f, 0.0f, 115.0f, 106.0f)];
         [photoSelectionView setUserInteractionEnabled:YES];
         [[photoSelectionView photoType] setText:[typesArray objectAtIndex:i]];
-        [[photoSelectionView photoImage] setImage:[UIImage imageNamed:@"photo_placeholder"]];
+        [[photoSelectionView photoImage] setImage:[imagesArray objectAtIndex:i]];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapImage:)];
         [photoSelectionView addGestureRecognizer:tap];
         [_imagesScrollView addSubview:photoSelectionView];
@@ -60,6 +65,7 @@
     TRMPhotoSelectionView *viewTapped = (TRMPhotoSelectionView *)[sender view];
     [_PhotoLabel setText:[[viewTapped photoType] text]];
     [_mainImage setImage:[[viewTapped photoImage] image]];
+    selectedPhoto = viewTapped;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,6 +81,8 @@
         
     }] otherButtonItems:[RIButtonItem itemWithLabel:@"Delete" action:^{
         //remove photo from server
+        [[selectedPhoto photoImage] setImage:[UIImage imageNamed:@"photo_placeholder"]];
+        [[self mainImage] setImage:[UIImage imageNamed:@"photo_placeholder"]];
         
     }], nil] show];
 }
@@ -107,11 +115,32 @@
         [overlayImageView setImage:[UIImage imageNamed:@"front_facing.png"]];
         [[picker view] addSubview:overlayImageView];
         [[picker view] addSubview:spinner];
-        [self presentViewController:picker animated:YES completion:nil];        
+        [self presentViewController:picker animated:YES completion:nil];
     }
     else
     {
         [picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
+}
+
+#pragma mark UIImagePickerController Delegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
+    
+    
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImage *editImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    if (editImage) {
+        [[selectedPhoto photoImage] setImage:editImage];
+        [[self mainImage] setImage:editImage];
+    } else
+    {
+        [[selectedPhoto photoImage] setImage:image];
+        [[self mainImage] setImage:image];
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

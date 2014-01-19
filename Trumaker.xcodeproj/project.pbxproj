@@ -83,6 +83,8 @@
 		D4343ECB188BA780009351FE /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4343ECA188BA780009351FE /* camera@2x.png */; };
 		D4343ECD188BA788009351FE /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = D4343ECC188BA788009351FE /* camera.png */; };
 		D4343ECF188BBC53009351FE /* front_facing.png in Resources */ = {isa = PBXBuildFile; fileRef = D4343ECE188BBC53009351FE /* front_facing.png */; };
+		D4343ED2188BCA99009351FE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = D4343ED0188BCA99009351FE /* placeholder.png */; };
+		D4343ED3188BCA99009351FE /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4343ED1188BCA99009351FE /* placeholder@2x.png */; };
 		D492AE401889F80500CA7715 /* TRMCustomerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D492AE3E1889F80500CA7715 /* TRMCustomerDetailViewController.m */; };
 		D492AE411889F80500CA7715 /* TRMCustomerDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D492AE3F1889F80500CA7715 /* TRMCustomerDetailViewController.xib */; };
 		D4C3E25A1881C09300112E83 /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3E2531881C09300112E83 /* MMDrawerController.m */; };
@@ -311,6 +313,8 @@
 		D4343ECA188BA780009351FE /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
 		D4343ECC188BA788009351FE /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		D4343ECE188BBC53009351FE /* front_facing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_facing.png; sourceTree = "<group>"; };
+		D4343ED0188BCA99009351FE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		D4343ED1188BCA99009351FE /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
 		D492AE3D1889F80500CA7715 /* TRMCustomerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMCustomerDetailViewController.h; sourceTree = "<group>"; };
 		D492AE3E1889F80500CA7715 /* TRMCustomerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMCustomerDetailViewController.m; sourceTree = "<group>"; };
 		D492AE3F1889F80500CA7715 /* TRMCustomerDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMCustomerDetailViewController.xib; sourceTree = "<group>"; };
@@ -1226,6 +1230,8 @@
 		D4FAB5F318879EEA004AC0C2 /* Build Preference */ = {
 			isa = PBXGroup;
 			children = (
+				D4343ED0188BCA99009351FE /* placeholder.png */,
+				D4343ED1188BCA99009351FE /* placeholder@2x.png */,
 				D4CCB716188B47AB001FB6A3 /* Views */,
 				D4FAB5FA1887A0EC004AC0C2 /* Model */,
 				D4FAB5F418879F02004AC0C2 /* Controllers */,
@@ -1325,7 +1331,7 @@
 				ORGANIZATIONNAME = Trumaker;
 				TargetAttributes = {
 					7EC318CC187BC2650093083E = {
-						DevelopmentTeam = 8UC7T5DXBM;
+						DevelopmentTeam = 8LXD35UKX5;
 					};
 					7EC318F0187BC2650093083E = {
 						TestTargetID = 7EC318CC187BC2650093083E;
@@ -1369,6 +1375,7 @@
 				D4C3E2C918826C9E00112E83 /* TRMCustomerInformationViewController.xib in Resources */,
 				D4C3E29F1882563800112E83 /* mark_photo@2x.png in Resources */,
 				D4C726BC1886625200681344 /* TRMProductSelectionViewController.xib in Resources */,
+				D4343ED2188BCA99009351FE /* placeholder.png in Resources */,
 				D4343EBF188B991E009351FE /* TRMMeasurementPhotosViewController.xib in Resources */,
 				D4C3E2CC18827CCD00112E83 /* navigation_back_arrow_off_@2x.png in Resources */,
 				D4E0913418827EBA00FB52F2 /* navigation_forward_arrow_off.png in Resources */,
@@ -1414,6 +1421,7 @@
 				D4343EAB188B87ED009351FE /* square_shoulders.png in Resources */,
 				D4C3E2891882355B00112E83 /* task_list_circle_on.png in Resources */,
 				D4343EAD188B87ED009351FE /* slopped_shoulders.png in Resources */,
+				D4343ED3188BCA99009351FE /* placeholder@2x.png in Resources */,
 				7EC318EC187BC2650093083E /* Images.xcassets in Resources */,
 				D4343EA0188B8793009351FE /* TRMMeasurementCustomerInfromationViewController.xib in Resources */,
 				7EC318DB187BC2650093083E /* InfoPlist.strings in Resources */,
@@ -1658,11 +1666,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Trumaker/Trumaker-Prefix.pch";
 				INFOPLIST_FILE = "Trumaker/Trumaker-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1673,11 +1683,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Trumaker/Trumaker-Prefix.pch";
 				INFOPLIST_FILE = "Trumaker/Trumaker-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
