@@ -10,6 +10,7 @@
 #import "TRMBuildPreferenceViewController.h"
 #import "TRMProductSelectionViewController.h"
 #import "TRMCustomerInformationViewController.h"
+#import "TRMMeasurementCustomerInfromationViewController.h"
 
 #import "TRMUtils.h"
 #import "TRMTaskModel.h"
@@ -129,9 +130,16 @@
         [self pushViewControllerStack:productSelectionViewController withTitle:@"Orders"];
     }
     
+    if ([indexPath row] == 2) {
+        TRMMeasurementCustomerInfromationViewController *measurementCustomerInfromationViewController =[[TRMMeasurementCustomerInfromationViewController alloc] initWithNibName:@"TRMMeasurementCustomerInfromationViewController" bundle:nil];
+        [measurementCustomerInfromationViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+        [self pushViewControllerStack:measurementCustomerInfromationViewController withTitle:@"TRUMAKER"];
+    }
+    
     if ([indexPath row] == 3) {
         TRMBuildPreferenceViewController *buildPreferenceViewController = [[TRMBuildPreferenceViewController alloc] initWithNibName:@"TRMBuildPreferenceViewController" bundle:nil];
-        [self pushViewControllerStack:buildPreferenceViewController withTitle:@"Build Perference"];
+        [buildPreferenceViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+        [self pushViewControllerStack:buildPreferenceViewController withTitle:@"TRUMAKER"];
     }
     
 }

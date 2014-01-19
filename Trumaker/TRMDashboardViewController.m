@@ -121,7 +121,7 @@
         return;
     }
     
-    if ([indexPath row] == 0) {
+    if ([indexPath row] == 0) { 
         //order selected
         TRMOrderCustomerTypeViewController *orderCustomerTypeViewController = [[TRMOrderCustomerTypeViewController alloc] initWithNibName:@"TRMOrderCustomerTypeViewController" bundle:nil];
         [[orderCustomerTypeViewController navigationItem] setTitle:@"TRUMAKER"];

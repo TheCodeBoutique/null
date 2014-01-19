@@ -37,6 +37,7 @@
 -(NSString *)parseTitle;
 
 //add helper to say if its order item
+-(BOOL)isOrderItem;
 
 //private
 @property (strong, nonatomic) NSNumber *selectedCount;

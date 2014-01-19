@@ -74,7 +74,7 @@
     
     TRMCustomerModel *customer = [[TRMCoreApi sharedInstance] customer];
     int orderItem = [[customer idForOrder] intValue];
-    [[[TRMProductsDAO alloc] init] saveSelectedProducts:_selectedProducts withOrderId:orderItem completionHandler:^(TRMOrderModel *order, NSError *error) {
+    [[[TRMProductsDAO alloc] init] saveSelectedProducts:_selectedProducts withOrderId:orderItem completionHandler:^(TRMProductModel *order, NSError *error) {
         if (!error) {
             
         }

@@ -86,7 +86,7 @@
 }
 
 
-- (void)saveSelectedProducts:(NSMutableArray *)selectedProducts withOrderId:(int)orderId completionHandler:(void (^)(TRMOrderModel *order, NSError *))handler {
+- (void)saveSelectedProducts:(NSMutableArray *)selectedProducts withOrderId:(int)orderId completionHandler:(void (^)(TRMProductModel *order, NSError *))handler {
     
     NSString *updateOrderUrl = [[TRMEnviorment sharedInstance] urlForUpdatingOrder];
     NSString *orderStringId   = [NSString stringWithFormat:@"%d",orderId];
@@ -117,7 +117,7 @@
     [manager PUT:urlString parameters:orderDict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *jsonDictionary = [responseObject objectForKey:@"order"];
-        TRMOrderModel *order = [TRMOrderModel objectFromJSONObject:jsonDictionary mapping:nil];
+        TRMProductModel *order = [TRMProductModel objectFromJSONObject:jsonDictionary mapping:nil];
         TRMCustomerModel *currentCustomer = [[TRMCoreApi sharedInstance] customer];
         NSMutableArray *inProgressOrders = [currentCustomer in_progress_orders];
         [inProgressOrders removeAllObjects];

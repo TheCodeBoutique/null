@@ -38,4 +38,8 @@
     }
     _selectedCount = [NSNumber numberWithInt:value - 1];
 }
+
+-(BOOL)isOrderItem {
+    return (self.order_item_id) ? YES : NO;
+}
 @end

@@ -17,6 +17,7 @@
 #import "TRMAddressModel.h"
 #import "TRMPhoneModel.h"
 #import "TRMOrderModel.h"
+#import "TRMProductModel.h"
 
 @implementation TRMCustomerDAO
 
@@ -55,9 +56,20 @@
             NSMutableArray *inProgressOrders = [[NSMutableArray alloc] init];
             [[customer in_progress_orders] enumerateObjectsUsingBlock:^(NSDictionary *orderDictionary, NSUInteger idx, BOOL *stop) {
                 TRMOrderModel *order = [TRMOrderModel objectFromJSONObject:orderDictionary mapping:nil];
-                [inProgressOrders addObject:order];
                 
                 //will need to process order items if they exsist
+                NSMutableArray *orderItems = [[NSMutableArray alloc] init];
+                [[order order_items] enumerateObjectsUsingBlock:^(NSDictionary *orderItemDictionary, NSUInteger idx, BOOL *stop) {
+                    TRMProductModel *orderItem = [TRMProductModel objectFromJSONObject:orderDictionary mapping:nil];
+                    [orderItem setOrder_item_id:[[orderItemDictionary valueForKey:@"id"] intValue]];
+                    [orderItem setId:[[orderItemDictionary valueForKey:@"product_id"] intValue]];
+                    [orderItems addObject:orderItem];
+                    
+                }];
+                
+                [order setOrder_items:orderItems];
+                
+                [inProgressOrders addObject:order];
             }];
             
             //update in progree orders

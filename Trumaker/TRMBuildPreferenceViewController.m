@@ -95,7 +95,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //push self navingationController to new view
-    TRMBuildPreferenceDetailViewController *buildPreferenceDetailViewController = [[TRMBuildPreferenceDetailViewController alloc] init];
+    TRMBuildPreferenceDetailViewController *buildPreferenceDetailViewController = [[TRMBuildPreferenceDetailViewController alloc] initWithNibName:@"TRMBuildPreferenceDetailViewController" bundle:nil];
+    [buildPreferenceDetailViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+    
     [buildPreferenceDetailViewController setDelgate:self];
     
     
