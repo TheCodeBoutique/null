@@ -16,10 +16,12 @@
 @property (nonatomic, strong) TRMCustomerModel *customer; //current customer were doing the order for
 
 @property (nonatomic, strong) NSMutableArray *outfitterCustomers; // customer that are sent from server for outfitter
-@property (nonatomic, strong) NSMutableArray *localContacts; //contacts that are stored on the device 
+@property (nonatomic, strong) NSMutableArray *localContacts; //contacts that are stored on the device
 
+//private
 -(BOOL)isFirstTimeCustomer;
 -(BOOL)hasCustomerModel;
+-(BOOL)existingCustomersLoaded;
 
 + (TRMCoreApi *)sharedInstance;
 @end

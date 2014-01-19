@@ -10,6 +10,7 @@
 #import "TRMDashboardTableViewCell.h"
 #import "TRMOrderCustomerTypeViewController.h"
 #import "TRMCustomersViewController.h"
+#import "TRMComingSoonViewController.h"
 
 #import "TRMOutfitterModel.h"
 #import "TRMCoreApi.h"
@@ -63,6 +64,9 @@
     [dashboardData addObject:trumakerNewsModel];
     [dashboardData addObject:contactsModel];
     [dashboardData addObject:catalogueModel];
+    
+    
+    customersUpdated = [[TRMCoreApi sharedInstance] existingCustomersLoaded];
 }
 
 - (void)viewDidLoad
@@ -130,11 +134,35 @@
         [[self navigationController] pushViewController:orderCustomerTypeViewController animated:YES];
     }
     
+    if ([indexPath row] == 1) {
+        TRMComingSoonViewController *comingSoonViewController = [[TRMComingSoonViewController alloc] initWithNibName:@"TRMComingSoonViewController" bundle:nil];
+        [[comingSoonViewController navigationItem] setTitle:@"TRUMAKER"];
+        [[[comingSoonViewController navigationItem] backBarButtonItem] setTitle:@"Back"];
+        [comingSoonViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+        [[self navigationController] pushViewController:comingSoonViewController animated:YES];
+    }
+    
+    if ([indexPath row] == 2) {
+        TRMComingSoonViewController *comingSoonViewController = [[TRMComingSoonViewController alloc] initWithNibName:@"TRMComingSoonViewController" bundle:nil];
+        [[comingSoonViewController navigationItem] setTitle:@"TRUMAKER"];
+        [[[comingSoonViewController navigationItem] backBarButtonItem] setTitle:@"Back"];
+        [comingSoonViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+        [[self navigationController] pushViewController:comingSoonViewController animated:YES];
+    }
+    
     if ([indexPath row] == 3) {
         TRMCustomersViewController *customersViewController = [[TRMCustomersViewController alloc] initWithNibName:@"TRMCustomersViewController" bundle:nil];
         [customersViewController setEdgesForExtendedLayout:UIRectEdgeNone];
         [[customersViewController navigationItem] setTitle:@"Customers"];
         [[self navigationController] pushViewController:customersViewController animated:YES];
+    }
+    
+    if ([indexPath row] == 4) {
+        TRMComingSoonViewController *comingSoonViewController = [[TRMComingSoonViewController alloc] initWithNibName:@"TRMComingSoonViewController" bundle:nil];
+        [[comingSoonViewController navigationItem] setTitle:@"TRUMAKER"];
+        [[[comingSoonViewController navigationItem] backBarButtonItem] setTitle:@"Back"];
+        [comingSoonViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+        [[self navigationController] pushViewController:comingSoonViewController animated:YES];
     }
 }
 
@@ -162,9 +190,8 @@
 }
 
 -(void)updateClients:(NSNotification *)notification {
-    customersUpdated = YES;
+    customersUpdated = [[TRMCoreApi sharedInstance] existingCustomersLoaded];
     [[self tableView] reloadData];
-    
 }
 
 - (void)didReceiveMemoryWarning {

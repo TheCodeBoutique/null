@@ -27,6 +27,11 @@
     return ([self customer]) ? YES : NO;
 }
 
+
+-(BOOL)existingCustomersLoaded {
+    return ([[self outfitterCustomers] count] > 0 || [[self localContacts] count] > 0) ? YES : NO;
+}
+
 + (TRMCoreApi *)sharedInstance
 {
     static TRMCoreApi *sharedInstance = nil;
