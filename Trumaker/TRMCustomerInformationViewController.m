@@ -232,7 +232,8 @@
 }
 
 
--(void)resignKeyboard {
+-(void)resignKeyboard
+{
     [_firstName resignFirstResponder];
     [_firstName resignFirstResponder];
     [_lastName resignFirstResponder];

@@ -11,6 +11,7 @@
 #import "TRMProductSelectionViewController.h"
 #import "TRMCustomerInformationViewController.h"
 #import "TRMMeasurementCustomerInfromationViewController.h"
+#import "TRMShipping_BillingViewController.h"
 
 #import "TRMUtils.h"
 #import "TRMTaskModel.h"
@@ -141,6 +142,12 @@
         TRMBuildPreferenceViewController *buildPreferenceViewController = [[TRMBuildPreferenceViewController alloc] initWithNibName:@"TRMBuildPreferenceViewController" bundle:nil];
         [buildPreferenceViewController setEdgesForExtendedLayout:UIRectEdgeNone];
         [self pushViewControllerStack:buildPreferenceViewController withTitle:@"TRUMAKER"];
+    }
+    
+    if ([indexPath row] == 6) {
+        TRMShipping_BillingViewController *shippingBillingViewController = [[TRMShipping_BillingViewController alloc] initWithNibName:@"TRMShipping_BillingViewController" bundle:nil];
+        [shippingBillingViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+        [self pushViewControllerStack:shippingBillingViewController withTitle:@"TRUMAKER"];
     }
     
 }
