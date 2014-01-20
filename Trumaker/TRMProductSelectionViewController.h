@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface TRMProductSelectionViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
-
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet UIButton *shoppingCartButton;
+@property (strong, nonatomic) IBOutlet UILabel *badgeLabel;
+@property (nonatomic, strong) NSMutableArray *selectedProducts;
+
+-(IBAction)didTapShoppingCart:(id)sender;
+-(void)updateBadge;
 @end

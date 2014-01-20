@@ -7,13 +7,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TRMProductSelectionViewController">
             <connections>
+                <outlet property="badgeLabel" destination="55d-39-i53" id="v4Q-T9-maX"/>
                 <outlet property="collectionView" destination="hxd-B6-wmM" id="Idd-0Q-l4W"/>
+                <outlet property="shoppingCartButton" destination="MFN-FW-b0E" id="Fbe-kb-D5u"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="1">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="64" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" id="KJ9-jh-V3b">
@@ -27,25 +29,28 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MFN-FW-b0E" userLabel="Forward Button">
-                            <rect key="frame" x="276" y="-2" width="44" height="44"/>
+                        <label hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="55d-39-i53" userLabel="badge">
+                            <rect key="frame" x="283" y="2" width="42" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="navigation_forward_arrow_off.png">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MFN-FW-b0E" userLabel="Cart Button">
+                            <rect key="frame" x="261" y="-2" width="44" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="cart.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LKN-RN-lG6" userLabel="Back button">
-                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="navigation_back_arrow_on.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
+                            <connections>
+                                <action selector="didTapShoppingCart:" destination="-1" eventType="touchUpInside" id="gu3-7U-Acb"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.45882352939999999" green="0.49803921569999998" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" id="hxd-B6-wmM">
-                    <rect key="frame" x="0.0" y="40" width="320" height="529"/>
+                    <rect key="frame" x="0.0" y="40" width="320" height="465"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Krc-yH-UU9">
@@ -63,11 +68,11 @@
             </subviews>
             <color key="backgroundColor" red="0.89411764709999997" green="0.91372549020000005" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
-        <image name="navigation_back_arrow_on.png" width="11" height="19"/>
-        <image name="navigation_forward_arrow_off.png" width="11" height="19"/>
+        <image name="cart.png" width="26" height="21"/>
     </resources>
 </document>

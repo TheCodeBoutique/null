@@ -12,10 +12,9 @@
 
 @interface TRMChooseAddressViewController ()
 @property (nonatomic, strong) NSMutableArray *tableViewDataSource;
+@property (nonatomic, strong) TRMAddressModel *selectedAddress;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-- (IBAction)addAddressButton:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *tableFooterView;
-
 
 @end
 
@@ -41,9 +40,7 @@
     //if the customer has addresses already, show them
     if ([[TRMCoreApi sharedInstance] hasCustomerModel])
     {
-        NSMutableArray *addresses = [[[TRMCoreApi sharedInstance] customer] addresses];
-        [tableViewDataSource addObject:addresses];
-        
+        tableViewDataSource = [[[TRMCoreApi sharedInstance] customer] addresses];
     } else {
         //if this is the first time entering addresses then make add address an option
     }
@@ -51,7 +48,6 @@
 
 }
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -73,21 +69,19 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
-    
-    [[cell detailTextLabel] setText:@"12345 State Street"];
-    [[cell textLabel] setText:@"Home:"];
-    
-    //set the cell's text to item in the array
-  //  [[cell address] setText:[tableViewDataSource objectAtIndex:indexPath.row]];
-    
+    int row = [indexPath row];
+    if ([tableViewDataSource count] > 0) {
+        TRMAddressModel *address = [tableViewDataSource objectAtIndex:row];
+        [[cell detailTextLabel] setText:[address address1]];
+        [[cell textLabel] setText:[address cityState]];
+    }
     [[self tableView] setTableFooterView:_tableFooterView];
-    
-
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    _selectedAddress = [tableViewDataSource objectAtIndex:[indexPath row]];
     //show action sheet
     [[[UIActionSheet alloc] initWithTitle:@"Address Options"
                          cancelButtonItem: [RIButtonItem itemWithLabel:@"Cancel" action:^{
@@ -111,59 +105,16 @@
 
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)pushAddressDetailViewController
 {
     //push self navingationController to new view
     TRMAddressDetailViewController *addressDetailViewController = [[TRMAddressDetailViewController alloc] initWithNibName:@"TRMAddressDetailViewController" bundle:nil];
     [addressDetailViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+    if (_selectedAddress) {
+        [addressDetailViewController setAddress:_selectedAddress];
+    } else {
+        [addressDetailViewController setAddress:nil];
+    }
     
     [[self navigationController] pushViewController:addressDetailViewController animated:YES];
 }
@@ -172,5 +123,11 @@
 {
     //push self navingationController to new view
     [self pushAddressDetailViewController];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 @end

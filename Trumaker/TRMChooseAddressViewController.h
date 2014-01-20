@@ -12,4 +12,5 @@
 
 @interface TRMChooseAddressViewController : UIViewController
 
+- (IBAction)addAddressButton:(id)sender;
 @end

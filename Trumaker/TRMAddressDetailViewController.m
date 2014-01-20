@@ -46,7 +46,46 @@
     //set content size of scroll view so the view is scrollable on the 4s
     CGFloat textViewWidth = self.view.frame.size.width;
     [[self scrollView] setContentSize:CGSizeMake(textViewWidth, _scrollView.frame.size.height)];
-
+    
+    if (_address) {
+        [self populateFields];
+    }
+}
+//@property (weak, nonatomic) IBOutlet TRMIndentTextField *streetTextField;
+//@property (weak, nonatomic) IBOutlet TRMIndentTextField *streetContTextField;
+//@property (weak, nonatomic) IBOutlet TRMIndentTextField *cityTextField;
+//@property (weak, nonatomic) IBOutlet TRMIndentTextField *stateTextField;
+//@property (weak, nonatomic) IBOutlet TRMIndentTextField *zipTextField;
+//
+//@property (strong, nonatomic) TRMAddressModel *address;
+//
+//@property (weak, nonatomic) IBOutlet UIImageView *shippingImageView;
+//@property (weak, nonatomic) IBOutlet UIImageView *billingImageView;
+//@property (weak, nonatomic) IBOutlet UIImageView *bothImageView;
+-(void)populateFields {
+    
+    [_stateTextField setText:[_address state_abbr_name]];
+    [_streetTextField setText:[_address address1]];
+    [_streetContTextField setText:[_address address2]];
+    [_zipTextField setText:[_address zip_code]];
+    [_cityTextField setText:[_address city]];
+    
+    [_shippingButton setSelected:[_address shipping_default]];
+    [_billingButton setSelected:[_address shipping_default]];
+    
+    
+    UIImage *onState = [UIImage imageNamed:@"check_radio_on_small"];
+    UIImage *offState = [UIImage imageNamed:@"check_radio_off_small"];
+    if ([_address shipping_default]) {
+        [_shippingImageView setImage:onState];
+    } else {
+        [_shippingImageView setImage:offState];
+    }
+    if ([_address billing_default]) {
+        [_billingImageView setImage:onState];
+    } else {
+        [_billingImageView setImage:offState];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -231,24 +270,25 @@
     }
 }
 
-//- (IBAction)useAsBoth:(id)sender
-//{
-//    UIImage *onState = [UIImage imageNamed:@"check_radio_on_small"];
-//    UIImage *offState = [UIImage imageNamed:@"check_radio_off_small"];
-//    
-//    if ([sender isSelected])
-//    {
-//        [sender setSelected:NO];
-//        [_bothImageView setImage:offState];
-//
-//        
-//    } else{
-//        [sender setSelected:YES];
-//        [_bothImageView setImage:onState];
-//
-//        
-//    }
-//}
+//fine for now since button is hidden
+- (IBAction)useAsBoth:(id)sender
+{
+    UIImage *onState = [UIImage imageNamed:@"check_radio_on_small"];
+    UIImage *offState = [UIImage imageNamed:@"check_radio_off_small"];
+    
+    if ([sender isSelected])
+    {
+        [sender setSelected:NO];
+        [_bothImageView setImage:offState];
+
+        
+    } else{
+        [sender setSelected:YES];
+        [_bothImageView setImage:onState];
+
+        
+    }
+}
 
 
 @end

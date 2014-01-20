@@ -14,6 +14,8 @@
 @interface TRMShopingCartViewController () <UITextFieldDelegate>
 @property (nonatomic, strong) UIBarButtonItem *editButton;
 @property (nonatomic, strong) UIBarButtonItem *doneButton;
+
+@property (nonatomic, strong) NSMutableArray *createdObjectsFromCount; //temp bucket to be pushed back
 @end
 
 @implementation TRMShopingCartViewController
@@ -37,6 +39,8 @@
     [[self navigationItem] setRightBarButtonItem:_editButton];
     [[self navigationItem] setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(didTapClose:)]];
     
+    
+    _createdObjectsFromCount = [[NSMutableArray alloc] init];
 }
 
 -(IBAction)didTapEdit:(id)sender {
@@ -56,11 +60,27 @@
 
 
 -(IBAction)didTapClose:(id)sender {
+    if ([selectedProducts count] > 0 ) {
+        [selectedProducts enumerateObjectsUsingBlock:^(TRMProductModel *product, NSUInteger idx, BOOL *stop) {
+            [self buildObjectsFromCount:[[product selectedCount] intValue] object:product];
+            if (stop) {
+                [self dismissShopingCartViewController];
+            }
+        }];
+    } else {
+        [self dismissShopingCartViewController];
+    }
+}
+
+-(void)dismissShopingCartViewController {
     [self dismissViewControllerAnimated:YES completion:^{
         //update collection view
+        [_productSelectionViewController setSelectedProducts:_createdObjectsFromCount];
         [[_productSelectionViewController collectionView] reloadData];
-    }];    
+        [_productSelectionViewController updateBadge];
+    }];
 }
+
 
 #pragma mark - Table view data source
 
@@ -173,10 +193,17 @@
     [[self view] endEditing:YES];
 }
 
+-(void)buildObjectsFromCount:(int)count object:(TRMProductModel *)product {
+    for (int i = 0; i < count; i ++) {
+        TRMProductModel *prod = [[TRMProductModel alloc] init];
+        prod = product;
+        [_createdObjectsFromCount addObject:prod];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
-
 @end
