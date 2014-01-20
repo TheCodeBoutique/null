@@ -196,39 +196,59 @@
 
 - (IBAction)useAsShippingButton:(id)sender
 {
+    UIImage *onState = [UIImage imageNamed:@"check_radio_on_small"];
+    UIImage *offState = [UIImage imageNamed:@"check_radio_off_small"];
+    
     if ([sender isSelected])
     {
         [sender setSelected:NO];
+        [_shippingImageView setImage:offState];
 
     } else{
         [sender setSelected:YES];
+        [_shippingImageView setImage:onState];
+        
 
     }
 }
 
 - (IBAction)useAsBilling:(id)sender
 {
+    UIImage *onState = [UIImage imageNamed:@"check_radio_on_small"];
+    UIImage *offState = [UIImage imageNamed:@"check_radio_off_small"];
+    
     if ([sender isSelected])
     {
         [sender setSelected:NO];
+        [_billingImageView setImage:offState];
+
         
     } else{
         [sender setSelected:YES];
+        [_billingImageView setImage:onState];
+
         
     }
 }
 
-- (IBAction)useAsBoth:(id)sender
-{
-    if ([sender isSelected])
-    {
-        [sender setSelected:NO];
-        
-    } else{
-        [sender setSelected:YES];
-        
-    }
-}
+//- (IBAction)useAsBoth:(id)sender
+//{
+//    UIImage *onState = [UIImage imageNamed:@"check_radio_on_small"];
+//    UIImage *offState = [UIImage imageNamed:@"check_radio_off_small"];
+//    
+//    if ([sender isSelected])
+//    {
+//        [sender setSelected:NO];
+//        [_bothImageView setImage:offState];
+//
+//        
+//    } else{
+//        [sender setSelected:YES];
+//        [_bothImageView setImage:onState];
+//
+//        
+//    }
+//}
 
 
 @end

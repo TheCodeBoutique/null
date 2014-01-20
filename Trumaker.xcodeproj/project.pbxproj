@@ -13,9 +13,13 @@
 		7E433F15188C9DBB00F525E6 /* TRMShipping_BillingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F13188C9DBB00F525E6 /* TRMShipping_BillingViewController.xib */; };
 		7E433F1B188CAE1C00F525E6 /* TRMChooseAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E433F19188CAE1C00F525E6 /* TRMChooseAddressViewController.m */; };
 		7E433F1C188CAE1C00F525E6 /* TRMChooseAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F1A188CAE1C00F525E6 /* TRMChooseAddressViewController.xib */; };
-		7E433F33188CD05700F525E6 /* plus_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F32188CD05700F525E6 /* plus_button.png */; };
 		7E433F37188CD0B900F525E6 /* TRMAddressDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E433F35188CD0B900F525E6 /* TRMAddressDetailViewController.m */; };
 		7E433F38188CD0B900F525E6 /* TRMAddressDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F36188CD0B900F525E6 /* TRMAddressDetailViewController.xib */; };
+		7E433F3A188CE77300F525E6 /* plus_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F39188CE77300F525E6 /* plus_button.png */; };
+		7E433F3E188CEAE500F525E6 /* check_radio_on_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F3D188CEAE500F525E6 /* check_radio_on_small.png */; };
+		7E433F40188CEB4900F525E6 /* check_radio_off_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F3F188CEB4900F525E6 /* check_radio_off_small.png */; };
+		7E433F44188CF74E00F525E6 /* TRMShirtConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E433F42188CF74E00F525E6 /* TRMShirtConfigurationViewController.m */; };
+		7E433F45188CF74E00F525E6 /* TRMShirtConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F43188CF74E00F525E6 /* TRMShirtConfigurationViewController.xib */; };
 		7E8ABC2D187CEE3800F792DA /* TRMEnviorment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8ABC2C187CEE3800F792DA /* TRMEnviorment.m */; };
 		7E8ABC31187CF80900F792DA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7E8ABC30187CF80900F792DA /* Settings.bundle */; };
 		7E8ABC34187CF9EC00F792DA /* TRMCustomerDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8ABC33187CF9EC00F792DA /* TRMCustomerDAO.m */; };
@@ -228,10 +232,15 @@
 		7E433F18188CAE1C00F525E6 /* TRMChooseAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMChooseAddressViewController.h; sourceTree = "<group>"; };
 		7E433F19188CAE1C00F525E6 /* TRMChooseAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMChooseAddressViewController.m; sourceTree = "<group>"; };
 		7E433F1A188CAE1C00F525E6 /* TRMChooseAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMChooseAddressViewController.xib; sourceTree = "<group>"; };
-		7E433F32188CD05700F525E6 /* plus_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus_button.png; sourceTree = "<group>"; };
 		7E433F34188CD0B900F525E6 /* TRMAddressDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMAddressDetailViewController.h; sourceTree = "<group>"; };
 		7E433F35188CD0B900F525E6 /* TRMAddressDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMAddressDetailViewController.m; sourceTree = "<group>"; };
 		7E433F36188CD0B900F525E6 /* TRMAddressDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMAddressDetailViewController.xib; sourceTree = "<group>"; };
+		7E433F39188CE77300F525E6 /* plus_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus_button.png; sourceTree = "<group>"; };
+		7E433F3D188CEAE500F525E6 /* check_radio_on_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_radio_on_small.png; sourceTree = "<group>"; };
+		7E433F3F188CEB4900F525E6 /* check_radio_off_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_radio_off_small.png; sourceTree = "<group>"; };
+		7E433F41188CF74E00F525E6 /* TRMShirtConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMShirtConfigurationViewController.h; sourceTree = "<group>"; };
+		7E433F42188CF74E00F525E6 /* TRMShirtConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMShirtConfigurationViewController.m; sourceTree = "<group>"; };
+		7E433F43188CF74E00F525E6 /* TRMShirtConfigurationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMShirtConfigurationViewController.xib; sourceTree = "<group>"; };
 		7E8ABC2B187CEE3800F792DA /* TRMEnviorment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMEnviorment.h; sourceTree = "<group>"; };
 		7E8ABC2C187CEE3800F792DA /* TRMEnviorment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMEnviorment.m; sourceTree = "<group>"; };
 		7E8ABC30187CF80900F792DA /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -583,9 +592,21 @@
 		7E433F25188CCC8B00F525E6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				7E433F32188CD05700F525E6 /* plus_button.png */,
+				7E433F3F188CEB4900F525E6 /* check_radio_off_small.png */,
+				7E433F3D188CEAE500F525E6 /* check_radio_on_small.png */,
+				7E433F39188CE77300F525E6 /* plus_button.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		7E433F46188CF75300F525E6 /* Shirt Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				7E433F41188CF74E00F525E6 /* TRMShirtConfigurationViewController.h */,
+				7E433F42188CF74E00F525E6 /* TRMShirtConfigurationViewController.m */,
+				7E433F43188CF74E00F525E6 /* TRMShirtConfigurationViewController.xib */,
+			);
+			name = "Shirt Configuration";
 			sourceTree = "<group>";
 		};
 		7E8ABC38187D199D00F792DA /* MBProgressHUD */ = {
@@ -709,6 +730,7 @@
 				D4E60AA01889126C00DC1678 /* TRMAddressBookApi.m */,
 				7E433F10188BA55300F525E6 /* ComingSoon */,
 				7E433F16188C9DC200F525E6 /* Shipping and Billing */,
+				7E433F46188CF75300F525E6 /* Shirt Configuration */,
 			);
 			path = Trumaker;
 			sourceTree = "<group>";
@@ -1512,13 +1534,15 @@
 				D4C3E29B1882560300112E83 /* mark_photo.png in Resources */,
 				D4343EE4188BD962009351FE /* message.png in Resources */,
 				D4C7272118868A0D00681344 /* TRMProductSelectionSearchView.xib in Resources */,
+				7E433F3A188CE77300F525E6 /* plus_button.png in Resources */,
+				7E433F3E188CEAE500F525E6 /* check_radio_on_small.png in Resources */,
 				D4FAB5F918879F5C004AC0C2 /* TRMBuildPreferenceViewController.xib in Resources */,
-				7E433F33188CD05700F525E6 /* plus_button.png in Resources */,
 				D4343EB0188B8808009351FE /* check_radio_off.png in Resources */,
 				D4C3E2731881DD1500112E83 /* TRMTaskListViewController.xib in Resources */,
 				7E9EAE3E187D2AED008DDA2E /* trumaker_hero@2x.png in Resources */,
 				D411DCD7188C71B40028901F /* front.png in Resources */,
 				D4343EB1188B8808009351FE /* check_radio_on.png in Resources */,
+				7E433F45188CF74E00F525E6 /* TRMShirtConfigurationViewController.xib in Resources */,
 				D4343EE6188BD9C7009351FE /* order_history@2x.png in Resources */,
 				D4C3E2A518825E5200112E83 /* dashboard_camera_icon.png in Resources */,
 				D4E0913618827EC200FB52F2 /* navigation_forward_arrow_on.png in Resources */,
@@ -1557,6 +1581,7 @@
 				D4343ED8188BD635009351FE /* calendar.png in Resources */,
 				D4C3E295188247EA00112E83 /* TRMOrderCustomerTypeViewController.xib in Resources */,
 				7E9EAE3B187D2AD2008DDA2E /* TRMDashboardViewController.xib in Resources */,
+				7E433F40188CEB4900F525E6 /* check_radio_off_small.png in Resources */,
 				D4343EAC188B87ED009351FE /* normal_shoulders.png in Resources */,
 				D4C3E28F1882418800112E83 /* task_list_background@2x.png in Resources */,
 				D411DCD1188C6FED0028901F /* ruler.png in Resources */,
@@ -1584,6 +1609,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4FAB5F818879F5C004AC0C2 /* TRMBuildPreferenceViewController.m in Sources */,
+				7E433F44188CF74E00F525E6 /* TRMShirtConfigurationViewController.m in Sources */,
 				D4C726B218864C7F00681344 /* TRMProductsDAO.m in Sources */,
 				7E433F14188C9DBB00F525E6 /* TRMShipping_BillingViewController.m in Sources */,
 				D4E60AAD18891D1D00DC1678 /* TRMBuildPreferenceItem.m in Sources */,

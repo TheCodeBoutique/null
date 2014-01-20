@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIActionSheet+Blocks.h"
+#import "RIButtonItem.h"
 
 @interface TRMChooseAddressViewController : UIViewController
 

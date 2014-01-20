@@ -88,11 +88,26 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //push self navingationController to new view
-    TRMAddressDetailViewController *addressDetailViewController = [[TRMAddressDetailViewController alloc] initWithNibName:@"TRMAddressDetailViewController" bundle:nil];
-    [addressDetailViewController setEdgesForExtendedLayout:UIRectEdgeNone];
-    
-    [[self navigationController] pushViewController:addressDetailViewController animated:YES];
+    //show action sheet
+    [[[UIActionSheet alloc] initWithTitle:@"Address Options"
+                         cancelButtonItem: [RIButtonItem itemWithLabel:@"Cancel" action:^{
+                        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }]
+                    destructiveButtonItem:[RIButtonItem itemWithLabel:@"Delete Address" action:^{
+                        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }]
+                         otherButtonItems:[RIButtonItem itemWithLabel:@"Use Address" action:^{
+                        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }],
+                        [RIButtonItem itemWithLabel:@"Edit Address" action:^{
+        
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                        [self pushAddressDetailViewController];
+
+    }], nil] showInView:self.view];
 
 }
 
@@ -144,6 +159,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)addAddressButton:(id)sender {
+- (void)pushAddressDetailViewController
+{
+    //push self navingationController to new view
+    TRMAddressDetailViewController *addressDetailViewController = [[TRMAddressDetailViewController alloc] initWithNibName:@"TRMAddressDetailViewController" bundle:nil];
+    [addressDetailViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+    
+    [[self navigationController] pushViewController:addressDetailViewController animated:YES];
+}
+
+- (IBAction)addAddressButton:(id)sender
+{
+    //push self navingationController to new view
+    [self pushAddressDetailViewController];
 }
 @end
