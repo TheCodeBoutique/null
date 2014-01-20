@@ -10,8 +10,9 @@
 #import "TRMMeasurementView.h"
 #import "TRMFormulaData.h"
 @interface TRMeasurementsViewController : UIViewController <UIScrollViewDelegate,TRMMeasurementViewDelegate>
-
 @property (strong, nonatomic) TRMFormulaData *data;
-@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+- (IBAction)nextButtonTapped:(id)sender;
+- (IBAction)previousButtonTapped:(id)sender;
 @end

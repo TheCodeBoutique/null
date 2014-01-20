@@ -57,4 +57,3 @@ typedef enum {
 -(void)hideOverlayView:(UIView *)customOverlayView :(TRMMeasurementView *)measurementView;
 -(void)valueForConfiguration:(int)config value:(float)value withWarning:(BOOL)isRed;
 @end
-
