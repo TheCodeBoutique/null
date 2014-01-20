@@ -104,12 +104,12 @@
     [customerDictionary setValue:[customer first_name] forKey:@"first_name"];
     [customerDictionary setValue:[customer last_name] forKey:@"last_name"];
     [customerDictionary setValue:[customer email] forKey:@"email"];
-    [customerDictionary setValue:[customer default_monogram] forKey:@"@default_monogram"];
+    [customerDictionary setValue:[customer default_monogram] forKey:@"default_monogram"];
     
-    NSDictionary *addressDictionary = [NSDictionary dictionaryWithPropertiesOfObject:[[customer addresses] objectAtIndex:0]];
     NSDictionary *phonesDictionary = [NSDictionary dictionaryWithPropertiesOfObject:[[customer phones] objectAtIndex:0]];
+    NSMutableDictionary *editedPhoneDictionary = [[NSMutableDictionary alloc] initWithDictionary:phonesDictionary];
+    [editedPhoneDictionary removeObjectForKey:@"id"];
     
-    [customerDictionary setObject:[[NSMutableArray alloc] initWithArray:@[addressDictionary]] forKey:@"addresses"];
     [customerDictionary setObject:[[NSMutableArray alloc] initWithArray:@[phonesDictionary]] forKey:@"phones"];
     
     NSMutableDictionary *userDictionary = [[NSMutableDictionary alloc] init];
@@ -119,11 +119,14 @@
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [[manager requestSerializer] setValue:[[TRMAuthHolder sharedInstance] authString] forHTTPHeaderField:@"HTTP_AUTHORIZATION"];
     [manager POST:addCustomerUrl parameters:userDictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //will need to parse and call the handler back
+        //check the respnose json might not be grabbing the right key
+        TRMCustomerModel *customer = [TRMCustomerModel objectFromJSONObject:responseObject mapping:nil];
         
+        handler(customer, nil);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-
+        handler(nil, error);
     }];
-    
 }
 @end

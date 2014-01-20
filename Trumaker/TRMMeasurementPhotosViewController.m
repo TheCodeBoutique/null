@@ -13,6 +13,7 @@
 #import "UIAlertView+Blocks.h"
 #import "RIButtonItem.h"
 #import "TRMUtils.h"
+#import "TRMAppDelegate.h"
 
 @interface TRMMeasurementPhotosViewController () {
     UIActivityIndicatorView *spinner;
@@ -159,10 +160,11 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)previousButtonTapped:(id)sender {
+    [[self navigationController] popViewControllerAnimated:YES];
+}
+
 - (IBAction)nextTapped:(id)sender {
-    TRMeasurementsViewController *measurementsViewController = [[TRMeasurementsViewController alloc] initWithNibName:@"TRMeasurementsViewController" bundle:nil];
-    [measurementsViewController setEdgesForExtendedLayout:UIRectEdgeNone];
-    [[measurementsViewController navigationItem] setTitle:@"Order"];
-    [[self navigationController] pushViewController:measurementsViewController animated:YES];
+    //go on to next module 
 }
 @end

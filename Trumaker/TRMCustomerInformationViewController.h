@@ -14,12 +14,8 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet TRMIndentTextField *firstName;
 @property (weak, nonatomic) IBOutlet TRMIndentTextField *lastName;
-@property (weak, nonatomic) IBOutlet TRMIndentTextField *addressField;
-@property (weak, nonatomic) IBOutlet TRMIndentTextField *cityField;
-@property (weak, nonatomic) IBOutlet TRMIndentTextField *stateField;
 @property (weak, nonatomic) IBOutlet TRMIndentTextField *phoneNumber;
 @property (weak, nonatomic) IBOutlet TRMIndentTextField *emailField;
-@property (weak, nonatomic) IBOutlet TRMIndentTextField *zipField;
 
 @property (strong, nonatomic) TRMCustomerModel *customer;
 @end

@@ -28,17 +28,11 @@
     if (self) {
         // Initialization code
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panRecognized:)];
-        
         [self addGestureRecognizer:pan];
         mainMeasurement = measurement;
         
     }
     return self;
-}
-
-- (void)setMeasurement:(CGFloat)measurement
-{
-    
 }
 
 - (void)panRecognized:(UIPanGestureRecognizer *)rec

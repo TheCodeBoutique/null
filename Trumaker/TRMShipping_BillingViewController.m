@@ -39,6 +39,7 @@
     {
         TRMAddressModel *primaryBillingAddress = [[[TRMCoreApi sharedInstance] customer] primaryBillingAddress];
         [tableViewDataSource addObject:primaryBillingAddress];
+        
         TRMAddressModel *primaryShippingAddress = [[[TRMCoreApi sharedInstance] customer] primaryShippingAddress];
         [tableViewDataSource addObject:primaryShippingAddress];
     } else {
@@ -57,7 +58,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 2;
+    return ([tableViewDataSource count] > 0) ? [tableViewDataSource count] : 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -69,10 +70,15 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
-
-    [[cell detailTextLabel] setText:@"123 state street"];
-    [[cell textLabel] setText:@"Shipping:"];
-    // Configure the cell...
+    int row = [indexPath  row];
+    
+    if ([tableViewDataSource count] > 0) {
+        TRMAddressModel *address = [tableViewDataSource objectAtIndex:row];
+        [[cell detailTextLabel] setText:[address address1]];
+        [[cell textLabel] setText:(row == 0) ? @"Shipping" : @"Billing"];
+    } else {
+        [[cell detailTextLabel] setText:@"+ No Addresses"]; //tmp
+    }
     
     return cell;
 }

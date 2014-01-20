@@ -22,4 +22,7 @@
 
 @property (assign, nonatomic) BOOL business;
 @property (assign, nonatomic) BOOL active;
+
+-(NSString *)cityState;
+-(BOOL)isBothShippingAndBilling;
 @end

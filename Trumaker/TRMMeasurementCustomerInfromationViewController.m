@@ -14,6 +14,7 @@
 #import "TRMMeasurement.h"
 #import "MBProgressHUD.h"
 #import "TRMUtils.h"
+#import "TRMAppDelegate.h"
 
 enum SelectionType {
     kLeftWristWatch = 0,
@@ -174,10 +175,14 @@ enum SelectionType {
 -(IBAction)nextBarButtonTapped:(id)sender
 {
     [self saveData];
-    TRMMeasurementPhotosViewController *measurementPhotosViewController = [[TRMMeasurementPhotosViewController alloc] initWithNibName:@"TRMMeasurementPhotosViewController" bundle:nil];
-    [measurementPhotosViewController setEdgesForExtendedLayout:UIRectEdgeNone];
-    [[measurementPhotosViewController navigationItem] setTitle:@"TRUMAKER"];
-    [[self navigationController] pushViewController:measurementPhotosViewController animated:YES];
+    
+    TRMAppDelegate *del = (TRMAppDelegate *)[[UIApplication sharedApplication] delegate];
+    TRMeasurementsViewController *measurementsViewController = [[TRMeasurementsViewController alloc] initWithNibName:@"TRMeasurementsViewController" bundle:nil];
+    [measurementsViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+    [[measurementsViewController navigationItem] setTitle:@"Order"];
+    [[measurementsViewController navigationItem] setLeftBarButtonItem:[del menuBarButton]];
+    [measurementsViewController setData:formulaData];
+    [[self navigationController] pushViewController:measurementsViewController animated:YES];    
 }
 
 -(void)saveData

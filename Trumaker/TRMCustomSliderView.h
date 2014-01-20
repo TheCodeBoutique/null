@@ -19,5 +19,4 @@
 @property (nonatomic, assign) CGFloat incrementValue;
 
 - (id)initWithFrame:(CGRect)frame withDefaultMeasurement:(CGFloat)measurement;
-- (void)setMeasurement:(CGFloat)measurement;
 @end

@@ -20,7 +20,6 @@
 
 @interface TRMProductSelectionViewController ()
 @property (nonatomic, strong) NSMutableArray *products;
-@property (nonatomic, strong) NSMutableArray *selectedProducts;
 @end
 
 @implementation TRMProductSelectionViewController
@@ -46,24 +45,13 @@
     
     //update products with products from the server
     self.products = [[TRMCoreApi sharedInstance] products];
-    
-    //add shopping cart button
-    UIButton *cartButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    [cartButton addTarget:self action:@selector(didTapShoppingCart:) forControlEvents:UIControlEventTouchUpInside];
-    [cartButton setImage:[UIImage imageNamed:@"cart"] forState:UIControlStateNormal];
-    
-    TRMBadgeView *badgeView = [[TRMBadgeView alloc] initWithFrame:CGRectMake(0, 0, 20.0f, 20.0f)];
-    [[badgeView badgeCount] setText:@"4"];
-    [cartButton addSubview:badgeView];
-    
-    UIBarButtonItem *shoppingCartButton = [[UIBarButtonItem alloc] initWithCustomView:cartButton];
+
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(didTapSave:)];
     
     TRMAppDelegate *del = [[UIApplication sharedApplication] delegate];
     [[self navigationItem] setLeftBarButtonItem:[del menuBarButton]];
-
-    NSArray *array = @[saveButton, shoppingCartButton];
-    [[self navigationItem] setRightBarButtonItems:array];
+    
+    [[self navigationItem] setRightBarButtonItem:saveButton];
 }
 
 -(void)didTapSave:(id)sender {
@@ -82,7 +70,7 @@
     }];
 }
 
--(void)didTapShoppingCart:(id)sender {
+-(IBAction)didTapShoppingCart:(id)sender {
 
     TRMShopingCartViewController *shopingCartViewController = [[TRMShopingCartViewController alloc] initWithNibName:@"TRMShopingCartViewController" bundle:nil];
     [self removeDuplicatesFromArray:_selectedProducts];
@@ -144,8 +132,19 @@
     //added product to selected products array to be used in shopping cart
     [_selectedProducts addObject:[selectedCell proudct]];
     
+    [self updateBadge];
+    
     //update collection view
     [[self collectionView] reloadData];
+}
+
+-(void)updateBadge {
+    if ([_selectedProducts count] > 0) {
+        [_badgeLabel setHidden:NO];
+    } else {
+        [_badgeLabel setHidden:YES];
+    }
+    [_badgeLabel setText:[NSString stringWithFormat:@"%d",[_selectedProducts count]]];
 }
 
 #pragma mark Helpers

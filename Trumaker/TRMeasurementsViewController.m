@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 The Code Boutique. All rights reserved.
 //
 #import "TRMeasurementsViewController.h"
+#import "TRMMeasurementPhotosViewController.h"
 #import "TRMAppDelegate.h"
 #import "TRMMeasurementView.h"
 #import "TRMCoreApi.h"
@@ -19,8 +20,9 @@
     NSArray *measurementTitles;
     NSMutableDictionary *rulesDictionary;
     CGRect screen;
+    TRMMeasurementView *measurementView;
     
-    int currentConfig;
+    int currentPage;
 }
 @property (nonatomic, strong) TRMFormula *formula;
 @end
@@ -49,10 +51,11 @@
     }
     return self;
 }
+
 -(void)lowerBounds:(float)lower upperBounds:(float)upper forType:(int)type withEstimate:(float)estimate withIncrement:(float)increment
 {
     //tell the view controller what meaurement were on
-    currentConfig = type;
+    currentPage = type;
     
     NSLog(@"Lower:%f Upper:%f Config:%d Estimate: %f Increment: %f",lower,upper,type,roundf(estimate), increment);
     
@@ -70,10 +73,8 @@
 {
     [super viewDidLoad];
    
-    screen = [[UIScreen mainScreen] applicationFrame];
-    
+    screen = [[UIScreen mainScreen] applicationFrame];    
     [[self scrollView] setScrollEnabled:NO];
-    [[self pageControl] setNumberOfPages:[measurementTitles count]];
     
     //creat scrollview content size
     CGRect frontScreen = [[UIScreen mainScreen] bounds];
@@ -82,8 +83,11 @@
 
 -(void)buildMeasurementsViewWithConfiguration:(int)configuration withMin:(float)minValue withMax:(float)maxValue withMidVale:(float)midValue withIncrement:(float)increment
 {
-    TRMMeasurementView *measurementView = [[TRMMeasurementView alloc] initWithFrame:CGRectMake(configuration * screen.size.width, 0, [_scrollView frame].size.width, 454) withMode:configuration];
-    [[measurementView measurementTitle] setText:[measurementTitles objectAtIndex:configuration]];
+    measurementView = [[TRMMeasurementView alloc] initWithFrame:CGRectMake(configuration * screen.size.width, 0, [_scrollView frame].size.width, 454) withMode:configuration];
+    
+        //handles the next title
+//    [[self measurementTitle] setText:[measurementTitles objectAtIndex:configuration]];
+    
     [measurementView setMinimalAlertWarning:minValue];
     [measurementView setMaxAlertWarning:maxValue];
     [measurementView setMidValue:midValue];
@@ -94,7 +98,7 @@
     [[self scrollView] addSubview:measurementView];
     
     //only start scrolling view we are not at the first page
-    if (currentConfig != 0) {
+    if (currentPage != 0) {
         [self scrollToView];
     }
 }
@@ -102,10 +106,8 @@
 -(void)scrollToView
 {
     CGRect scrollViewRect = [[self scrollView] frame];
-    int page = [[self pageControl] currentPage] + 1;
     [[self scrollView] scrollRectToVisible:
-     CGRectMake(page * CGRectGetWidth(scrollViewRect),
-                0,
+                CGRectMake(currentPage * CGRectGetWidth(scrollViewRect), 0,
                 CGRectGetWidth(scrollViewRect),
                 CGRectGetHeight(scrollViewRect))
                                   animated:YES];
@@ -114,8 +116,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     CGFloat pageWidth = self.scrollView.frame.size.width;
     int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    
-    [[self pageControl] setCurrentPage:page];
+
 }
 
 #pragma mark Actions
@@ -123,9 +124,6 @@
 -(void)remasureAtSection:(NSInteger)section
 {
     [[self scrollView] scrollRectToVisible:CGRectMake(CGRectGetWidth([self scrollView].frame) * section + 1, [self scrollView].frame.origin.y, CGRectGetWidth([self scrollView].frame), CGRectGetHeight([self scrollView].frame)) animated:YES];
-    
-    //set page control to the end so we can go back to confirmation page 
-    [[self pageControl] setCurrentPage:[measurementTitles count] -1];
 }
 
 #pragma mark TRMMeasurementViewDelegate
@@ -148,59 +146,61 @@
 }
 
 #pragma mark actions
--(void)nextButtonTapped:(id)sender
-{
+
+-(IBAction)nextButtonTapped:(id)sender {
     //add custom init with measurements
-    if ([[self pageControl] currentPage] == [measurementTitles count] - 1) {
+    if (currentPage == [measurementTitles count] - 1) {
+        //save data were done
+        TRMMeasurementPhotosViewController *measurementPhotosViewController = [[TRMMeasurementPhotosViewController alloc] initWithNibName:@"TRMMeasurementPhotosViewController" bundle:nil];
+        [measurementPhotosViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+        [[measurementPhotosViewController navigationItem] setTitle:@"TRUMAKER"];
+        [[self navigationController] pushViewController:measurementPhotosViewController animated:YES];
         
-    }
-    
-    else
-    {
-        currentConfig++;
+    } else {
+        currentPage++;
         //we need to check if the data already is there if not creat a new view else just scroll to that view
-        NSLog(@"Setting Formula data %@ currentConfig %d",data, currentConfig);
-        if (![data neck] && currentConfig == 0)
+        NSLog(@"Setting Formula data %@ currentConfig %d",data, currentPage);
+        if (![data neck] && currentPage == 0)
         {
             [formula neckFormula:data];
         }
-        else if (![data chest] && currentConfig == 1)
+        else if (![data chest] && currentPage == 1)
         {
             [formula chestFormula:data];
         }
-        else if (![data waist] && currentConfig == 2)
+        else if (![data waist] && currentPage == 2)
         {
             [formula waistFormula:data];
         }
-        else if (![data seat] && currentConfig == 3)
+        else if (![data seat] && currentPage == 3)
         {
             [formula seatFormula:data];
         }
-        else if (![data shoulders] && currentConfig == 4)
+        else if (![data shoulders] && currentPage == 4)
         {
             [formula shouldersFormula:data];
         }
-        else if (![data rightArm] && currentConfig == 5)
+        else if (![data rightArm] && currentPage == 5)
         {
             [formula rightArmFormula:data];
         }
-        else if (![data leftArm] && currentConfig == 6)
+        else if (![data leftArm] && currentPage == 6)
         {
             [formula leftArmFormula:data];
         }
-        else if (![data rightWrist] && currentConfig == 7)
+        else if (![data rightWrist] && currentPage == 7)
         {
             [formula rightWristFormula:data];
         }
-        else if (![data leftWrist] && currentConfig == 8)
+        else if (![data leftWrist] && currentPage == 8)
         {
             [formula leftWristFormula:data];
         }
-        else if (![data shirtLength] && currentConfig == 9)
+        else if (![data shirtLength] && currentPage == 9)
         {
             [formula shirtFormula:data];
         }
-        else if (![data bicep] && currentConfig == 10)
+        else if (![data bicep] && currentPage == 10)
         {
             [formula bicepFormula:data];
         }
@@ -211,31 +211,29 @@
     }
 }
 
--(void)previousButtonTapped:(id)sender
+-(IBAction)previousButtonTapped:(id)sender
 {
-    if ([[self pageControl] currentPage] == 0)
+    if (currentPage == 0)
     {
-        currentConfig = 0;
+        currentPage = 0;
         [[self navigationController] popViewControllerAnimated:YES];
     }
     else
     {
         CGRect scrollViewRect = [[self scrollView] frame];
-        int currentPageControl = [[self pageControl] currentPage];
-        int page = [[self pageControl] currentPage] - 1;
-        currentConfig--;
-        [[self scrollView] scrollRectToVisible:
-         CGRectMake(page * CGRectGetWidth(scrollViewRect),
-                    0,
-                    CGRectGetWidth(scrollViewRect),
-                    CGRectGetHeight(scrollViewRect))
-                                      animated:YES];
+        currentPage--;
+        CGRect updatedScrollFrame = CGRectMake(currentPage * CGRectGetWidth(scrollViewRect), 0,
+                                               CGRectGetWidth(scrollViewRect),
+                                               CGRectGetHeight(scrollViewRect));
+        
+        [measurementView removeFromSuperview]; //remove view its being redrawn multiple times
+        [[self scrollView] scrollRectToVisible:updatedScrollFrame animated:YES];
     }
 }
 -(void)valueForConfiguration:(int)config value:(float)value withWarning:(BOOL)isRed
 {
     NSLog(@"Red UP Top %d configuration %d",isRed, config);
-    switch (currentConfig) {
+    switch (currentPage) {
         case 0:
             [data setNeck:value];
             [data setNeckIsRed:isRed];
