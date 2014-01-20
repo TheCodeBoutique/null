@@ -17,7 +17,6 @@
 #import "TRMUtils.h"
 
 #import "TRMCustomerTableViewModel.h"
-#import "TRMAddressModel.h"
 #import "TRMPhoneModel.h"
 
 @interface TRMCustomerInformationViewController ()
@@ -132,10 +131,6 @@
 -(void)updateFieldsWithCustomerData {
     [_firstName setText:[_customer first_name]];
     [_lastName setText:[_customer last_name]];
-    [_addressField setText:[[_customer primaryAddress] address1]];
-    [_cityField setText:[[_customer primaryAddress] city]];
-    [_stateField setText:[[_customer primaryAddress] state_abbr_name]];
-    [_zipField setText:[[_customer primaryAddress] zip_code]];
     [_emailField setText:[_customer email]];
     [_phoneNumber setText:[[_customer primaryPhone] formattedNumber]];
 }
@@ -157,12 +152,8 @@
 {
     [_firstName addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_lastName addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    [_addressField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    [_stateField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    [_cityField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_phoneNumber addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_emailField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    [_zipField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
 }
 
 -(void)textFieldDidChange:(id)sender
@@ -235,10 +226,7 @@
 -(void)resignKeyboard
 {
     [_firstName resignFirstResponder];
-    [_firstName resignFirstResponder];
     [_lastName resignFirstResponder];
-    [_addressField resignFirstResponder];
-    [_cityField resignFirstResponder];
     [_phoneNumber resignFirstResponder];
     [_emailField resignFirstResponder];
 }
@@ -271,34 +259,20 @@
 
 -(void)saveNewCustomer {
     TRMCustomerModel *customer = [[TRMCustomerModel alloc] init];
-    TRMAddressModel *address = [[TRMAddressModel alloc] init];
     TRMPhoneModel *phone = [[TRMPhoneModel alloc] init];
     
     [customer setEmail:[_emailField text]];
     [customer setFirst_name:[_firstName text]];
     [customer setLast_name:[_lastName text]];
-    [address setZip_code:[_zipField text]];
-    [address setAddress1:[_addressField text]];
-    [address setCity:[_cityField text]];
-    [address setState_abbr_name:[_stateField text]];
     [phone setNumber:[_phoneNumber text]];
     
     //default monogram will be TRU
     [customer setDefault_monogram:@""];
     
     //we need to make these the primary when creating new users
-    [address setActive:YES];
-    [address setName:[customer fullName]];
-    [address setBilling_default:YES];
-    [address setShipping_default:YES];
-    [address setBusiness:NO];
-    
-    //we need to make these the primary when creating new users
 //    [phone setPhone_type:@"mobile"];
     
-    NSMutableArray *addresses = [[NSMutableArray alloc] initWithArray:@[address]];
     NSMutableArray *phones = [[NSMutableArray alloc] initWithArray:@[phone]];
-    [customer setAddresses:addresses];
     [customer setPhones:phones];
     [self sendCustomerToServer:customer];
 }
@@ -315,6 +289,7 @@
         [hud hide:YES];
     }];
 }
+
 - (IBAction)didTapNextArrow:(id)sender {
     [self pushProductSelection];
 }
@@ -357,14 +332,6 @@
             if(range.length > 0)
                 textField.text = [NSString stringWithFormat:@"(%@) %@",[num substringToIndex:3],[num substringFromIndex:3]];
         }
-    } else if ([[textField placeholder] isEqualToString:@"State"])
-    {
-        NSUInteger newLength = [textField.text length] + [string length] - range.length;
-        return (newLength > 2) ? NO : YES;
-    } else if ([[textField placeholder] isEqualToString:@"Zip"])
-    {
-        NSUInteger newLength = [textField.text length] + [string length] - range.length;
-        return (newLength > 5) ? NO : YES;
     }
     
     return YES;
