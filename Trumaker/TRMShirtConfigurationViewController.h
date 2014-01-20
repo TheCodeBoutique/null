@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TRMShirtConfigurationViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property(nonatomic, strong) NSMutableArray *tableViewDataSource;
+
 
 @end
