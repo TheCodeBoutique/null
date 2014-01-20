@@ -9,6 +9,17 @@
 /* Begin PBXBuildFile section */
 		7E433F0E188BA54E00F525E6 /* TRMComingSoonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E433F0C188BA54E00F525E6 /* TRMComingSoonViewController.m */; };
 		7E433F0F188BA54E00F525E6 /* TRMComingSoonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F0D188BA54E00F525E6 /* TRMComingSoonViewController.xib */; };
+		7E433F14188C9DBB00F525E6 /* TRMShipping_BillingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E433F12188C9DBB00F525E6 /* TRMShipping_BillingViewController.m */; };
+		7E433F15188C9DBB00F525E6 /* TRMShipping_BillingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F13188C9DBB00F525E6 /* TRMShipping_BillingViewController.xib */; };
+		7E433F1B188CAE1C00F525E6 /* TRMChooseAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E433F19188CAE1C00F525E6 /* TRMChooseAddressViewController.m */; };
+		7E433F1C188CAE1C00F525E6 /* TRMChooseAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F1A188CAE1C00F525E6 /* TRMChooseAddressViewController.xib */; };
+		7E433F37188CD0B900F525E6 /* TRMAddressDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E433F35188CD0B900F525E6 /* TRMAddressDetailViewController.m */; };
+		7E433F38188CD0B900F525E6 /* TRMAddressDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F36188CD0B900F525E6 /* TRMAddressDetailViewController.xib */; };
+		7E433F3A188CE77300F525E6 /* plus_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F39188CE77300F525E6 /* plus_button.png */; };
+		7E433F3E188CEAE500F525E6 /* check_radio_on_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F3D188CEAE500F525E6 /* check_radio_on_small.png */; };
+		7E433F40188CEB4900F525E6 /* check_radio_off_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F3F188CEB4900F525E6 /* check_radio_off_small.png */; };
+		7E433F44188CF74E00F525E6 /* TRMShirtConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E433F42188CF74E00F525E6 /* TRMShirtConfigurationViewController.m */; };
+		7E433F45188CF74E00F525E6 /* TRMShirtConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F43188CF74E00F525E6 /* TRMShirtConfigurationViewController.xib */; };
 		7E8ABC2D187CEE3800F792DA /* TRMEnviorment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8ABC2C187CEE3800F792DA /* TRMEnviorment.m */; };
 		7E8ABC31187CF80900F792DA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7E8ABC30187CF80900F792DA /* Settings.bundle */; };
 		7E8ABC34187CF9EC00F792DA /* TRMCustomerDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8ABC33187CF9EC00F792DA /* TRMCustomerDAO.m */; };
@@ -220,6 +231,21 @@
 		7E433F0B188BA54E00F525E6 /* TRMComingSoonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMComingSoonViewController.h; sourceTree = "<group>"; };
 		7E433F0C188BA54E00F525E6 /* TRMComingSoonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMComingSoonViewController.m; sourceTree = "<group>"; };
 		7E433F0D188BA54E00F525E6 /* TRMComingSoonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMComingSoonViewController.xib; sourceTree = "<group>"; };
+		7E433F11188C9DBB00F525E6 /* TRMShipping_BillingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMShipping_BillingViewController.h; sourceTree = "<group>"; };
+		7E433F12188C9DBB00F525E6 /* TRMShipping_BillingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMShipping_BillingViewController.m; sourceTree = "<group>"; };
+		7E433F13188C9DBB00F525E6 /* TRMShipping_BillingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMShipping_BillingViewController.xib; sourceTree = "<group>"; };
+		7E433F18188CAE1C00F525E6 /* TRMChooseAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMChooseAddressViewController.h; sourceTree = "<group>"; };
+		7E433F19188CAE1C00F525E6 /* TRMChooseAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMChooseAddressViewController.m; sourceTree = "<group>"; };
+		7E433F1A188CAE1C00F525E6 /* TRMChooseAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMChooseAddressViewController.xib; sourceTree = "<group>"; };
+		7E433F34188CD0B900F525E6 /* TRMAddressDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMAddressDetailViewController.h; sourceTree = "<group>"; };
+		7E433F35188CD0B900F525E6 /* TRMAddressDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMAddressDetailViewController.m; sourceTree = "<group>"; };
+		7E433F36188CD0B900F525E6 /* TRMAddressDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMAddressDetailViewController.xib; sourceTree = "<group>"; };
+		7E433F39188CE77300F525E6 /* plus_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus_button.png; sourceTree = "<group>"; };
+		7E433F3D188CEAE500F525E6 /* check_radio_on_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_radio_on_small.png; sourceTree = "<group>"; };
+		7E433F3F188CEB4900F525E6 /* check_radio_off_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_radio_off_small.png; sourceTree = "<group>"; };
+		7E433F41188CF74E00F525E6 /* TRMShirtConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMShirtConfigurationViewController.h; sourceTree = "<group>"; };
+		7E433F42188CF74E00F525E6 /* TRMShirtConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMShirtConfigurationViewController.m; sourceTree = "<group>"; };
+		7E433F43188CF74E00F525E6 /* TRMShirtConfigurationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMShirtConfigurationViewController.xib; sourceTree = "<group>"; };
 		7E8ABC2B187CEE3800F792DA /* TRMEnviorment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMEnviorment.h; sourceTree = "<group>"; };
 		7E8ABC2C187CEE3800F792DA /* TRMEnviorment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMEnviorment.m; sourceTree = "<group>"; };
 		7E8ABC30187CF80900F792DA /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -549,6 +575,51 @@
 			name = ComingSoon;
 			sourceTree = "<group>";
 		};
+		7E433F16188C9DC200F525E6 /* Shipping and Billing */ = {
+			isa = PBXGroup;
+			children = (
+				7E433F25188CCC8B00F525E6 /* Images */,
+				7E433F17188CADDC00F525E6 /* Controllers */,
+			);
+			name = "Shipping and Billing";
+			sourceTree = "<group>";
+		};
+		7E433F17188CADDC00F525E6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7E433F11188C9DBB00F525E6 /* TRMShipping_BillingViewController.h */,
+				7E433F12188C9DBB00F525E6 /* TRMShipping_BillingViewController.m */,
+				7E433F13188C9DBB00F525E6 /* TRMShipping_BillingViewController.xib */,
+				7E433F18188CAE1C00F525E6 /* TRMChooseAddressViewController.h */,
+				7E433F19188CAE1C00F525E6 /* TRMChooseAddressViewController.m */,
+				7E433F1A188CAE1C00F525E6 /* TRMChooseAddressViewController.xib */,
+				7E433F34188CD0B900F525E6 /* TRMAddressDetailViewController.h */,
+				7E433F35188CD0B900F525E6 /* TRMAddressDetailViewController.m */,
+				7E433F36188CD0B900F525E6 /* TRMAddressDetailViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		7E433F25188CCC8B00F525E6 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7E433F3F188CEB4900F525E6 /* check_radio_off_small.png */,
+				7E433F3D188CEAE500F525E6 /* check_radio_on_small.png */,
+				7E433F39188CE77300F525E6 /* plus_button.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		7E433F46188CF75300F525E6 /* Shirt Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				7E433F41188CF74E00F525E6 /* TRMShirtConfigurationViewController.h */,
+				7E433F42188CF74E00F525E6 /* TRMShirtConfigurationViewController.m */,
+				7E433F43188CF74E00F525E6 /* TRMShirtConfigurationViewController.xib */,
+			);
+			name = "Shirt Configuration";
+			sourceTree = "<group>";
+		};
 		7E8ABC38187D199D00F792DA /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -669,6 +740,8 @@
 				D4E60A9F1889126C00DC1678 /* TRMAddressBookApi.h */,
 				D4E60AA01889126C00DC1678 /* TRMAddressBookApi.m */,
 				7E433F10188BA55300F525E6 /* ComingSoon */,
+				7E433F16188C9DC200F525E6 /* Shipping and Billing */,
+				7E433F46188CF75300F525E6 /* Shirt Configuration */,
 			);
 			path = Trumaker;
 			sourceTree = "<group>";
@@ -1405,7 +1478,7 @@
 				ORGANIZATIONNAME = Trumaker;
 				TargetAttributes = {
 					7EC318CC187BC2650093083E = {
-						DevelopmentTeam = 8LXD35UKX5;
+						DevelopmentTeam = X59SJ3Z8ZX;
 					};
 					7EC318F0187BC2650093083E = {
 						TestTargetID = 7EC318CC187BC2650093083E;
@@ -1436,6 +1509,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E433F15188C9DBB00F525E6 /* TRMShipping_BillingViewController.xib in Resources */,
 				D4C3E28B188236D600112E83 /* task_list_bridge_on.png in Resources */,
 				D4C3E2BB1882649100112E83 /* trumaker_hero_two@2x.png in Resources */,
 				7EC547D9187D39D500DAC090 /* TRMDashboardTableViewCell.xib in Resources */,
@@ -1458,6 +1532,7 @@
 				D4343EE0188BD8CC009351FE /* mail@2x.png in Resources */,
 				D4343EE8188BD9CC009351FE /* order_history.png in Resources */,
 				D4343EF0188BE074009351FE /* small_mail.png in Resources */,
+				7E433F38188CD0B900F525E6 /* TRMAddressDetailViewController.xib in Resources */,
 				D4343EBF188B991E009351FE /* TRMMeasurementPhotosViewController.xib in Resources */,
 				D4C3E2CC18827CCD00112E83 /* navigation_back_arrow_off_@2x.png in Resources */,
 				D4E0913418827EBA00FB52F2 /* navigation_forward_arrow_off.png in Resources */,
@@ -1479,18 +1554,22 @@
 				D4343EE4188BD962009351FE /* message.png in Resources */,
 				D411DCDB188CA46D0028901F /* slide_gesture.png in Resources */,
 				D4C7272118868A0D00681344 /* TRMProductSelectionSearchView.xib in Resources */,
+				7E433F3A188CE77300F525E6 /* plus_button.png in Resources */,
+				7E433F3E188CEAE500F525E6 /* check_radio_on_small.png in Resources */,
 				D4FAB5F918879F5C004AC0C2 /* TRMBuildPreferenceViewController.xib in Resources */,
 				D4343EB0188B8808009351FE /* check_radio_off.png in Resources */,
 				D4C3E2731881DD1500112E83 /* TRMTaskListViewController.xib in Resources */,
 				7E9EAE3E187D2AED008DDA2E /* trumaker_hero@2x.png in Resources */,
 				D411DCD7188C71B40028901F /* front.png in Resources */,
 				D4343EB1188B8808009351FE /* check_radio_on.png in Resources */,
+				7E433F45188CF74E00F525E6 /* TRMShirtConfigurationViewController.xib in Resources */,
 				D4343EE6188BD9C7009351FE /* order_history@2x.png in Resources */,
 				D4C3E2A518825E5200112E83 /* dashboard_camera_icon.png in Resources */,
 				D4E0913618827EC200FB52F2 /* navigation_forward_arrow_on.png in Resources */,
 				D411DCD5188C71910028901F /* front@2x.png in Resources */,
 				D4343ECF188BBC53009351FE /* front_facing.png in Resources */,
 				D4C3E2611881C64B00112E83 /* hamburger.png in Resources */,
+				7E433F1C188CAE1C00F525E6 /* TRMChooseAddressViewController.xib in Resources */,
 				7E9EAE35187D28ED008DDA2E /* TRMLoadingViewController.xib in Resources */,
 				D4343EDC188BD883009351FE /* phone.png in Resources */,
 				D4C726CF1886685500681344 /* cart.png in Resources */,
@@ -1523,6 +1602,7 @@
 				D4343ED8188BD635009351FE /* calendar.png in Resources */,
 				D4C3E295188247EA00112E83 /* TRMOrderCustomerTypeViewController.xib in Resources */,
 				7E9EAE3B187D2AD2008DDA2E /* TRMDashboardViewController.xib in Resources */,
+				7E433F40188CEB4900F525E6 /* check_radio_off_small.png in Resources */,
 				D4343EAC188B87ED009351FE /* normal_shoulders.png in Resources */,
 				D4C3E28F1882418800112E83 /* task_list_background@2x.png in Resources */,
 				D411DCD1188C6FED0028901F /* ruler.png in Resources */,
@@ -1550,7 +1630,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4FAB5F818879F5C004AC0C2 /* TRMBuildPreferenceViewController.m in Sources */,
+				7E433F44188CF74E00F525E6 /* TRMShirtConfigurationViewController.m in Sources */,
 				D4C726B218864C7F00681344 /* TRMProductsDAO.m in Sources */,
+				7E433F14188C9DBB00F525E6 /* TRMShipping_BillingViewController.m in Sources */,
 				D4E60AAD18891D1D00DC1678 /* TRMBuildPreferenceItem.m in Sources */,
 				7EC31931187BCF580093083E /* AFURLConnectionOperation.m in Sources */,
 				D4C726B51886588D00681344 /* TRMProductModel.m in Sources */,
@@ -1607,6 +1689,7 @@
 				D4E60AA918891D0F00DC1678 /* TRMBuildPreferenceDetailViewController.m in Sources */,
 				D4C726AE1886278400681344 /* TRMPhoneModel.m in Sources */,
 				7EC3192D187BCF580093083E /* AFHTTPRequestOperationManager.m in Sources */,
+				7E433F37188CD0B900F525E6 /* TRMAddressDetailViewController.m in Sources */,
 				7EC31938187BD3410093083E /* TRMUtils.m in Sources */,
 				D4C7271518866D7700681344 /* UIImage+GIF.m in Sources */,
 				D4FAB6071887C795004AC0C2 /* TRMBadgeView.m in Sources */,
@@ -1628,6 +1711,7 @@
 				D4E60AA11889126C00DC1678 /* TRMAddressBookApi.m in Sources */,
 				D4343E9B188B8793009351FE /* TRMMeasurementView.m in Sources */,
 				D4E09146188282F600FB52F2 /* JTSetMappings.m in Sources */,
+				7E433F1B188CAE1C00F525E6 /* TRMChooseAddressViewController.m in Sources */,
 				D4C3E2B91882602800112E83 /* RIButtonItem.m in Sources */,
 				D4C3E294188247EA00112E83 /* TRMOrderCustomerTypeViewController.m in Sources */,
 				D40D76051883949C000AB22E /* TRMCustomerModel.m in Sources */,
