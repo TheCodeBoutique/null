@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7E433F0E188BA54E00F525E6 /* TRMComingSoonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E433F0C188BA54E00F525E6 /* TRMComingSoonViewController.m */; };
 		7E433F0F188BA54E00F525E6 /* TRMComingSoonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F0D188BA54E00F525E6 /* TRMComingSoonViewController.xib */; };
+		7E433F14188C9DBB00F525E6 /* TRMShipping_BillingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E433F12188C9DBB00F525E6 /* TRMShipping_BillingViewController.m */; };
+		7E433F15188C9DBB00F525E6 /* TRMShipping_BillingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F13188C9DBB00F525E6 /* TRMShipping_BillingViewController.xib */; };
 		7E8ABC2D187CEE3800F792DA /* TRMEnviorment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8ABC2C187CEE3800F792DA /* TRMEnviorment.m */; };
 		7E8ABC31187CF80900F792DA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7E8ABC30187CF80900F792DA /* Settings.bundle */; };
 		7E8ABC34187CF9EC00F792DA /* TRMCustomerDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8ABC33187CF9EC00F792DA /* TRMCustomerDAO.m */; };
@@ -189,6 +191,9 @@
 		7E433F0B188BA54E00F525E6 /* TRMComingSoonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMComingSoonViewController.h; sourceTree = "<group>"; };
 		7E433F0C188BA54E00F525E6 /* TRMComingSoonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMComingSoonViewController.m; sourceTree = "<group>"; };
 		7E433F0D188BA54E00F525E6 /* TRMComingSoonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMComingSoonViewController.xib; sourceTree = "<group>"; };
+		7E433F11188C9DBB00F525E6 /* TRMShipping_BillingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMShipping_BillingViewController.h; sourceTree = "<group>"; };
+		7E433F12188C9DBB00F525E6 /* TRMShipping_BillingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMShipping_BillingViewController.m; sourceTree = "<group>"; };
+		7E433F13188C9DBB00F525E6 /* TRMShipping_BillingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMShipping_BillingViewController.xib; sourceTree = "<group>"; };
 		7E8ABC2B187CEE3800F792DA /* TRMEnviorment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMEnviorment.h; sourceTree = "<group>"; };
 		7E8ABC2C187CEE3800F792DA /* TRMEnviorment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMEnviorment.m; sourceTree = "<group>"; };
 		7E8ABC30187CF80900F792DA /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -486,6 +491,16 @@
 			name = ComingSoon;
 			sourceTree = "<group>";
 		};
+		7E433F16188C9DC200F525E6 /* Shipping and Billing */ = {
+			isa = PBXGroup;
+			children = (
+				7E433F11188C9DBB00F525E6 /* TRMShipping_BillingViewController.h */,
+				7E433F12188C9DBB00F525E6 /* TRMShipping_BillingViewController.m */,
+				7E433F13188C9DBB00F525E6 /* TRMShipping_BillingViewController.xib */,
+			);
+			name = "Shipping and Billing";
+			sourceTree = "<group>";
+		};
 		7E8ABC38187D199D00F792DA /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -606,6 +621,7 @@
 				D4E60A9F1889126C00DC1678 /* TRMAddressBookApi.h */,
 				D4E60AA01889126C00DC1678 /* TRMAddressBookApi.m */,
 				7E433F10188BA55300F525E6 /* ComingSoon */,
+				7E433F16188C9DC200F525E6 /* Shipping and Billing */,
 			);
 			path = Trumaker;
 			sourceTree = "<group>";
@@ -1294,7 +1310,7 @@
 				ORGANIZATIONNAME = Trumaker;
 				TargetAttributes = {
 					7EC318CC187BC2650093083E = {
-						DevelopmentTeam = 8UC7T5DXBM;
+						DevelopmentTeam = X59SJ3Z8ZX;
 					};
 					7EC318F0187BC2650093083E = {
 						TestTargetID = 7EC318CC187BC2650093083E;
@@ -1325,6 +1341,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E433F15188C9DBB00F525E6 /* TRMShipping_BillingViewController.xib in Resources */,
 				D4C3E28B188236D600112E83 /* task_list_bridge_on.png in Resources */,
 				D4C3E2BB1882649100112E83 /* trumaker_hero_two@2x.png in Resources */,
 				7EC547D9187D39D500DAC090 /* TRMDashboardTableViewCell.xib in Resources */,
@@ -1410,6 +1427,7 @@
 			files = (
 				D4FAB5F818879F5C004AC0C2 /* TRMBuildPreferenceViewController.m in Sources */,
 				D4C726B218864C7F00681344 /* TRMProductsDAO.m in Sources */,
+				7E433F14188C9DBB00F525E6 /* TRMShipping_BillingViewController.m in Sources */,
 				D4E60AAD18891D1D00DC1678 /* TRMBuildPreferenceItem.m in Sources */,
 				7EC31931187BCF580093083E /* AFURLConnectionOperation.m in Sources */,
 				D4C726B51886588D00681344 /* TRMProductModel.m in Sources */,
