@@ -123,14 +123,25 @@
     return UITableViewCellEditingStyleDelete;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the managed object at the given index path
+        TRMProductModel *productModel = [selectedProducts objectAtIndex:[indexPath row]];
+        [productModel productDeletedFromShoppingCart]; //this removes all counts and selection
+        [selectedProducts removeObjectAtIndex:[indexPath row]];
+        
+        // Update Event objects array and table view
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+    } 
+}
+
 
 - (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return NO;
 }
 
-#pragma mark UITextFieldDelegate 
-
+#pragma mark UITextFieldDelegate
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     TRMShoppingCartCell *cell = (TRMShoppingCartCell *)[[[textField superview] superview] superview];
     [[cell selectionCount] setText:textField.text];

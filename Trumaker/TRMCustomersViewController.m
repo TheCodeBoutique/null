@@ -84,6 +84,9 @@
         [customerDetailViewController setCustomer:[customersDataSource objectAtIndex:[indexPath row]]];
         [[TRMCoreApi sharedInstance] setCustomer:[customersDataSource objectAtIndex:[indexPath row]]];
         [[self navigationController] pushViewController:customerDetailViewController animated:YES];
+    } else {
+        [customerDetailViewController setPhoneContact:[localContactsDataSource objectAtIndex:[indexPath row]]];
+        [[self navigationController] pushViewController:customerDetailViewController animated:YES];        
     }
 }
 

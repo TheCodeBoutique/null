@@ -42,4 +42,9 @@
 -(BOOL)isOrderItem {
     return (self.order_item_id) ? YES : NO;
 }
+
+-(void)productDeletedFromShoppingCart {
+    [self setSelectedCount:[NSNumber numberWithInt:0]];
+    [self setIsSelected:NO];
+}
 @end

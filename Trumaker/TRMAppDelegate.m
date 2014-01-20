@@ -108,6 +108,7 @@
 
 -(UINavigationController *)getNavigationController:(UIViewController *)viewController {
     UINavigationController *mainNavigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    [[mainNavigationController navigationBar] setBarTintColor:[TRMUtils colorWithHexString:@"E4E9E4"]];
     return mainNavigationController;
 }
 

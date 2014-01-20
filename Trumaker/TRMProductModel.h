@@ -42,6 +42,7 @@
 //private
 @property (strong, nonatomic) NSNumber *selectedCount;
 @property (assign, nonatomic) BOOL isSelected;
+-(void)productDeletedFromShoppingCart;
 -(void)incrementSelectedCount;
 -(void)decrementSelectedCount;
 @end
