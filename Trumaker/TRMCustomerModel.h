@@ -31,4 +31,6 @@
 
 -(TRMAddressModel *)primaryAddress;
 -(TRMPhoneModel *)primaryPhone;
+-(TRMAddressModel *)primaryShippingAddress;
+-(TRMAddressModel *)primaryBillingAddress;
 @end

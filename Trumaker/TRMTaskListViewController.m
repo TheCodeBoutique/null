@@ -101,6 +101,7 @@
     }
     TRMTaskModel *model = [tableDataSource objectAtIndex:[indexPath row]];
     [[cell title] setText:[model title]];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
 //    if ([indexPath row] == 3) {
 //        [cell setIsDisabled:YES];

@@ -35,6 +35,34 @@
     return mainAddress;
 }
 
+-(TRMAddressModel *)primaryShippingAddress {
+    NSMutableArray *allAddresses = [self addresses];
+    __block TRMAddressModel *mainAddress;
+    [allAddresses enumerateObjectsUsingBlock:^(TRMAddressModel *address, NSUInteger idx, BOOL *stop) {
+        if ([address active]) {
+            if ([address shipping_default]) {
+                mainAddress = address;
+            }
+            *stop = YES;
+        }
+    }];
+    return mainAddress;
+}
+
+-(TRMAddressModel *)primaryBillingAddress {
+    NSMutableArray *allAddresses = [self addresses];
+    __block TRMAddressModel *mainAddress;
+    [allAddresses enumerateObjectsUsingBlock:^(TRMAddressModel *address, NSUInteger idx, BOOL *stop) {
+        if ([address active]) {
+            if ([address billing_default]) {
+                mainAddress = address;
+            }
+            *stop = YES;
+        }
+    }];
+    return mainAddress;
+}
+
 -(TRMPhoneModel *)primaryPhone {
     NSMutableArray *allPhones = [self phones];
     __block TRMPhoneModel *mainPhone;

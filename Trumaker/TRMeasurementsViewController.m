@@ -33,7 +33,17 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        measurementTitles = [NSArray arrayWithObjects:@"Neck", @"Chest",@"Waist",@"Seat",@"Shoulders",@"Right Arm",@"Left Arm",@"Right Wrist", @"Left Wrist",@"Shirt Length", @"Bicep", nil];
+        measurementTitles = [NSArray arrayWithObjects:@"Neck",
+                             @"Chest",
+                             @"Waist",
+                             @"Seat",
+                             @"Shoulders",
+                             @"Right Arm",
+                             @"Left Arm",
+                             @"Right Wrist",
+                             @"Left Wrist",
+                             @"Shirt Length",
+                             @"Bicep", nil];
         
         measurementsViews = [[NSMutableArray alloc] initWithCapacity:[measurementTitles count]];
     }
@@ -141,7 +151,8 @@
 -(void)nextButtonTapped:(id)sender
 {
     //add custom init with measurements
-    if ([[self pageControl] currentPage] == [measurementTitles count] -1) {
+    if ([[self pageControl] currentPage] == [measurementTitles count] - 1) {
+        
     }
     
     else

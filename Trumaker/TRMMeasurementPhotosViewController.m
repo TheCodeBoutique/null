@@ -7,6 +7,8 @@
 //
 
 #import "TRMMeasurementPhotosViewController.h"
+#import "TRMeasurementsViewController.h"
+
 #import "TRMPhotoSelectionView.h"
 #import "UIAlertView+Blocks.h"
 #import "RIButtonItem.h"
@@ -30,6 +32,14 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [[self navigationItem] setTitle:@"Order"];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [[self navigationItem] setTitle:@""];
 }
 
 - (void)viewDidLoad
@@ -150,6 +160,9 @@
 }
 
 - (IBAction)nextTapped:(id)sender {
-    
+    TRMeasurementsViewController *measurementsViewController = [[TRMeasurementsViewController alloc] initWithNibName:@"TRMeasurementsViewController" bundle:nil];
+    [measurementsViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+    [[measurementsViewController navigationItem] setTitle:@"Order"];
+    [[self navigationController] pushViewController:measurementsViewController animated:YES];
 }
 @end
