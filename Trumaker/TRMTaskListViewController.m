@@ -13,6 +13,7 @@
 #import "TRMMeasurementCustomerInfromationViewController.h"
 #import "TRMShipping_BillingViewController.h"
 #import "TRMShirtConfigurationViewController.h"
+#import "TRMCheckoutViewController.h"
 
 #import "TRMUtils.h"
 #import "TRMTaskModel.h"
@@ -155,6 +156,12 @@
         TRMShipping_BillingViewController *shippingBillingViewController = [[TRMShipping_BillingViewController alloc] initWithNibName:@"TRMShipping_BillingViewController" bundle:nil];
         [shippingBillingViewController setEdgesForExtendedLayout:UIRectEdgeNone];
         [self pushViewControllerStack:shippingBillingViewController withTitle:@"TRUMAKER"];
+    }
+    
+    if ([indexPath row] == 7) {
+        TRMCheckoutViewController *checkoutViewController = [[TRMCheckoutViewController alloc] initWithNibName:@"TRMCheckoutViewController" bundle:nil];
+        [checkoutViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+        [self pushViewControllerStack:checkoutViewController withTitle:@"TRUMAKER"];
     }
     
 }

@@ -123,6 +123,10 @@
                                 </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="VRI-l2-19y" appends="YES" id="ez5-Ys-wub"/>
+                            </connections>
                         </view>
                         <view contentMode="scaleToFill" id="am1-rF-z5c" userLabel="Wrist Wrapper">
                             <rect key="frame" x="0.0" y="303" width="320" height="179"/>
@@ -297,6 +301,11 @@
         <tapGestureRecognizer id="SWy-u6-XMl">
             <connections>
                 <action selector="didTapOnScrollView:" destination="-1" id="Qd4-xv-TFF"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="VRI-l2-19y">
+            <connections>
+                <action selector="didTapOnScrollView:" destination="-1" id="ahp-YY-pcE"/>
             </connections>
         </tapGestureRecognizer>
     </objects>

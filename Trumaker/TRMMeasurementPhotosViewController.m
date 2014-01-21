@@ -15,16 +15,21 @@
 #import "TRMUtils.h"
 #import "TRMAppDelegate.h"
 
-@interface TRMMeasurementPhotosViewController () {
+@interface TRMMeasurementPhotosViewController ()
+{
     UIActivityIndicatorView *spinner;
     UIImageView *overlayImageView;
     NSMutableArray *imagesArray; //photos taken
     TRMPhotoSelectionView *selectedPhoto;
 }
+
+@property (nonatomic, strong) UIImage *defaultPhoto;
+
 @end
 
 @implementation TRMMeasurementPhotosViewController
 @synthesize picker;
+@synthesize defaultPhoto;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,19 +40,24 @@
     return self;
 }
 
--(void)viewWillAppear:(BOOL)animated {
+-(void)viewWillAppear:(BOOL)animated
+{
     [[self navigationItem] setTitle:@"Order"];
 }
 
--(void)viewWillDisappear:(BOOL)animated {
+-(void)viewWillDisappear:(BOOL)animated
+{
     [[self navigationItem] setTitle:@""];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    defaultPhoto = [UIImage imageNamed:@"default_placeholder_photo_icon"];
+    
     [_mainImage setImage:[UIImage imageNamed:@"default_photo_viewer_icon"]];
-    [_mainImage setContentMode:UIViewContentModeScaleAspectFit];
+    [_mainImage setContentMode:UIViewContentModeScaleToFill];
     [_mainImage setClipsToBounds:YES];
 
     
@@ -69,7 +79,7 @@
     [_greyBarView setFrame:greyImageFrame];
     
     NSArray *typesArray = @[@"Front", @"Side",@"Back"];
-    imagesArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"default_placeholder_photo_icon"],[UIImage imageNamed:@"default_placeholder_photo_icon"],[UIImage imageNamed:@"default_placeholder_photo_icon"], nil];
+    imagesArray = [[NSMutableArray alloc] initWithObjects:defaultPhoto, defaultPhoto,defaultPhoto, nil];
     
     
     for (int i = 0; i < 3; i++) {
@@ -85,22 +95,36 @@
 }
 
 
--(void)didTapImage:(id)sender {
+-(void)didTapImage:(id)sender
+{
     TRMPhotoSelectionView *viewTapped = (TRMPhotoSelectionView *)[sender view];
-    [_PhotoLabel setText:[[viewTapped photoType] text]];
-    [_mainImage setImage:[[viewTapped photoImage] image]];
-    selectedPhoto = viewTapped;
+
+    if ([[viewTapped photoImage] image] == defaultPhoto)
+    {
+        [_PhotoLabel setText:[[viewTapped photoType] text]];
+        [_mainImage setImage:[UIImage imageNamed:@"default_photo_viewer_icon"]];
+        selectedPhoto = viewTapped;
+
+    } else {
+        [_PhotoLabel setText:[[viewTapped photoType] text]];
+        [_mainImage setImage:[[viewTapped photoImage] image]];
+        selectedPhoto = viewTapped;
+
+    }
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)reatakeTapped:(id)sender {
+- (IBAction)reatakeTapped:(id)sender
+{
     [self launchImagePicker];
 }
 
-- (IBAction)deleteTapped:(id)sender {
+- (IBAction)deleteTapped:(id)sender
+{
     [[[UIAlertView alloc] initWithTitle:@"Delete Photo" message:@"This will permanently remove the photo are you sure you want to delete." cancelButtonItem:[RIButtonItem itemWithLabel:@"No" action:^{
         
     }] otherButtonItems:[RIButtonItem itemWithLabel:@"Delete" action:^{
@@ -112,7 +136,8 @@
 }
 
 #pragma mark photo
--(void)launchImagePicker{
+-(void)launchImagePicker
+{
     CGRect app = [[[UIApplication sharedApplication] keyWindow] frame];
     
     picker = [[UIImagePickerController alloc] init];
@@ -151,7 +176,8 @@
     
     
 }
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     UIImage *editImage = [info objectForKey:UIImagePickerControllerEditedImage];
     
@@ -167,11 +193,13 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)previousButtonTapped:(id)sender {
+- (IBAction)previousButtonTapped:(id)sender
+{
     [[self navigationController] popViewControllerAnimated:YES];
 }
 
-- (IBAction)nextTapped:(id)sender {
+- (IBAction)nextTapped:(id)sender
+{
     //go on to next module 
 }
 @end

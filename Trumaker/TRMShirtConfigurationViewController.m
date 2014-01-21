@@ -8,6 +8,8 @@
 
 #import "TRMShirtConfigurationViewController.h"
 #import "TRMCoreApi.h"
+#import "TRMBuildPreferenceViewController.h"
+#import "TRMShirtConfigurationCell.h"
 
 @interface TRMShirtConfigurationViewController ()
 
@@ -48,26 +50,28 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //create a cell if there isnt one, or use a pre-existing one if we already have one
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"shirtConfigurationCell";
+    TRMShirtConfigurationCell *cell = (TRMShirtConfigurationCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        NSArray * nib = [[NSBundle mainBundle] loadNibNamed:@"TRMShirtConfigurationCell" owner:self options:nil];
+        
+        cell = [nib objectAtIndex:0];
     }
     
     //set the cell's text to item in the array
-//    [[cell shirtTitle] setText:[selectedShirtsArray objectAtIndex:indexPath.row]];
-//    [[cell produtImage] setImage:[_selectedImages objectAtIndex:indexPath.row]];
+//    [[cell shirtName] setText:[selectedShirtsArray objectAtIndex:indexPath.row]];
+//    [[cell shirtImage] setImage:[_selectedImages objectAtIndex:indexPath.row]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //push self navingationController to new view
-//    TRMShirtDetailViewController *shirtDetailViewController = [[TRMShirtDetailViewController alloc] initWithNibName:@"TRMShirtDetailViewController" bundle:nil];
-//    [shirtDetailViewController setEdgesForExtendedLayout:UIRectEdgeNone];
-//    
-//    [[self navigationController] pushViewController:shirtDetailViewController animated:YES];
+    TRMBuildPreferenceViewController *buildPreferenceViewController = [[TRMBuildPreferenceViewController alloc] initWithNibName:@"TRMBuildPreferenceViewController" bundle:nil];
+    [buildPreferenceViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+    
+    [[self navigationController] pushViewController:buildPreferenceViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
