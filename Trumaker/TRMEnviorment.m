@@ -69,6 +69,10 @@
 {
     return [NSString stringWithFormat:@"%@/%@",[self currentServer],@"api/orders_ios/"];
 }
+-(NSString *)urlForOutfitterImageUpload
+{
+    return [NSString stringWithFormat:@"%@/%@",[self currentServer],@"api/users_ios/"];
+}
 
 -(NSString *)urlForBatchDelete
 {

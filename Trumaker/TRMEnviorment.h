@@ -17,6 +17,7 @@
 -(NSString *)urlForUpdatingOrder;
 -(NSString *)urlForPaymentMethod;
 -(NSString *)urlForBatchDelete;
+-(NSString *)urlForOutfitterImageUpload;
 
 -(NSString *)baseURL;
 -(BOOL)isProduction;

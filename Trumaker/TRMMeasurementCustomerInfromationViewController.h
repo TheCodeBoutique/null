@@ -10,7 +10,6 @@
 #import "TRMFormulaData.h"
 
 @interface TRMMeasurementCustomerInfromationViewController : UIViewController <UITextFieldDelegate>
-@property (strong, nonatomic) UIImagePickerController *picker;
 @property (strong, nonatomic) TRMFormulaData *formulaData;
 @property (weak, nonatomic) IBOutlet UIScrollView *measurementScrollView;
 @property (weak, nonatomic) IBOutlet UITextField *heightField;
