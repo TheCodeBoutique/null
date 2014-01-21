@@ -10,4 +10,5 @@
 
 @interface TRMShipping_BillingViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end

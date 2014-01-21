@@ -33,6 +33,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[self headerTitle] setText:_controllerTitle];
 
     //create the data source
     tableViewDataSource = [[NSMutableArray alloc] init];
@@ -94,23 +96,25 @@
     }]
                          otherButtonItems:[RIButtonItem itemWithLabel:@"Use Address" action:^{
                         [self dismissViewControllerAnimated:YES completion:nil];
+                        [[self navigationController] popToRootViewControllerAnimated:YES];
         
+                        [[self delegate] didSelectAddress:[tableViewDataSource objectAtIndex:[indexPath row]] state:_isShipping];
     }],
                         [RIButtonItem itemWithLabel:@"Edit Address" action:^{
         
                         [self dismissViewControllerAnimated:YES completion:nil];
-                        [self pushAddressDetailViewController];
+                        [self pushAddressDetailViewControllerWithAddress:_selectedAddress];
 
     }], nil] showInView:self.view];
 
 }
 
-- (void)pushAddressDetailViewController
+- (void)pushAddressDetailViewControllerWithAddress:(TRMAddressModel *)address;
 {
     //push self navingationController to new view
     TRMAddressDetailViewController *addressDetailViewController = [[TRMAddressDetailViewController alloc] initWithNibName:@"TRMAddressDetailViewController" bundle:nil];
     [addressDetailViewController setEdgesForExtendedLayout:UIRectEdgeNone];
-    if (_selectedAddress) {
+    if ([address id]) {
         [addressDetailViewController setAddress:_selectedAddress];
     } else {
         [addressDetailViewController setAddress:nil];
@@ -122,7 +126,7 @@
 - (IBAction)addAddressButton:(id)sender
 {
     //push self navingationController to new view
-    [self pushAddressDetailViewController];
+    [self pushAddressDetailViewControllerWithAddress:nil];
 }
 
 - (void)didReceiveMemoryWarning

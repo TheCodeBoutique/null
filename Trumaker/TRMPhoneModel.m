@@ -24,4 +24,19 @@
     mobileNumber = formattedNumber;
     return mobileNumber;
 }
+
+
+-(NSNumber *)phoneTypeFromString:(NSString *)phoneType {
+    NSNumber *phoneId;
+    if ([phoneType isEqualToString:@"Cell"]) {
+        phoneId = [NSNumber numberWithInt:1];
+    } else if ([phoneType isEqualToString:@"Home"]) {
+        phoneId = [NSNumber numberWithInt:2];
+    } else if ([phoneType isEqualToString:@"Work"]) {
+        phoneId = [NSNumber numberWithInt:3];
+    } else if ([phoneType isEqualToString:@"Other"]) {
+        phoneId = [NSNumber numberWithInt:4];
+    }
+    return phoneId;
+}
 @end

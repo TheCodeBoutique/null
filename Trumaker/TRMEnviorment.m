@@ -71,7 +71,7 @@
 }
 -(NSString *)urlForOutfitterImageUpload
 {
-    return [NSString stringWithFormat:@"%@/%@",[self currentServer],@"api/users_ios/"];
+    return [NSString stringWithFormat:@"%@/%@",[self currentServer],@"api/me/profile_picture"];
 }
 
 -(NSString *)urlForBatchDelete

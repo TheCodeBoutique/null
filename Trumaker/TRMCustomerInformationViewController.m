@@ -125,6 +125,19 @@
     //update customer fields with customer data
     if (_customer) {
         [self updateFieldsWithCustomerData];
+    } else if([[_phoneContact fullName] length] > 0) {
+        [_firstName setText:[_phoneContact first_name]];
+        [_lastName setText:[_phoneContact last_name]];
+        
+        if ([_phoneContact hasEmails]) {
+            NSDictionary *emailDict = [[_phoneContact emails] objectAtIndex:0];
+//            [_emailField setText:[emailDict valueForKey:@"_$!<Work>!$_"]];
+        }
+        
+        if ([_phoneContact hasPhoneNumbers]) {
+            NSDictionary *phoneDict = [[_phoneContact phone_numbers] objectAtIndex:0];
+//                [_phoneNumber setText:[phoneDict valueForKey:@"_$!<Work>!$_"]];
+        }
     }
 }
 
@@ -133,6 +146,19 @@
     [_lastName setText:[_customer last_name]];
     [_emailField setText:[_customer email]];
     [_phoneNumber setText:[[_customer primaryPhone] formattedNumber]];
+}
+
+-(void)updateDataFromFields {
+    [_customer setFirst_name:[_firstName text]];
+    [_customer setLast_name:[_lastName text]];
+    [_customer setEmail:[_emailField text]];
+
+    TRMPhoneModel *primaryPhone = [_customer primaryPhone];
+    [primaryPhone setNumber:[_phoneNumber text]];
+    [[_customer phones] removeObject:primaryPhone];
+    [[_customer phones] addObject:primaryPhone];
+    
+    [self updateCustomerInformation:_customer phoneModel:primaryPhone];
 }
 
 //draw custom bottom border on each textfield
@@ -251,7 +277,7 @@
 -(void)saveTapped:(id)sender {
     //we should check if its an exisisting customer
     if ([_customer isExisitingCustomer]) {
-        
+        [self updateDataFromFields];
     } else {
         [self saveNewCustomer];
     }
@@ -283,6 +309,20 @@
     
     TRMCustomerDAO *dao = [[TRMCustomerDAO alloc] init];
     [dao createNewCustomer:customer completionHandler:^(TRMCustomerModel *newCustomer, NSError *error) {
+        if (!error) {
+            [self pushProductSelection];
+        }
+        [hud hide:YES];
+    }];
+}
+
+-(void)updateCustomerInformation:(TRMCustomerModel *)customer phoneModel:(TRMPhoneModel *)phone  {
+ 
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [hud show:YES];
+    
+    TRMCustomerDAO *dao = [[TRMCustomerDAO alloc] init];
+    [dao updateCustomerInformation:customer withPhoneNumber:phone completionHandler:^(TRMCustomerModel *newCustomer, NSError *error) {
         if (!error) {
             [self pushProductSelection];
         }

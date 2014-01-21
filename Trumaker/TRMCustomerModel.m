@@ -8,6 +8,7 @@
 
 #import "TRMCustomerModel.h"
 #import "TRMOrderModel.h"
+#import "TRMAddressModel.h"
 @implementation TRMCustomerModel
 
 -(BOOL)isExisitingCustomer {
@@ -39,10 +40,8 @@
     NSMutableArray *allAddresses = [self addresses];
     __block TRMAddressModel *mainAddress;
     [allAddresses enumerateObjectsUsingBlock:^(TRMAddressModel *address, NSUInteger idx, BOOL *stop) {
-        if ([address active]) {
             if ([address shipping_default]) {
                 mainAddress = address;
-            }
             *stop = YES;
         }
     }];
@@ -53,10 +52,8 @@
     NSMutableArray *allAddresses = [self addresses];
     __block TRMAddressModel *mainAddress;
     [allAddresses enumerateObjectsUsingBlock:^(TRMAddressModel *address, NSUInteger idx, BOOL *stop) {
-        if ([address active]) {
-            if ([address billing_default]) {
+        if ([address billing_default]) {
                 mainAddress = address;
-            }
             *stop = YES;
         }
     }];
@@ -83,5 +80,19 @@
         }
     }];    
     return mainPhone;
+}
+
+-(NSMutableArray *)primaryAndBillingAddresses {
+    NSMutableArray *addresses = [[NSMutableArray alloc] init];
+    [[self addresses] enumerateObjectsUsingBlock:^(TRMAddressModel *address, NSUInteger idx, BOOL *stop) {
+        if ([address shipping_default]) {
+            [addresses addObject:address];
+        }
+        if ([address billing_default]) {
+            [addresses addObject:address];
+        }
+    }];
+    NSLog(@"Total primaryAndBillingAddresses count %d",[addresses count]);
+    return addresses;
 }
 @end

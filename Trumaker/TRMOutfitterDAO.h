@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TRMOutfitterModel.h"
+#import "TRMCustomerModel.h"
 @interface TRMOutfitterDAO : NSObject
-+(void)uploadPhotoForOutfitter:(TRMOutfitterModel*)outfitter withPhoto:(UIImage *)photo;
++(void)uploadPhotoForOutfitter:(TRMOutfitterModel*)outfitter withPhoto:(UIImage *)photo completionHandler:(void (^)(TRMOutfitterModel *outfitter, NSError *))handler;
 @end

@@ -18,7 +18,11 @@
 #import "TRMCoreApi.h"
 #import "TRMUtils.h"
 #import "UIActionSheet+Blocks.h"
+#import "UIAlertView+Blocks.h"
 #import "RIButtonItem.h"
+#import "MBProgressHUD.h"
+#import "TRMOutfitterModel.h"
+#import "UIImageView+WebCache.h"
 
 @interface TRMDashboardViewController ()
 @property (nonatomic, strong) NSMutableArray *dashboardData;
@@ -253,12 +257,33 @@
     UIImage *editImage = [info objectForKey:UIImagePickerControllerEditedImage];
     
     if (editImage) {
-        [TRMOutfitterDAO uploadPhotoForOutfitter:[[TRMCoreApi sharedInstance] outfitter] withPhoto:editImage];
+        [self uploadImageForOutfitter:editImage];
     } else {
-        [TRMOutfitterDAO uploadPhotoForOutfitter:[[TRMCoreApi sharedInstance] outfitter] withPhoto:image];
+        [self uploadImageForOutfitter:image];
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)uploadImageForOutfitter:(UIImage *)photo {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[[[[UIApplication sharedApplication] keyWindow] rootViewController] view] animated:YES];
+    [hud setMode:MBProgressHUDModeIndeterminate];
+    [hud setLabelText:NSLocalizedString(@"Uploading photo...", @"Uploading photo...")];
+    [TRMOutfitterDAO uploadPhotoForOutfitter:[[TRMCoreApi sharedInstance] outfitter] withPhoto:photo completionHandler:^(TRMOutfitterModel *outfitter, NSError *error) {
+        if (!error) {
+            [[self outfitterImageView] setImageWithURL:[NSURL URLWithString:[outfitter picture]] placeholderImage:[[self outfitterImageView] image] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                if (!error) {
+                    [outfitter setOutfitterImage:image];
+                    [self setOutfitter:outfitter];
+                    [self udpateImageView];
+                    [hud hide:YES];
+                }
+            }];
+        } else {
+            [hud hide:YES];
+            [[[UIAlertView alloc] initWithTitle:@"Upload Error" message:@"There was an error while trying to upload your image." cancelButtonItem:[RIButtonItem itemWithLabel:@"Ok"] otherButtonItems:nil, nil] show];
+        }
+    }];
 }
 
 @end

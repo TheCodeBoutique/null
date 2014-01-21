@@ -13,4 +13,7 @@
 @property (strong, nonatomic) NSString *phone_type;
 
 -(NSString *)formattedNumber;
+
+//priavte
+-(NSNumber *)phoneTypeFromString:(NSString *)phoneType;
 @end

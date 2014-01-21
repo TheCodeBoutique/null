@@ -20,4 +20,18 @@
 -(NSString *)fullName {
     return [NSString stringWithFormat:@"%@ %@",self.first_name,self.last_name];
 }
+
+-(BOOL)hasEmails {
+    return ([[self emails] count] > 0) ? YES : NO;
+}
+
+-(BOOL)hasPhoneNumbers {
+    
+    return ([[self phone_numbers] count] > 0) ? YES : NO;
+}
+
+-(BOOL)hasAddresses {
+    return ([[self addresses] count] > 0) ? YES : NO;
+}
+
 @end

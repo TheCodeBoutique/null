@@ -7,17 +7,21 @@
 //
 
 #import "TRMShipping_BillingViewController.h"
-#import "TRMCoreApi.h"
 #import "TRMChooseAddressViewController.h"
-
-@interface TRMShipping_BillingViewController ()
+#import "TRMCoreApi.h"
+#import "TRMCustomerDAO.h"
+#import "MBProgressHUD.h"
+@interface TRMShipping_BillingViewController ()<TRMChooseAddressDelegate>
 
 @property(nonatomic, strong) NSMutableArray *tableViewDataSource;
-
+@property(nonatomic, strong)TRMAddressModel *primaryBillingAddress;
+@property(nonatomic, strong)TRMAddressModel *primaryShippingAddress;
 @end
 
 @implementation TRMShipping_BillingViewController
 @synthesize tableViewDataSource;
+@synthesize primaryBillingAddress;
+@synthesize primaryShippingAddress;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,18 +36,62 @@
 {
     [super viewDidLoad];
     
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(didTapSave:)];
+    [[self navigationItem] setRightBarButtonItem:saveButton];
+    
     //create the data source
      tableViewDataSource = [[NSMutableArray alloc] init];
     //if the customer has addresses already, show them
     if ([[TRMCoreApi sharedInstance] hasCustomerModel])
     {
-        TRMAddressModel *primaryBillingAddress = [[[TRMCoreApi sharedInstance] customer] primaryBillingAddress];
-        [tableViewDataSource addObject:primaryBillingAddress];
         
-        TRMAddressModel *primaryShippingAddress = [[[TRMCoreApi sharedInstance] customer] primaryShippingAddress];
-        [tableViewDataSource addObject:primaryShippingAddress];
+        tableViewDataSource = [[[TRMCoreApi sharedInstance] customer] primaryAndBillingAddresses];
+        [tableViewDataSource enumerateObjectsUsingBlock:^(TRMAddressModel *address, NSUInteger idx, BOOL *stop) {
+            if ([address shipping_default]) {
+                [self setPrimaryShippingAddress:address];
+            }
+            if ([address billing_default]) {
+                [self setPrimaryBillingAddress:address];
+            }
+        }];
+        
+//        primaryBillingAddress =
+//        if (primaryBillingAddress) {
+//            [tableViewDataSource addObject:primaryBillingAddress];
+//        }
+//        
+//        primaryShippingAddress = [[[TRMCoreApi sharedInstance] customer] primaryShippingAddress];
+//        if (primaryShippingAddress) {
+//            [tableViewDataSource addObject:primaryShippingAddress];
+//        }
     } else {
         //if this is the first time entering addresses then make add address an option
+    }
+}
+
+-(void)didTapSave:(id)sender {
+//    if ([primaryShippingAddress id] && [primaryBillingAddress id]) {
+        if ([tableViewDataSource count] > 1) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[[[[UIApplication sharedApplication] keyWindow] rootViewController] view] animated:YES];
+        [hud setMode:MBProgressHUDModeIndeterminate];
+        [hud show:YES];
+        [hud setLabelText:NSLocalizedString(@"Saving...", @"Saving...")];
+            
+        TRMAddressModel *shippingModel = [tableViewDataSource objectAtIndex:0];
+        TRMAddressModel *billingModel = [tableViewDataSource objectAtIndex:1];
+        [shippingModel setShipping_default:YES];
+        [billingModel setBilling_default:YES];
+            
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        [array addObject:billingModel];
+        [array addObject:shippingModel];
+        
+        [TRMCustomerDAO updateAddresses:array forCustomer:[[TRMCoreApi sharedInstance] customer] completionHandler:^(TRMCustomerModel *newCustomer, NSError *error) {
+            if (!error) {
+                
+            }
+            [hud hide:YES];
+        }];
     }
 }
 
@@ -87,15 +135,27 @@
 {
     //push self navingationController to new view
     TRMChooseAddressViewController *chooseAddressViewController = [[TRMChooseAddressViewController alloc] initWithNibName:@"TRMChooseAddressViewController" bundle:nil];
+    BOOL isShipping = ([indexPath row] == 0) ? YES : NO;
+    NSString *title = (isShipping) ? @"Shipping Address" : @"Billing Address";
+    [chooseAddressViewController setControllerTitle:title];
+    [chooseAddressViewController setIsShipping:isShipping];
+    [chooseAddressViewController setDelegate:self];
     [chooseAddressViewController setEdgesForExtendedLayout:UIRectEdgeNone];
-    
     [[self navigationController] pushViewController:chooseAddressViewController animated:YES];
 }
 
+
+-(void)didSelectAddress:(TRMAddressModel *)address state:(BOOL)isShipping {
+    if (isShipping) {
+        [tableViewDataSource replaceObjectAtIndex:0 withObject:address];
+    } else {
+        [tableViewDataSource replaceObjectAtIndex:1 withObject:address];
+    }
+    [[self tableView] reloadData];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 @end

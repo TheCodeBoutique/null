@@ -33,4 +33,5 @@
 -(TRMPhoneModel *)primaryPhone;
 -(TRMAddressModel *)primaryShippingAddress;
 -(TRMAddressModel *)primaryBillingAddress;
+-(NSMutableArray *)primaryAndBillingAddresses;
 @end

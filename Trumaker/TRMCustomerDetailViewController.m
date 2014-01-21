@@ -81,7 +81,11 @@
 - (IBAction)createOrderTapped:(id)sender {
     TRMCustomerInformationViewController *customerInformationViewController = [[TRMCustomerInformationViewController alloc] initWithNibName:@"TRMCustomerInformationViewController" bundle:nil];
     [[customerInformationViewController navigationItem] setTitle:@"TRUMAKER"];
-    [customerInformationViewController setCustomer:customer];
+    if ([customer id]) {
+        [customerInformationViewController setCustomer:customer];
+    } else {
+        [customerInformationViewController setPhoneContact:_phoneContact];
+    }
     [customerInformationViewController setEdgesForExtendedLayout:UIRectEdgeNone];
     
     TRMAppDelegate *del = [[UIApplication sharedApplication] delegate];

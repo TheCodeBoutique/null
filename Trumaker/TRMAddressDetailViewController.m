@@ -8,6 +8,9 @@
 
 #import "TRMAddressDetailViewController.h"
 #import "TRMUtils.h"
+#import "TRMCoreApi.h"
+#import "TRMCustomerDAO.h"
+#import "MBProgressHUD.h"
 
 @interface TRMAddressDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -15,7 +18,7 @@
 @property (nonatomic, strong) UIBarButtonItem *previousButton;
 @property (nonatomic, assign) CGSize scrollViewContentSize;
 @property (nonatomic, strong) UITextField *selectedTextField;
-
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 
 @end
@@ -25,8 +28,7 @@
 @synthesize previousButton;
 @synthesize scrollViewContentSize;
 @synthesize selectedTextField;
-
-
+@synthesize hud;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,6 +42,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self updateFieldBorders];
     [TRMUtils drawLeftBorder:_zipTextField];
     
@@ -50,18 +53,11 @@
     if (_address) {
         [self populateFields];
     }
+    
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(didTapSave:)];
+    [[self navigationItem] setRightBarButtonItem:saveButton];
 }
-//@property (weak, nonatomic) IBOutlet TRMIndentTextField *streetTextField;
-//@property (weak, nonatomic) IBOutlet TRMIndentTextField *streetContTextField;
-//@property (weak, nonatomic) IBOutlet TRMIndentTextField *cityTextField;
-//@property (weak, nonatomic) IBOutlet TRMIndentTextField *stateTextField;
-//@property (weak, nonatomic) IBOutlet TRMIndentTextField *zipTextField;
-//
-//@property (strong, nonatomic) TRMAddressModel *address;
-//
-//@property (weak, nonatomic) IBOutlet UIImageView *shippingImageView;
-//@property (weak, nonatomic) IBOutlet UIImageView *billingImageView;
-//@property (weak, nonatomic) IBOutlet UIImageView *bothImageView;
+
 -(void)populateFields {
     
     [_stateTextField setText:[_address state_abbr_name]];
@@ -290,5 +286,53 @@
     }
 }
 
+-(void)didTapSave:(id)sender {
+    hud = [MBProgressHUD showHUDAddedTo:[[[[UIApplication sharedApplication] keyWindow] rootViewController] view] animated:YES];
+    [hud setMode:MBProgressHUDModeIndeterminate];
+    [hud setLabelText:NSLocalizedString(@"Saving...", @"Saving...")];
+    
+    if ([_address id]) {
+        [self updateAddress];
+    } else {
+        [self createAddress];
+    }
+}
 
+-(void)createAddress {
+    [TRMCustomerDAO createAddress:[self addressFromFields] forCustomer:[[TRMCoreApi sharedInstance] customer] completionHandler:^(TRMCustomerModel *newCustomer, NSError *error) {
+        
+        if (!error) {
+            [[self navigationController] popToRootViewControllerAnimated:YES];
+        }
+        [hud hide:YES];
+    }];
+}
+
+-(void)updateAddress {
+    [TRMCustomerDAO updateAddress:[self addressFromFields] forCustomer:[[TRMCoreApi sharedInstance] customer] completionHandler:^(TRMCustomerModel *newCustomer, NSError *error) {
+        
+        if (!error) {
+            [[self navigationController] popToRootViewControllerAnimated:YES];
+        }
+        [hud hide:YES];
+    }];
+}
+
+
+-(TRMAddressModel *)addressFromFields {
+    TRMAddressModel *dataModel;
+    if ([_address id]) {
+        dataModel = _address;
+    } else {
+        dataModel = [[TRMAddressModel alloc] init];
+    }
+    [dataModel setState_abbr_name:[_stateTextField text]];
+    [dataModel setAddress1:[_streetTextField text]];
+    [dataModel setAddress2:[_streetContTextField text]];
+    [dataModel setZip_code:[_zipTextField text]];
+    [dataModel setCity:[_cityTextField text]];
+    [dataModel setShipping_default:[_shippingButton isSelected]];
+    [dataModel setBilling_default:[_billingButton isSelected]];
+    return dataModel;
+}
 @end

@@ -15,5 +15,8 @@
 @property (strong, nonatomic) NSMutableArray  *addresses;
 @property (strong, nonatomic) NSMutableArray  *emails;
 
+-(BOOL)hasEmails;
+-(BOOL)hasPhoneNumbers;
+-(BOOL)hasAddresses;
 -(NSString *)fullName;
 @end
