@@ -12,6 +12,7 @@
 #import "TRMCustomerInformationViewController.h"
 #import "TRMMeasurementCustomerInfromationViewController.h"
 #import "TRMShipping_BillingViewController.h"
+#import "TRMShirtConfigurationViewController.h"
 
 #import "TRMUtils.h"
 #import "TRMTaskModel.h"
@@ -143,6 +144,12 @@
         [buildPreferenceViewController setEdgesForExtendedLayout:UIRectEdgeNone];
         [self pushViewControllerStack:buildPreferenceViewController withTitle:@"TRUMAKER"];
     }
+    if ([indexPath row] == 4) {
+        TRMShirtConfigurationViewController *shirtConfigurationViewController = [[TRMShirtConfigurationViewController alloc] initWithNibName:@"TRMShirtConfigurationViewController" bundle:nil];
+        [shirtConfigurationViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+        [self pushViewControllerStack:shirtConfigurationViewController withTitle:@"TRUMAKER"];
+    }
+
     
     if ([indexPath row] == 6) {
         TRMShipping_BillingViewController *shippingBillingViewController = [[TRMShipping_BillingViewController alloc] initWithNibName:@"TRMShipping_BillingViewController" bundle:nil];

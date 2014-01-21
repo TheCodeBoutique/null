@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FC2A814188E152C00A5B4D1 /* hamburger@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC2A813188E152C00A5B4D1 /* hamburger@2x.png */; };
 		7E433F0E188BA54E00F525E6 /* TRMComingSoonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E433F0C188BA54E00F525E6 /* TRMComingSoonViewController.m */; };
 		7E433F0F188BA54E00F525E6 /* TRMComingSoonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F0D188BA54E00F525E6 /* TRMComingSoonViewController.xib */; };
 		7E433F14188C9DBB00F525E6 /* TRMShipping_BillingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E433F12188C9DBB00F525E6 /* TRMShipping_BillingViewController.m */; };
@@ -124,8 +125,6 @@
 		D4C3E25A1881C09300112E83 /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3E2531881C09300112E83 /* MMDrawerController.m */; };
 		D4C3E25B1881C09300112E83 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3E2561881C09300112E83 /* MMDrawerVisualState.m */; };
 		D4C3E25C1881C09300112E83 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3E2581881C09300112E83 /* UIViewController+MMDrawerController.m */; };
-		D4C3E2611881C64B00112E83 /* hamburger.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C3E2601881C64B00112E83 /* hamburger.png */; };
-		D4C3E2631881C65700112E83 /* hamburger@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C3E2621881C65700112E83 /* hamburger@2x.png */; };
 		D4C3E26E1881CDB700112E83 /* TRMTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3E26D1881CDB700112E83 /* TRMTaskModel.m */; };
 		D4C3E2721881DD1500112E83 /* TRMTaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3E2701881DD1500112E83 /* TRMTaskListViewController.m */; };
 		D4C3E2731881DD1500112E83 /* TRMTaskListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C3E2711881DD1500112E83 /* TRMTaskListViewController.xib */; };
@@ -229,6 +228,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4FC2A813188E152C00A5B4D1 /* hamburger@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hamburger@2x.png"; sourceTree = "<group>"; };
 		7E433F0B188BA54E00F525E6 /* TRMComingSoonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMComingSoonViewController.h; sourceTree = "<group>"; };
 		7E433F0C188BA54E00F525E6 /* TRMComingSoonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMComingSoonViewController.m; sourceTree = "<group>"; };
 		7E433F0D188BA54E00F525E6 /* TRMComingSoonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMComingSoonViewController.xib; sourceTree = "<group>"; };
@@ -398,8 +398,6 @@
 		D4C3E2561881C09300112E83 /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
 		D4C3E2571881C09300112E83 /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
 		D4C3E2581881C09300112E83 /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
-		D4C3E2601881C64B00112E83 /* hamburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hamburger.png; sourceTree = "<group>"; };
-		D4C3E2621881C65700112E83 /* hamburger@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hamburger@2x.png"; sourceTree = "<group>"; };
 		D4C3E26C1881CDB700112E83 /* TRMTaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMTaskModel.h; sourceTree = "<group>"; };
 		D4C3E26D1881CDB700112E83 /* TRMTaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMTaskModel.m; sourceTree = "<group>"; };
 		D4C3E26F1881DD1500112E83 /* TRMTaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMTaskListViewController.h; sourceTree = "<group>"; };
@@ -661,6 +659,7 @@
 				D4C3E2B318825F8100112E83 /* dashboard_post_icon.png */,
 				D4C3E2B518825F8C00112E83 /* dashboard_post_icon@2x.png */,
 				D4C3E2A418825E5200112E83 /* dashboard_camera_icon.png */,
+				4FC2A813188E152C00A5B4D1 /* hamburger@2x.png */,
 				D4C3E2A618825E5A00112E83 /* dashboard_camera_icon@2x.png */,
 				D4C3E29A1882560300112E83 /* mark_photo.png */,
 				D4C3E29E1882563800112E83 /* mark_photo@2x.png */,
@@ -668,8 +667,6 @@
 				D4C3E2981882550300112E83 /* profile_image_mask_base@2x.png */,
 				D4C3E2A018825B2800112E83 /* profile_image_mask_stroke.png */,
 				D4C3E2A218825B3500112E83 /* profile_image_mask_stroke@2x.png */,
-				D4C3E2601881C64B00112E83 /* hamburger.png */,
-				D4C3E2621881C65700112E83 /* hamburger@2x.png */,
 				7EC547DA187D3B0600DAC090 /* dashboard_arrow@2x.png */,
 				D4C3E2BA1882649100112E83 /* trumaker_hero_two@2x.png */,
 				7E9EAE3D187D2AED008DDA2E /* trumaker_hero@2x.png */,
@@ -1546,6 +1543,7 @@
 				7EC547DB187D3B0600DAC090 /* dashboard_arrow@2x.png in Resources */,
 				D4C726CA1886673C00681344 /* TRMProductSelectionCell.xib in Resources */,
 				D4C3E2991882550300112E83 /* profile_image_mask_base@2x.png in Resources */,
+				4FC2A814188E152C00A5B4D1 /* hamburger@2x.png in Resources */,
 				D4343EC5188BA22F009351FE /* photo_placeholder.png in Resources */,
 				D40D760218831F17000AB22E /* TRMCustomerCell.xib in Resources */,
 				D4FAB6011887B5AC004AC0C2 /* TRMShoppingCartCell.xib in Resources */,
@@ -1573,7 +1571,6 @@
 				D4E0913618827EC200FB52F2 /* navigation_forward_arrow_on.png in Resources */,
 				D411DCD5188C71910028901F /* front@2x.png in Resources */,
 				D4343ECF188BBC53009351FE /* front_facing.png in Resources */,
-				D4C3E2611881C64B00112E83 /* hamburger.png in Resources */,
 				7E433F1C188CAE1C00F525E6 /* TRMChooseAddressViewController.xib in Resources */,
 				7E9EAE35187D28ED008DDA2E /* TRMLoadingViewController.xib in Resources */,
 				D4343EDC188BD883009351FE /* phone.png in Resources */,
@@ -1585,7 +1582,6 @@
 				D4343E98188B8793009351FE /* TRMeasurementsViewController.xib in Resources */,
 				D4C3E2D218827CF400112E83 /* navigation_forward_arrow_on_@2x.png in Resources */,
 				D4C3E2B418825F8100112E83 /* dashboard_post_icon.png in Resources */,
-				D4C3E2631881C65700112E83 /* hamburger@2x.png in Resources */,
 				D4343EEE188BDFDC009351FE /* small_location.png in Resources */,
 				D411DCD3188C6FF40028901F /* ruler@2x.png in Resources */,
 				D4C726C1188662A000681344 /* TRMShopingCartViewController.xib in Resources */,
