@@ -9,10 +9,12 @@
 #import "TRMCheckoutViewController.h"
 
 @interface TRMCheckoutViewController ()
+@property(nonatomic, strong) NSMutableArray *tableViewDataSource;
 
 @end
 
 @implementation TRMCheckoutViewController
+@synthesize tableViewDataSource;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +28,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    //create the data source
+    tableViewDataSource = [[NSMutableArray alloc] init];
 }
 
 #pragma mark - Table view data source
@@ -39,6 +43,21 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //create a cell if there isnt one, or use a pre-existing one if we already have one
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    [[cell textLabel] setText:@"Hippopotamus"];
+    
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning
