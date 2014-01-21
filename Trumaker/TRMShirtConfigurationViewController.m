@@ -8,6 +8,7 @@
 
 #import "TRMShirtConfigurationViewController.h"
 #import "TRMCoreApi.h"
+#import "TRMBuildPreferenceViewController.h"
 
 @interface TRMShirtConfigurationViewController ()
 
@@ -55,6 +56,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
+    [[cell textLabel] setText:@"Hippopotamus"];
+    
     //set the cell's text to item in the array
 //    [[cell shirtTitle] setText:[selectedShirtsArray objectAtIndex:indexPath.row]];
 //    [[cell produtImage] setImage:[_selectedImages objectAtIndex:indexPath.row]];
@@ -64,10 +67,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //push self navingationController to new view
-//    TRMShirtDetailViewController *shirtDetailViewController = [[TRMShirtDetailViewController alloc] initWithNibName:@"TRMShirtDetailViewController" bundle:nil];
-//    [shirtDetailViewController setEdgesForExtendedLayout:UIRectEdgeNone];
-//    
-//    [[self navigationController] pushViewController:shirtDetailViewController animated:YES];
+    TRMBuildPreferenceViewController *buildPreferenceViewController = [[TRMBuildPreferenceViewController alloc] initWithNibName:@"TRMBuildPreferenceViewController" bundle:nil];
+    [buildPreferenceViewController setEdgesForExtendedLayout:UIRectEdgeNone];
+    
+    [[self navigationController] pushViewController:buildPreferenceViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
