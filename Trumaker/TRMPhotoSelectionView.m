@@ -31,10 +31,7 @@
 -(UIImageView *)photoImage {
     if(!photoImage) {
         photoImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 100.0f, 70.0f)];
-        [photoImage setContentMode:UIViewContentModeScaleAspectFill];
-        [[photoImage layer] setBorderWidth:[TRMUtils halfPixel]];
-        [[photoImage layer] setBorderColor:[[TRMUtils colorWithHexString:@"959fa5"] CGColor]];
-        [[photoImage layer] setCornerRadius:5.0f];
+        [photoImage setContentMode:UIViewContentModeScaleAspectFit];
         [photoImage setClipsToBounds:YES];
         [self addSubview:photoImage];
         return photoImage;

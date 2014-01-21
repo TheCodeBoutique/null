@@ -20,6 +20,14 @@
 		7E433F40188CEB4900F525E6 /* check_radio_off_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F3F188CEB4900F525E6 /* check_radio_off_small.png */; };
 		7E433F44188CF74E00F525E6 /* TRMShirtConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E433F42188CF74E00F525E6 /* TRMShirtConfigurationViewController.m */; };
 		7E433F45188CF74E00F525E6 /* TRMShirtConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F43188CF74E00F525E6 /* TRMShirtConfigurationViewController.xib */; };
+		7E433F92188E116900F525E6 /* default_photo_viewer_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F90188E116900F525E6 /* default_photo_viewer_icon.png */; };
+		7E433F93188E116900F525E6 /* default_photo_viewer_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F91188E116900F525E6 /* default_photo_viewer_icon@2x.png */; };
+		7E433F96188E126B00F525E6 /* default_placeholder_photo_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F94188E126B00F525E6 /* default_placeholder_photo_icon.png */; };
+		7E433F97188E126B00F525E6 /* default_placeholder_photo_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F95188E126B00F525E6 /* default_placeholder_photo_icon@2x.png */; };
+		7E433F9A188E1A4500F525E6 /* camera_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F98188E1A4500F525E6 /* camera_icon@2x.png */; };
+		7E433F9B188E1A4500F525E6 /* camera_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F99188E1A4500F525E6 /* camera_icon.png */; };
+		7E433F9E188E1B3200F525E6 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F9C188E1B3200F525E6 /* delete.png */; };
+		7E433F9F188E1B3200F525E6 /* delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E433F9D188E1B3200F525E6 /* delete@2x.png */; };
 		7E8ABC2D187CEE3800F792DA /* TRMEnviorment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8ABC2C187CEE3800F792DA /* TRMEnviorment.m */; };
 		7E8ABC31187CF80900F792DA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7E8ABC30187CF80900F792DA /* Settings.bundle */; };
 		7E8ABC34187CF9EC00F792DA /* TRMCustomerDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8ABC33187CF9EC00F792DA /* TRMCustomerDAO.m */; };
@@ -95,11 +103,6 @@
 		D4343EBE188B991E009351FE /* TRMMeasurementPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4343EBC188B991E009351FE /* TRMMeasurementPhotosViewController.m */; };
 		D4343EBF188B991E009351FE /* TRMMeasurementPhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4343EBD188B991E009351FE /* TRMMeasurementPhotosViewController.xib */; };
 		D4343EC3188B9F2B009351FE /* TRMPhotoSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4343EC2188B9F2B009351FE /* TRMPhotoSelectionView.m */; };
-		D4343EC5188BA22F009351FE /* photo_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = D4343EC4188BA22F009351FE /* photo_placeholder.png */; };
-		D4343EC7188BA6AB009351FE /* trash_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D4343EC6188BA6AB009351FE /* trash_icon.png */; };
-		D4343EC9188BA6B0009351FE /* trash_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4343EC8188BA6B0009351FE /* trash_icon@2x.png */; };
-		D4343ECB188BA780009351FE /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4343ECA188BA780009351FE /* camera@2x.png */; };
-		D4343ECD188BA788009351FE /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = D4343ECC188BA788009351FE /* camera.png */; };
 		D4343ECF188BBC53009351FE /* front_facing.png in Resources */ = {isa = PBXBuildFile; fileRef = D4343ECE188BBC53009351FE /* front_facing.png */; };
 		D4343ED2188BCA99009351FE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = D4343ED0188BCA99009351FE /* placeholder.png */; };
 		D4343ED3188BCA99009351FE /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4343ED1188BCA99009351FE /* placeholder@2x.png */; };
@@ -246,6 +249,14 @@
 		7E433F41188CF74E00F525E6 /* TRMShirtConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMShirtConfigurationViewController.h; sourceTree = "<group>"; };
 		7E433F42188CF74E00F525E6 /* TRMShirtConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMShirtConfigurationViewController.m; sourceTree = "<group>"; };
 		7E433F43188CF74E00F525E6 /* TRMShirtConfigurationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMShirtConfigurationViewController.xib; sourceTree = "<group>"; };
+		7E433F90188E116900F525E6 /* default_photo_viewer_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_photo_viewer_icon.png; sourceTree = "<group>"; };
+		7E433F91188E116900F525E6 /* default_photo_viewer_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default_photo_viewer_icon@2x.png"; sourceTree = "<group>"; };
+		7E433F94188E126B00F525E6 /* default_placeholder_photo_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_placeholder_photo_icon.png; sourceTree = "<group>"; };
+		7E433F95188E126B00F525E6 /* default_placeholder_photo_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default_placeholder_photo_icon@2x.png"; sourceTree = "<group>"; };
+		7E433F98188E1A4500F525E6 /* camera_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_icon@2x.png"; sourceTree = "<group>"; };
+		7E433F99188E1A4500F525E6 /* camera_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_icon.png; sourceTree = "<group>"; };
+		7E433F9C188E1B3200F525E6 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		7E433F9D188E1B3200F525E6 /* delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete@2x.png"; sourceTree = "<group>"; };
 		7E8ABC2B187CEE3800F792DA /* TRMEnviorment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMEnviorment.h; sourceTree = "<group>"; };
 		7E8ABC2C187CEE3800F792DA /* TRMEnviorment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMEnviorment.m; sourceTree = "<group>"; };
 		7E8ABC30187CF80900F792DA /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -362,11 +373,6 @@
 		D4343EBD188B991E009351FE /* TRMMeasurementPhotosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRMMeasurementPhotosViewController.xib; sourceTree = "<group>"; };
 		D4343EC1188B9F2B009351FE /* TRMPhotoSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMPhotoSelectionView.h; sourceTree = "<group>"; };
 		D4343EC2188B9F2B009351FE /* TRMPhotoSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMPhotoSelectionView.m; sourceTree = "<group>"; };
-		D4343EC4188BA22F009351FE /* photo_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo_placeholder.png; sourceTree = "<group>"; };
-		D4343EC6188BA6AB009351FE /* trash_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash_icon.png; sourceTree = "<group>"; };
-		D4343EC8188BA6B0009351FE /* trash_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trash_icon@2x.png"; sourceTree = "<group>"; };
-		D4343ECA188BA780009351FE /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
-		D4343ECC188BA788009351FE /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		D4343ECE188BBC53009351FE /* front_facing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = front_facing.png; sourceTree = "<group>"; };
 		D4343ED0188BCA99009351FE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		D4343ED1188BCA99009351FE /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
@@ -965,12 +971,15 @@
 		D4343EBA188B98C3009351FE /* Photo Measurement */ = {
 			isa = PBXGroup;
 			children = (
+				7E433F9C188E1B3200F525E6 /* delete.png */,
+				7E433F9D188E1B3200F525E6 /* delete@2x.png */,
+				7E433F98188E1A4500F525E6 /* camera_icon@2x.png */,
+				7E433F99188E1A4500F525E6 /* camera_icon.png */,
+				7E433F94188E126B00F525E6 /* default_placeholder_photo_icon.png */,
+				7E433F95188E126B00F525E6 /* default_placeholder_photo_icon@2x.png */,
+				7E433F90188E116900F525E6 /* default_photo_viewer_icon.png */,
+				7E433F91188E116900F525E6 /* default_photo_viewer_icon@2x.png */,
 				D4343ECE188BBC53009351FE /* front_facing.png */,
-				D4343ECC188BA788009351FE /* camera.png */,
-				D4343ECA188BA780009351FE /* camera@2x.png */,
-				D4343EC8188BA6B0009351FE /* trash_icon@2x.png */,
-				D4343EC6188BA6AB009351FE /* trash_icon.png */,
-				D4343EC4188BA22F009351FE /* photo_placeholder.png */,
 				D4343EC0188B9CD6009351FE /* Views */,
 				D4343EBB188B991E009351FE /* TRMMeasurementPhotosViewController.h */,
 				D4343EBC188B991E009351FE /* TRMMeasurementPhotosViewController.m */,
@@ -1478,7 +1487,7 @@
 				ORGANIZATIONNAME = Trumaker;
 				TargetAttributes = {
 					7EC318CC187BC2650093083E = {
-						DevelopmentTeam = X59SJ3Z8ZX;
+						DevelopmentTeam = 8UC7T5DXBM;
 					};
 					7EC318F0187BC2650093083E = {
 						TestTargetID = 7EC318CC187BC2650093083E;
@@ -1509,12 +1518,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E433F93188E116900F525E6 /* default_photo_viewer_icon@2x.png in Resources */,
+				7E433F9B188E1A4500F525E6 /* camera_icon.png in Resources */,
 				7E433F15188C9DBB00F525E6 /* TRMShipping_BillingViewController.xib in Resources */,
 				D4C3E28B188236D600112E83 /* task_list_bridge_on.png in Resources */,
 				D4C3E2BB1882649100112E83 /* trumaker_hero_two@2x.png in Resources */,
 				7EC547D9187D39D500DAC090 /* TRMDashboardTableViewCell.xib in Resources */,
 				D492AE411889F80500CA7715 /* TRMCustomerDetailViewController.xib in Resources */,
-				D4343ECD188BA788009351FE /* camera.png in Resources */,
 				D4343EF2188BEAA4009351FE /* trumaker_hero_3@2x.png in Resources */,
 				D4C726D11886685C00681344 /* cart@2x.png in Resources */,
 				D4343ED6188BD630009351FE /* calendar@2x.png in Resources */,
@@ -1525,6 +1535,8 @@
 				D4C726D318866A0100681344 /* placeholder_image@2x.png in Resources */,
 				D4C3E2CE18827CDA00112E83 /* navigation_back_arrow_on_@2x.png in Resources */,
 				D4C3E2C918826C9E00112E83 /* TRMCustomerInformationViewController.xib in Resources */,
+				7E433F9A188E1A4500F525E6 /* camera_icon@2x.png in Resources */,
+				7E433F96188E126B00F525E6 /* default_placeholder_photo_icon.png in Resources */,
 				D4C3E29F1882563800112E83 /* mark_photo@2x.png in Resources */,
 				D411DCE0188CCF020028901F /* drawer_handle@2x.png in Resources */,
 				D4C726BC1886625200681344 /* TRMProductSelectionViewController.xib in Resources */,
@@ -1538,10 +1550,10 @@
 				D4E0913418827EBA00FB52F2 /* navigation_forward_arrow_off.png in Resources */,
 				D4C3E2B618825F8C00112E83 /* dashboard_post_icon@2x.png in Resources */,
 				D4E60A921889092700DC1678 /* TRMCustomersViewController.xib in Resources */,
+				7E433F9E188E1B3200F525E6 /* delete.png in Resources */,
 				7EC547DB187D3B0600DAC090 /* dashboard_arrow@2x.png in Resources */,
 				D4C726CA1886673C00681344 /* TRMProductSelectionCell.xib in Resources */,
 				D4C3E2991882550300112E83 /* profile_image_mask_base@2x.png in Resources */,
-				D4343EC5188BA22F009351FE /* photo_placeholder.png in Resources */,
 				D40D760218831F17000AB22E /* TRMCustomerCell.xib in Resources */,
 				D4FAB6011887B5AC004AC0C2 /* TRMShoppingCartCell.xib in Resources */,
 				D411DCD9188CA4680028901F /* slide_gesture@2x.png in Resources */,
@@ -1552,6 +1564,7 @@
 				D4343EA9188B87ED009351FE /* detail_selected.png in Resources */,
 				D4C3E29B1882560300112E83 /* mark_photo.png in Resources */,
 				D4343EE4188BD962009351FE /* message.png in Resources */,
+				7E433F9F188E1B3200F525E6 /* delete@2x.png in Resources */,
 				D411DCDB188CA46D0028901F /* slide_gesture.png in Resources */,
 				D4C7272118868A0D00681344 /* TRMProductSelectionSearchView.xib in Resources */,
 				7E433F3A188CE77300F525E6 /* plus_button.png in Resources */,
@@ -1573,9 +1586,9 @@
 				7E9EAE35187D28ED008DDA2E /* TRMLoadingViewController.xib in Resources */,
 				D4343EDC188BD883009351FE /* phone.png in Resources */,
 				D4C726CF1886685500681344 /* cart.png in Resources */,
+				7E433F92188E116900F525E6 /* default_photo_viewer_icon.png in Resources */,
 				D4343EE2188BD95B009351FE /* message@2x.png in Resources */,
 				D4C3E297188254F500112E83 /* profile_image_mask_base.png in Resources */,
-				D4343EC9188BA6B0009351FE /* trash_icon@2x.png in Resources */,
 				D4C3E2A318825B3500112E83 /* profile_image_mask_stroke@2x.png in Resources */,
 				D4343E98188B8793009351FE /* TRMeasurementsViewController.xib in Resources */,
 				D4C3E2D218827CF400112E83 /* navigation_forward_arrow_on_@2x.png in Resources */,
@@ -1585,7 +1598,6 @@
 				D411DCD3188C6FF40028901F /* ruler@2x.png in Resources */,
 				D4C726C1188662A000681344 /* TRMShopingCartViewController.xib in Resources */,
 				D4E60AAA18891D0F00DC1678 /* TRMBuildPreferenceDetailViewController.xib in Resources */,
-				D4343EC7188BA6AB009351FE /* trash_icon.png in Resources */,
 				7EC3190C187BC3C30093083E /* TRMLoginViewController.xib in Resources */,
 				D4E0913218827EAE00FB52F2 /* navigation_back_arrow_on.png in Resources */,
 				D4343EAB188B87ED009351FE /* square_shoulders.png in Resources */,
@@ -1595,7 +1607,6 @@
 				7EC318EC187BC2650093083E /* Images.xcassets in Resources */,
 				D4343EA0188B8793009351FE /* TRMMeasurementCustomerInfromationViewController.xib in Resources */,
 				7EC318DB187BC2650093083E /* InfoPlist.strings in Resources */,
-				D4343ECB188BA780009351FE /* camera@2x.png in Resources */,
 				D411DCE4188CD00E0028901F /* drawer_handle.png in Resources */,
 				D4C3E2831881E44E00112E83 /* TRMTaskListCell.xib in Resources */,
 				7E8ABC31187CF80900F792DA /* Settings.bundle in Resources */,
@@ -1608,6 +1619,7 @@
 				D411DCD1188C6FED0028901F /* ruler.png in Resources */,
 				D4343EDE188BD8C6009351FE /* mail.png in Resources */,
 				D4C3E2A118825B2800112E83 /* profile_image_mask_stroke.png in Resources */,
+				7E433F97188E126B00F525E6 /* default_placeholder_photo_icon@2x.png in Resources */,
 				D4E0913018827E9F00FB52F2 /* navigation_back_arrow_off.png in Resources */,
 				7E433F0F188BA54E00F525E6 /* TRMComingSoonViewController.xib in Resources */,
 				D4343EEC188BDAA1009351FE /* create_order.png in Resources */,

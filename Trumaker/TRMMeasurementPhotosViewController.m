@@ -46,22 +46,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [_mainImage setImage:[UIImage imageNamed:@"photo_placeholder"]];
+    [_mainImage setImage:[UIImage imageNamed:@"default_photo_viewer_icon"]];
+    [_mainImage setContentMode:UIViewContentModeScaleAspectFit];
+    [_mainImage setClipsToBounds:YES];
+
     
-    [_cameraButton setBackgroundColor:[UIColor colorWithHue:0 saturation:0 brightness:0 alpha:0.3]];
+    [_cameraButton setBackgroundColor:[UIColor clearColor]];
     [[_cameraButton layer] setOpacity:0.7];
     [[_cameraButton layer] setCornerRadius:20.0f];
     
-    [_deleteButton setBackgroundColor:[UIColor colorWithRed:219.0f/255.0f green:51.0f/255.0f blue:0.0f alpha:0.5]];
+    [_deleteButton setBackgroundColor:[UIColor clearColor]];
     [[_deleteButton layer] setOpacity:0.7];
     [[_deleteButton layer] setCornerRadius:20.0f];
     
-    [[_mainImage layer] setBorderWidth:[TRMUtils halfPixel]];
-    [[_mainImage layer] setBorderColor:[[UIColor lightGrayColor] CGColor]];
-    [_mainImage setClipsToBounds:YES];
+    [[_greyBarView layer] setCornerRadius:5.0f];
+    
+    CGRect mainImageFrame = [_mainImage frame];
+    CGRect greyImageFrame = [_greyBarView frame];
+    
+    greyImageFrame.size.width = CGRectGetWidth(mainImageFrame);
+    
+    [_greyBarView setFrame:greyImageFrame];
     
     NSArray *typesArray = @[@"Front", @"Side",@"Back"];
-    imagesArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"photo_placeholder"],[UIImage imageNamed:@"photo_placeholder"],[UIImage imageNamed:@"photo_placeholder"], nil];
+    imagesArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"default_placeholder_photo_icon"],[UIImage imageNamed:@"default_placeholder_photo_icon"],[UIImage imageNamed:@"default_placeholder_photo_icon"], nil];
     
     
     for (int i = 0; i < 3; i++) {
@@ -97,8 +105,8 @@
         
     }] otherButtonItems:[RIButtonItem itemWithLabel:@"Delete" action:^{
         //remove photo from server
-        [[selectedPhoto photoImage] setImage:[UIImage imageNamed:@"photo_placeholder"]];
-        [[self mainImage] setImage:[UIImage imageNamed:@"photo_placeholder"]];
+        [[selectedPhoto photoImage] setImage:[UIImage imageNamed:@"default_placeholder_photo_icon"]];
+        [[self mainImage] setImage:[UIImage imageNamed:@"default_placeholder_photo_icon"]];
         
     }], nil] show];
 }
@@ -122,13 +130,12 @@
         picker.navigationBarHidden = YES;
         picker.toolbarHidden = YES;
         picker.wantsFullScreenLayout = YES;
-        picker.allowsEditing = YES;
         [picker setDelegate:self];
         
         
         overlayImageView = [[UIImageView alloc] initWithFrame: CGRectMake(0, 55.0f, CGRectGetWidth(app), CGRectGetHeight(app) - 130.0f)];
         [overlayImageView setContentMode:UIViewContentModeScaleAspectFit];
-        [overlayImageView setImage:[UIImage imageNamed:@"front_facing.png"]];
+        [overlayImageView setImage:[UIImage imageNamed:@"front_facing"]];
         [[picker view] addSubview:overlayImageView];
         [[picker view] addSubview:spinner];
         [self presentViewController:picker animated:YES completion:nil];

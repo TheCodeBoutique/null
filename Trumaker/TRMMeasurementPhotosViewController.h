@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *cameraButton;
 @property (strong, nonatomic) IBOutlet UILabel *PhotoLabel;
 @property (strong, nonatomic) UIImagePickerController *picker;
+@property (weak, nonatomic) IBOutlet UIView *greyBarView;
 
 - (IBAction)reatakeTapped:(id)sender;
 - (IBAction)deleteTapped:(id)sender;
