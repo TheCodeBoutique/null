@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TRMDashboardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface TRMDashboardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (strong, nonatomic) UIImagePickerController *picker;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *heroImage;
 @property (weak, nonatomic) IBOutlet UILabel *outfitterName;

@@ -12,9 +12,13 @@
 #import "TRMCustomersViewController.h"
 #import "TRMComingSoonViewController.h"
 
+
+#import "TRMOutfitterDAO.h"
 #import "TRMOutfitterModel.h"
 #import "TRMCoreApi.h"
 #import "TRMUtils.h"
+#import "UIActionSheet+Blocks.h"
+#import "RIButtonItem.h"
 
 @interface TRMDashboardViewController ()
 @property (nonatomic, strong) NSMutableArray *dashboardData;
@@ -25,6 +29,7 @@
 @implementation TRMDashboardViewController
 @synthesize dashboardData;
 @synthesize customersUpdated;
+@synthesize picker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -196,6 +201,64 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (IBAction)didTapOnProfileImage:(id)sender {
+    RIButtonItem *cancelButton =  [RIButtonItem itemWithLabel:@"Cancel" action:^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    RIButtonItem *libraryButton = [RIButtonItem itemWithLabel:@"Photo Library" action:^{
+        [self pickPhotoFromLibrary];
+    }];
+    
+    RIButtonItem *cameraButton = [RIButtonItem itemWithLabel:@"Camera" action:^{
+        [self takePhoto];
+    }];
+    
+    [[[UIActionSheet alloc] initWithTitle:@"Photo Options" cancelButtonItem:cancelButton destructiveButtonItem:nil otherButtonItems:libraryButton,cameraButton, nil] showInView:self.view];
+}
+#pragma mark photo
+-(void)pickPhotoFromLibrary {
+    picker = [[UIImagePickerController alloc] init];
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        [picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        picker.allowsEditing = YES;
+        [picker setDelegate:self];
+        [self presentViewController:picker animated:YES completion:nil];
+    }
+}
+-(void)takePhoto{
+    picker = [[UIImagePickerController alloc] init];
+    
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        [picker setSourceType:UIImagePickerControllerSourceTypeCamera];
+        picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+        picker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+        picker.showsCameraControls = YES;
+        picker.navigationBarHidden = YES;
+        picker.toolbarHidden = YES;
+        picker.wantsFullScreenLayout = YES;
+        picker.allowsEditing = YES;
+        [picker setDelegate:self];
+        [self presentViewController:picker animated:YES completion:nil];
+        
+    }
+}
+
+#pragma mark UIImagePickerController Delegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImage *editImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    if (editImage) {
+        [TRMOutfitterDAO uploadPhotoForOutfitter:[[TRMCoreApi sharedInstance] outfitter] withPhoto:editImage];
+    } else {
+        [TRMOutfitterDAO uploadPhotoForOutfitter:[[TRMCoreApi sharedInstance] outfitter] withPhoto:image];
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

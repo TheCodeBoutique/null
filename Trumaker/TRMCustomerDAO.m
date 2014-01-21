@@ -119,9 +119,10 @@
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [[manager requestSerializer] setValue:[[TRMAuthHolder sharedInstance] authString] forHTTPHeaderField:@"HTTP_AUTHORIZATION"];
     [manager POST:addCustomerUrl parameters:userDictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //will need to parse and call the handler back
-        //check the respnose json might not be grabbing the right key
-        TRMCustomerModel *customer = [TRMCustomerModel objectFromJSONObject:responseObject mapping:nil];
+        NSDictionary *jsonDict = [responseObject objectForKey:@"user"];
+        TRMCustomerModel *customer = [TRMCustomerModel objectFromJSONObject:jsonDict mapping:nil];
+        
+        //will need to parse the customer TODO
         
         handler(customer, nil);
         
