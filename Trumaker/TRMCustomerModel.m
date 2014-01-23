@@ -9,6 +9,7 @@
 #import "TRMCustomerModel.h"
 #import "TRMOrderModel.h"
 #import "TRMAddressModel.h"
+#import "TRMCoreApi.h"
 @implementation TRMCustomerModel
 
 -(BOOL)isExisitingCustomer {
@@ -94,5 +95,29 @@
     }];
     NSLog(@"Total primaryAndBillingAddresses count %d",[addresses count]);
     return addresses;
+}
+
+-(NSMutableArray *)configurationsFromIds {
+    NSMutableArray *configurations = [[NSMutableArray alloc] init];
+    [[self default_customization_ids] enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL *stop) {
+        int ids = [obj intValue];
+        
+//        NSPredicate *standardPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"id = '%@'",[NSNumber numberWithInt:ids]]];
+//        NSArray *standard = [[[TRMCoreApi sharedInstance] configurations] filteredArrayUsingPredicate:standardPredicate];
+//        if ([standard count]) {
+//            TRMConfigurationModel *model = [standard objectAtIndex:0];
+//            [configurations addObject:model];
+//        }
+        
+        [[[TRMCoreApi sharedInstance] configurations] enumerateObjectsUsingBlock:^(TRMConfigurationModel *configModel, NSUInteger idx, BOOL *stop) {
+            int configModelId = [[configModel id] intValue];
+            if (configModelId == ids) {
+                [configurations addObject:configModel];
+            }
+        }];
+    }];
+    
+    
+    return configurations;
 }
 @end

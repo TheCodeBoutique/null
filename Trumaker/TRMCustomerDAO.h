@@ -20,4 +20,6 @@
 +(void)updateAddress:(TRMAddressModel *)address forCustomer:(TRMCustomerModel *)customer completionHandler:(void (^)(TRMCustomerModel *newCustomer, NSError *))handler;
 
 +(void)updateAddresses:(NSMutableArray *)addresses forCustomer:(TRMCustomerModel *)customer completionHandler:(void (^)(TRMCustomerModel *newCustomer, NSError *))handler;
+
++(void)updateDefaultBuildPreference:(NSMutableArray *)buildPreferences forCustomer:(TRMCustomerModel *)customer completionHandler:(void (^)(TRMCustomerModel *newCustomer, NSError *))handler;
 @end

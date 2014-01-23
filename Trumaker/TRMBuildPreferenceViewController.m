@@ -13,6 +13,8 @@
 #import "TRMBuildPreferenceDetailViewController.h"
 #import "TRMBuildPreferenceDetailCell.h"
 #import "TRMUtils.h"
+#import "TRMCustomerDAO.h"
+#import "MBProgressHUD.h"
 
 @interface TRMBuildPreferenceViewController () <TRMBuildPreferenceDetailDelegate>
 @property(nonatomic, strong) NSMutableArray *buildConfigurationsTypeArray;
@@ -48,18 +50,55 @@
     //remove all duplicates
     [TRMUtils removeDuplicatesFromArray:allCustomTypes];
     
+    
     //copy default
     _selectionList = [allCustomTypes mutableCopy];
     
-    //set data source
-     buildConfigurationsTypeArray = allCustomTypes;
+    //NEED more investigating 
     
-    //selected images
-    _selectedImages = [[NSMutableArray alloc] init];
-    for (int i = 0; i < [buildConfigurationsTypeArray count]; i++) {
+//    if ([[TRMCoreApi sharedInstance] hasCustomerModel]) {
+//        NSMutableArray *currentConfigurations = [[[TRMCoreApi sharedInstance] customer] configurationsFromIds];
+//        buildConfigurationsTypeArray = [[NSMutableArray alloc] init];
+//        _selectedImages = [[NSMutableArray alloc] init];
+//        [currentConfigurations enumerateObjectsUsingBlock:^(TRMConfigurationModel *config, NSUInteger idx, BOOL *stop) {
+//            [_selectedImages addObject:[config image_url]];
+//            [buildConfigurationsTypeArray addObject:[config name]];
+//        }];
+//    } else {
+        //set data source
+         buildConfigurationsTypeArray = allCustomTypes;
         
-        [_selectedImages addObject:[UIImage imageNamed:@"placeholder"]];
-    }    
+        //selected images
+        _selectedImages = [[NSMutableArray alloc] init];
+        for (int i = 0; i < [buildConfigurationsTypeArray count]; i++) {
+            
+            [_selectedImages addObject:[UIImage imageNamed:@"placeholder"]];
+        }
+//    }
+    
+    
+    [_selectionList sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    [buildConfigurationsTypeArray sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
+    NSLog(@"_selectionList %@ \n buildConfigurationsTypeArray %@",_selectionList, buildConfigurationsTypeArray);
+    
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(didTapSave:)];
+    [[self navigationItem] setRightBarButtonItem:saveButton];
+}
+
+-(void)didTapSave:(id)sender {
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[[[[UIApplication sharedApplication] keyWindow] rootViewController] view] animated:YES];
+    [hud setMode:MBProgressHUDModeIndeterminate];
+    [hud setLabelText:NSLocalizedString(@"Saving...", @"Saving...")];
+   NSMutableArray *arrayOfIds = [[TRMCoreApi sharedInstance] configurationsIdFromArrayOfTitles:buildConfigurationsTypeArray];
+    
+    [TRMCustomerDAO updateDefaultBuildPreference:arrayOfIds forCustomer:[[TRMCoreApi sharedInstance] customer] completionHandler:^(TRMCustomerModel *newCustomer, NSError *error) {
+        if (!error) {
+            
+        }
+        [hud hide:YES];
+    }];
 }
 
 #pragma mark - Table view data source
@@ -87,7 +126,13 @@
     
     //set the cell's text to item in the array
     [[cell configurationTitle] setText:[buildConfigurationsTypeArray objectAtIndex:indexPath.row]];
-    [[cell produtImage] setImage:[_selectedImages objectAtIndex:indexPath.row]];
+    
+    if ([[_selectedImages objectAtIndex:[indexPath row]] isKindOfClass:[NSString class]]) {
+        //we have urls
+        [[cell produtImage] setImageWithURL:[NSURL URLWithString:[_selectedImages objectAtIndex:[indexPath row]]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    } else {
+        [[cell produtImage] setImage:[_selectedImages objectAtIndex:indexPath.row]];
+    }
     return cell;
 }
 

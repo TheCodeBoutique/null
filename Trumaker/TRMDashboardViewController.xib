@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TRMDashboardViewController">
             <connections>
                 <outlet property="heroImage" destination="2CL-W3-NM9" id="NU3-bg-iB7"/>
-                <outlet property="outfitterImageView" destination="F9H-7j-qmh" id="V0h-F8-xEP"/>
+                <outlet property="outfitterImageView" destination="fAW-Jd-4zt" id="STz-cF-qsX"/>
                 <outlet property="outfitterLocation" destination="BGY-jO-5Ez" id="9IC-mm-9Re"/>
                 <outlet property="outfitterName" destination="jdk-Lc-a1X" id="C81-Cy-wW7"/>
                 <outlet property="tableView" destination="oDV-MQ-enZ" id="EbA-sY-f2D"/>
@@ -40,13 +40,13 @@
                     </connections>
                 </tableView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mark  Lovas" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jdk-Lc-a1X">
-                    <rect key="frame" x="107.99999955296524" y="16" width="192" height="27"/>
+                    <rect key="frame" x="108.00000053842847" y="16" width="192" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cupertino, Ca" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BGY-jO-5Ez">
-                    <rect key="frame" x="155" y="39" width="144.99999955296519" height="23"/>
+                    <rect key="frame" x="155.00000053842851" y="39" width="145" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                     <color key="textColor" red="0.30588235294117649" green="0.30588235294117649" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,15 +57,15 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
-                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="F9H-7j-qmh" userLabel="Image No Stroke">
+                <view contentMode="scaleToFill" id="fAW-Jd-4zt" customClass="TRMProfileImageView">
                     <rect key="frame" x="19" y="10" width="79" height="93"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <gestureRecognizers/>
                     <connections>
-                        <outletCollection property="gestureRecognizers" destination="rzg-fe-fOc" appends="YES" id="NCC-QW-pG1"/>
+                        <outletCollection property="gestureRecognizers" destination="rzg-fe-fOc" appends="YES" id="kNM-5R-ogb"/>
                     </connections>
-                </imageView>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2k3-RI-1FG">
                     <rect key="frame" x="191" y="62" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

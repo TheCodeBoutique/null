@@ -86,7 +86,7 @@
 
 -(NSString *)urlForUpdatingCustomer
 {
-    return @"api/users_ios/";
+    return [NSString stringWithFormat:@"%@/%@",[self currentServer],@"api/users_ios/"];
 }
 
 -(NSString *)urlForLogin

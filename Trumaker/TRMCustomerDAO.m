@@ -488,4 +488,79 @@
     }];
 
 }
+
++(void)updateDefaultBuildPreference:(NSMutableArray *)buildPreferences forCustomer:(TRMCustomerModel *)customer completionHandler:(void (^)(TRMCustomerModel *newCustomer, NSError *))handler {
+    
+    NSString *addCustomerUrl = [[TRMEnviorment sharedInstance] urlForUpdatingCustomer];
+    
+    //customer id
+    addCustomerUrl = [addCustomerUrl stringByAppendingString:[NSString stringWithFormat:@"%@",[customer id]]];
+    
+    NSMutableDictionary *userDefaultsDict = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *buildDictionary = [[NSMutableDictionary alloc] init];
+
+    [buildDictionary setObject:buildPreferences forKey:@"default_customization_ids"];
+    [userDefaultsDict setObject:buildDictionary forKey:@"user"];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [[manager requestSerializer] setValue:[[TRMAuthHolder sharedInstance] authString] forHTTPHeaderField:@"HTTP_AUTHORIZATION"];
+    [manager PUT:addCustomerUrl parameters:userDefaultsDict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *jsonDict = [responseObject objectForKey:@"user"];
+        TRMCustomerModel *customer = [TRMCustomerModel objectFromJSONObject:jsonDict mapping:nil];
+        
+        //array of addresses
+        NSMutableArray *customerAddresses = [[NSMutableArray alloc] init];
+        [[customer addresses] enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSDictionary *addressDictionary, NSUInteger idx, BOOL *stop) {
+            TRMAddressModel *address = [TRMAddressModel objectFromJSONObject:addressDictionary mapping:nil];
+            [customerAddresses addObject:address];
+        }];
+        
+        //array of phone numbers
+        NSMutableArray *phoneNumbers = [[NSMutableArray alloc] init];
+        [[customer phones] enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSDictionary *phoneDict, NSUInteger idx, BOOL *stop) {
+            TRMPhoneModel *phone = [TRMPhoneModel objectFromJSONObject:phoneDict mapping:nil];
+            [phoneNumbers addObject:phone];
+        }];
+        
+        //need to map orders
+        NSMutableArray *inProgressOrders = [[NSMutableArray alloc] init];
+        [[customer in_progress_orders] enumerateObjectsUsingBlock:^(NSDictionary *orderDictionary, NSUInteger idx, BOOL *stop) {
+            TRMOrderModel *order = [TRMOrderModel objectFromJSONObject:orderDictionary mapping:nil];
+            
+            //will need to process order items if they exsist
+            NSMutableArray *orderItems = [[NSMutableArray alloc] init];
+            [[order order_items] enumerateObjectsUsingBlock:^(NSDictionary *orderItemDictionary, NSUInteger idx, BOOL *stop) {
+                TRMProductModel *orderItem = [TRMProductModel objectFromJSONObject:orderDictionary mapping:nil];
+                [orderItem setOrder_item_id:[[orderItemDictionary valueForKey:@"id"] intValue]];
+                [orderItem setId:[[orderItemDictionary valueForKey:@"product_id"] intValue]];
+                [orderItems addObject:orderItem];
+                
+            }];
+            
+            [order setOrder_items:orderItems];
+            
+            [inProgressOrders addObject:order];
+        }];
+        
+        //update in progree orders
+        [customer setIn_progress_orders:inProgressOrders];
+        
+        //update phone numbers for customer
+        [customer setPhones:phoneNumbers];
+        
+        //update addresses for customer
+        [customer setAddresses:customerAddresses];
+        
+        //add customer to core api
+        [[TRMCoreApi sharedInstance] setCustomer:customer];
+        
+        handler(customer, nil);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        handler(nil, error);
+    }];
+        
+    
+}
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TRMAddressModel.h"
 #import "TRMPhoneModel.h"
+#import "TRMConfigurationModel.h"
 @interface TRMCustomerModel : NSObject
 @property (strong, nonatomic) NSNumber *id;
 @property (strong, nonatomic) NSString *email;
@@ -19,7 +20,7 @@
 @property (strong, nonatomic) NSNumber *confirmed_fit;
 @property (strong, nonatomic) NSNumber *store_credit;
 
-
+@property (strong, nonatomic) NSMutableArray *default_customization_ids; //TRMConfigurationModel
 @property (strong, nonatomic) NSMutableArray *addresses; //TRMAddress
 @property (strong, nonatomic) NSMutableArray *phones; //TRMPhone
 
@@ -28,6 +29,7 @@
 -(NSString *)fullName;
 -(NSNumber *)idForOrder;
 -(BOOL)isExisitingCustomer;
+-(NSMutableArray *)configurationsFromIds;
 
 -(TRMAddressModel *)primaryAddress;
 -(TRMPhoneModel *)primaryPhone;

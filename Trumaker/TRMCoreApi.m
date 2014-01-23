@@ -42,4 +42,19 @@
     });
     return sharedInstance;
 }
+
+-(NSMutableArray *)configurationsIdFromArrayOfTitles:(NSArray *)titles {
+    NSMutableArray *configurationsArray = [self configurations];
+    NSMutableArray *arrayOfIds = [[NSMutableArray alloc] init];
+    
+    [titles enumerateObjectsUsingBlock:^(NSString *configurationTitle, NSUInteger idx, BOOL *stop) {
+        NSPredicate *standardPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"name = '%@'",configurationTitle]];
+        NSArray *standard = [configurationsArray filteredArrayUsingPredicate:standardPredicate];
+        if ([standard count]) {
+            TRMConfigurationModel *model = [standard objectAtIndex:0];
+            [arrayOfIds addObject:[NSNumber numberWithInt:[model id]]];
+        }
+    }];
+    return arrayOfIds;
+}
 @end

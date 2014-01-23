@@ -23,6 +23,7 @@
 #import "MBProgressHUD.h"
 #import "TRMOutfitterModel.h"
 #import "UIImageView+WebCache.h"
+#import "SDWebImageDownloader.h"
 
 @interface TRMDashboardViewController ()
 @property (nonatomic, strong) NSMutableArray *dashboardData;
@@ -46,8 +47,8 @@
 }
 
 -(void)udpateImageView {
-    UIImage *maskedImage = [TRMUtils maskImage:[UIImage imageNamed:@"profile_image_mask_base"] withMask:[_outfitter outfitterImage]];
-    [[self outfitterImageView] setImage:maskedImage];
+    [[self outfitterImageView] setImage:[_outfitter outfitterImage]];
+    [[self outfitterImageView] setNeedsDisplay];
 }
 
 -(void)setupTableViewData
@@ -268,10 +269,15 @@
 -(void)uploadImageForOutfitter:(UIImage *)photo {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[[[[UIApplication sharedApplication] keyWindow] rootViewController] view] animated:YES];
     [hud setMode:MBProgressHUDModeIndeterminate];
-    [hud setLabelText:NSLocalizedString(@"Uploading photo...", @"Uploading photo...")];
+    [hud setLabelText:NSLocalizedString(@"Processing...", @"Processing...")];
     [TRMOutfitterDAO uploadPhotoForOutfitter:[[TRMCoreApi sharedInstance] outfitter] withPhoto:photo completionHandler:^(TRMOutfitterModel *outfitter, NSError *error) {
         if (!error) {
-            [[self outfitterImageView] setImageWithURL:[NSURL URLWithString:[outfitter picture]] placeholderImage:[[self outfitterImageView] image] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+            [hud setMode:MBProgressHUDModeDeterminate];
+            [hud setLabelText:NSLocalizedString(@"Uploading photo...", @"Uploading photo...")];
+            [[SDWebImageDownloader  sharedDownloader] downloadImageWithURL:[NSURL URLWithString:[outfitter picture]] options:SDWebImageDownloaderProgressiveDownload progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                float percentage = (float) receivedSize /  (float)expectedSize;
+                 hud.progress = percentage;
+            } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
                 if (!error) {
                     [outfitter setOutfitterImage:image];
                     [self setOutfitter:outfitter];

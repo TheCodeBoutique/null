@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface TRMConfigurationModel : NSObject
-@property (assign,nonatomic) int id;
+@property (strong,nonatomic) NSNumber *id;
 @property (strong,nonatomic) NSNumber *custom_type_id;
 @property (strong,nonatomic) NSNumber *position;
 
@@ -22,4 +22,7 @@
 @property (strong,nonatomic) NSString *outfit_url;
 @property (strong,nonatomic) NSString *description;
 @property (strong,nonatomic) NSArray *hero_urls;
+
+
+-(UIImageView *)configurationImageView;
 @end

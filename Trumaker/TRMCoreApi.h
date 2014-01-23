@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TRMOutfitterModel.h"
 #import "TRMCustomerModel.h"
+#import "TRMConfigurationModel.h"
 @interface TRMCoreApi : NSObject
 @property (nonatomic, strong) TRMOutfitterModel *outfitter; //person currently logged in
 @property (nonatomic, strong) NSMutableArray *products; //this is the list of trumaker products (shirts)
@@ -22,6 +23,7 @@
 -(BOOL)isFirstTimeCustomer;
 -(BOOL)hasCustomerModel;
 -(BOOL)existingCustomersLoaded;
+-(NSMutableArray *)configurationsIdFromArrayOfTitles:(NSArray *)titles;
 
 + (TRMCoreApi *)sharedInstance;
 @end
