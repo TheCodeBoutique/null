@@ -30,6 +30,9 @@
 @synthesize selectedTextField;
 @synthesize hud;
 
+#define MAX_STATE_LENGTH 2
+#define MAX_ZIP_LENGTH 5
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -83,6 +86,34 @@
         [_billingImageView setImage:offState];
     }
 }
+
+- (BOOL)textField:(UITextField *) textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if ([[textField placeholder] isEqualToString:@"State"]) {
+        NSUInteger oldLength = [_stateTextField.text length];
+        NSUInteger replacementLength = [string length];
+        NSUInteger rangeLength = range.length;
+        
+        NSUInteger newLength = oldLength - rangeLength + replacementLength;
+        
+        BOOL returnKey = [string rangeOfString: @"\n"].location != NSNotFound;
+        
+        return newLength <= MAX_STATE_LENGTH || returnKey;
+        
+    } else if ([[textField placeholder] isEqualToString:@"Zip"]) {
+        NSUInteger oldLength = [_zipTextField.text length];
+        NSUInteger replacementLength = [string length];
+        NSUInteger rangeLength = range.length;
+        
+        NSUInteger newLength = oldLength - rangeLength + replacementLength;
+        
+        BOOL returnKey = [string rangeOfString: @"\n"].location != NSNotFound;
+        
+        return newLength <= MAX_ZIP_LENGTH || returnKey;
+    }
+        return YES;
+}
+
 
 -(void)viewWillAppear:(BOOL)animated
 {

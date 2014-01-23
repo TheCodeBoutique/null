@@ -227,7 +227,7 @@
 -(void)nextTapped:(id)sender
 {
     int currentTag = [indentTextField tag];
-    if (currentTag == 8)
+    if (currentTag == 4)
     {
         [self resignKeyboard];
     }
